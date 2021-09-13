@@ -1,0 +1,30 @@
+header{
+    background-color: #1D1D1B;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 80px;
+    padding: 0 20px;
+    figure {
+        margin-bottom: 0;
+        .logo{
+            height: 50px;
+        }
+    }
+
+    .menu {
+        ul{
+            display: flex;
+			align-items: center;
+            list-style: none;
+            margin-bottom: 0;
+            li {
+                color: #FFF;
+                padding-right: 40px;
+                font-family: 'Noto Sans JP', sans-serif;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

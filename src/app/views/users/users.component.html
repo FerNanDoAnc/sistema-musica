@@ -1,0 +1,22 @@
+<app-header></app-header>
+<section class="container mt-5">
+    <h1 class="noto-bold">Integrantes del repertorio</h1>
+    <div class="user__group" *ngFor="let user of users">
+        <div class="song_container">
+            <figure class="user-img">
+                <img src="assets/user.png" height="60">
+            </figure>
+            <div class="noto user">
+                <h3 style="font-weight: bold;margin-bottom: 0;">{{user.role}}</h3>
+                <p style="margin-bottom: 0; font-size: 1.5rem;">{{user.name}}</p>
+                <img src="assets/phone-icon.png" height="20">
+                <span style="margin-left: 5px;">{{user.number}}</span>
+            </div>
+        </div>
+        <button type="button" class="btn btn-danger" style="margin-left: 20px; font-size: 1.5rem;">Eliminar usuario</button>
+    </div>
+
+    <div class="add-user">
+        <button type="button" class="btn btn-outline-info" style="font-size: 1.7rem" routerLink="/crear-usuario">¿Quieres agregar un nuevo usuario?</button>
+    </div>
+</section>

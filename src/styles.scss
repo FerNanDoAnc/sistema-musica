@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  
+html {
+   font-size: 62.5%;
+}
+
+body {
+    margin: 0
+}
+.noto {
+    font-family: 'Noto Sans', sans-serif;
+}
+.noto-bold {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+}
+
+.fs-16 {
+    font-size: 1.6rem;
+}
+.fs-17 {
+    font-size: 1.7rem;
+}
+.fs-18 {
+    font-size: 1.8rem;
+}
+.fs-19 {
+    font-size: 1.9rem;
+}
+.fs-20 {
+    font-size: 2rem;
+}
+.fs-21 {
+    font-size: 2.1rem;
+}
