@@ -36,12 +36,11 @@ export class LoginComponent  {
     
     this.authService.login(correo,password)
       .subscribe( ok=>{
-        console.log("ok",ok);
+      
         if(ok===true){
           this.router.navigateByUrl('/dashboard');
-          
           Swal.fire({
-            title: 'Sesion Iniciada',
+            title: this.usuario.msg,
             html: 'Bienvenido :'+this.usuario.nombre,
             icon: 'success',
             showConfirmButton: false,
@@ -50,14 +49,14 @@ export class LoginComponent  {
           });
 
         }else{
-            Swal.fire({
-              title: '!Error!',
-              text: ''+ok+'!',
-              icon: 'error',
-              timer: 2500,
-              confirmButtonText: 'Ok',
-              width: 350
-            });
+          Swal.fire({
+            title: 'Error',
+            text: ''+ok+'!',
+            icon: 'error',
+            timer: 2500,
+            confirmButtonText: 'Ok',
+            width: 350
+          });
         }
 
       });

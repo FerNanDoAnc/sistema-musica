@@ -3,7 +3,7 @@ export interface AuthResponse {
     uid?: string;
     nombre?: string;
     token?: string;
-    message?: string;
+    msg?: string;
     correo?: string;
     rol?: string;
 }
@@ -12,6 +12,7 @@ export interface Usuario {
     nombre: string;
     correo: string;
     rol?: string;
+    msg?: string;
 }
 
 // export interface AuthResponseLogin {

@@ -30,6 +30,7 @@ export class RegisterComponent   {
 
 
   registro(){
+    
     const {nombre,correo,password}=this.miFormulario.value;
 
     this.authService.registro(nombre, correo,password)
@@ -37,9 +38,8 @@ export class RegisterComponent   {
 
         if(ok===true){
           this.router.navigateByUrl('/dashboard');
-          
           Swal.fire({
-            title: 'Cuenta creada',
+            title: this.usuario.msg,
             html: 'Bienvenido: '+this.usuario.nombre,
             icon: 'success',
             showConfirmButton: false,

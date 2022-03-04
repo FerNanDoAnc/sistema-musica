@@ -40,23 +40,20 @@ export class AuthService {
           if(resp.ok){
             // para guardar info e el localstorage
             localStorage.setItem('token',resp.token!);
+
+            //Viene descomprimido 
             // para poder llamar el swat alert 
             this._usuario = {
-              nombre: resp.nombre!,
               uid: resp.uid!,
+              nombre: resp.nombre!,
               correo: resp.correo!,
-              rol: resp.rol!
+              rol: resp.rol!,
+              msg: resp.msg
             }
           }
         }),
-        // tap(({ok,token})=>{
-        //   if(ok){
-        //     // para guardar info e el localstorage
-        //     localStorage.setItem('token',token!);
-        //   }
-        // }),
         map( valid=> valid.ok),
-        catchError( err=>of(err.error.message))
+        catchError( err=>of(err.error.msg))
       )
   }
 
@@ -71,21 +68,24 @@ export class AuthService {
     return this.http.post<AuthResponse>(url,body)
       .pipe(
         tap(resp=>{
+          
           if(resp.ok){
-            console.log("imprimiendo la resp",resp);
             // para guardar info e el localstorage
             localStorage.setItem('token',resp.token!);
-            console.log("imprimiendo el token",resp.token);
-            // para poder llamar el swat alert 
             this._usuario = {
-              uid: resp.uid!,
-              nombre: resp.nombre!,
-              correo: resp.correo!,
+              uid: this.usuario.uid!,
+              nombre: this.usuario.nombre!,
+              correo: this.usuario.correo!,
+              rol: this.usuario.rol!,
+              msg: resp.msg
             }
+
           }
         }),
         map( valid=> valid.ok),
-        catchError( err=>of("login retorno error",err.error.message))
+        catchError( err=>of(
+          err.error.msg
+        ))
       )
     
   }
@@ -96,12 +96,12 @@ export class AuthService {
     const url = `${this.baseUrl}/auth/renew`;
     const headers = new HttpHeaders()
       .set('x-token',localStorage.getItem('token') || '');
-    console.log("localStorage",localStorage);
 
     return this.http.get<AuthResponse>(url,{headers})
       .pipe(
         map(resp=>{
           
+          //Viene descomprimido 
           // para que no se borren los datos al recargar
           localStorage.setItem('token',resp.token!);
           this._usuario = {
