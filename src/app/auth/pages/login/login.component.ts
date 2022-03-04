@@ -17,7 +17,14 @@ export class LoginComponent  {
   }
 
   miFormulario: FormGroup=this.fb.group({
-    correo: ['',[Validators.required,Validators.email]],
+    correo: ['',[
+      Validators.required,
+      Validators.email,
+      Validators.maxLength(80),
+      Validators.pattern(
+        /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+      )
+    ]],
     password: ['',[Validators.required,Validators.minLength(6)]]
   });
 
@@ -29,6 +36,10 @@ export class LoginComponent  {
 
   ) { }
 
+
+  get formValidate(){
+    return this.miFormulario.controls;
+  }
 
   login(){
     
@@ -49,6 +60,7 @@ export class LoginComponent  {
           });
 
         }else{
+          console.log(this.usuario.msg);
           Swal.fire({
             title: 'Error',
             text: ''+ok+'!',

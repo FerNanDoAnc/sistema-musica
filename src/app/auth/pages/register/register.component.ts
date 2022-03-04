@@ -16,8 +16,14 @@ export class RegisterComponent   {
   }
 
   miFormulario: FormGroup=this.fb.group({
-    nombre: ['',[Validators.required,Validators.maxLength(30)]],
-    correo: ['',[Validators.required,Validators.email]],
+    nombre: ['',[Validators.required,Validators.maxLength(50)]],
+    correo: ['',[
+      Validators.required,
+      Validators.maxLength(80),
+      Validators.pattern(
+        /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+      )
+    ]],
     password: ['',[Validators.required,Validators.minLength(6)]]
   });
 
@@ -28,6 +34,9 @@ export class RegisterComponent   {
 
   ) { }
 
+  get formValidate(){
+    return this.miFormulario.controls;
+  }
 
   registro(){
     

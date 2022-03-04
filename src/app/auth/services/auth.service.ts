@@ -53,7 +53,10 @@ export class AuthService {
           }
         }),
         map( valid=> valid.ok),
-        catchError( err=>of(err.error.errors[0].msg))
+        catchError( err=>of(
+          // err.error.msg ,
+          err.error.errors[0].msg
+        ))
       )
   }
 
@@ -84,7 +87,8 @@ export class AuthService {
         }),
         map( valid=> valid.ok),
         catchError( err=>of(
-          err.error.msg
+          err.error.msg ,
+          // err.error.errors[0].msg
         ))
       )
     
