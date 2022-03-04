@@ -74,7 +74,7 @@ export class AuthService {
             localStorage.setItem('token',resp.token!);
             this._usuario = {
               uid: this.usuario.uid!,
-              nombre: this.usuario.nombre!,
+              nombre: resp.nombre!,
               correo: this.usuario.correo!,
               rol: this.usuario.rol!,
               msg: resp.msg
