@@ -73,10 +73,10 @@ export class AuthService {
             // para guardar info e el localstorage
             localStorage.setItem('token',resp.token!);
             this._usuario = {
-              uid: this.usuario.uid!,
+              uid: resp.uid!,
               nombre: resp.nombre!,
-              correo: this.usuario.correo!,
-              rol: this.usuario.rol!,
+              correo: resp.correo!,
+              rol: resp.rol!,
               msg: resp.msg
             }
 
