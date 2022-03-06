@@ -11,6 +11,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class RegisterComponent   {
 
+  hide = true;
+  
   get usuario(){
     return this.authService.usuario;
   }
