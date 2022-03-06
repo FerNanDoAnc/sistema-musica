@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ValidarTokenGuard } from './guards/validar-token.guard';
+import { ValidarTokenGuard } from './core/guards/validar-token.guard';
 
 const routes: Routes = [
 
   {
     path: 'auth',
-    loadChildren:()=> import( './auth/auth.module').then(m=>m.AuthModule)
+    loadChildren:()=> import( './modules/auth/auth.module').then(m=>m.AuthModule)
   },
   {
     path: 'dashboard',
-    loadChildren:()=> import( './protected/protected.module').then(m=>m.ProtectedModule),
+    loadChildren:()=> import( './modules/views/home/home.module').then(m=>m.ProtectedModule),
     canActivate:[ValidarTokenGuard],
     canLoad:[ValidarTokenGuard]
   },

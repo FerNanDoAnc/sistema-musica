@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/config/user.interface';
+import { User } from 'src/app/core/config/user.interface';
 
 @Component({
-  selector: 'app-songs',
-  templateUrl: './songs.component.html',
-  styleUrls: ['./songs.component.scss']
+  selector: 'app-users',
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.scss']
 })
-export class SongsComponent implements OnInit {
+export class UsersComponent implements OnInit {
 
   public users: User[] = [
     {

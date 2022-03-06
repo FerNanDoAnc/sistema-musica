@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Proyecto } from 'src/app/config/proyecto.interface';
-import { User } from 'src/app/config/user.interface';
+import { Proyecto } from 'src/app/core/config/proyecto.interface';
+import { User } from 'src/app/core/config/user.interface';
 
 @Component({
   selector: 'app-home',
