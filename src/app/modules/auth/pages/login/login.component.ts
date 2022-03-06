@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
-
+import { MaterialModule } from 'src/app/shared/material/material.module';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +12,8 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent  {
 
+  hide = true;
+  
   get usuario(){
     return this.authService.usuario;
   }

@@ -42,10 +42,22 @@
         <span class="label-input100">
             Contraseña
         </span>
-        <input class="input100"
-               type="password"
-               formControlName="password" 
-               placeholder="Ingrese su contraseña">
+
+        <div class="row">
+            <div class="col-10 my-auto mx-auto">
+                <input class="input100"
+                    type="password"
+                    formControlName="password" 
+                    placeholder="Ingrese su contraseña"
+                    [type]="hide ? 'password' : 'text'" >
+            </div>
+            <div class="col-2 my-auto mx-auto ">
+                <mat-icon class="" matSuffix (click)="hide = !hide">
+                    {{hide ? 'visibility_off' : 'visibility'}}
+                </mat-icon>
+            </div>
+        </div>
+
         <span class="focus-input100"></span>
     </div>
     <span class="label-input100">
