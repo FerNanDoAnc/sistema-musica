@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   baseUrl: 'http://localhost:8080/api',
-  // baseUrl: 'https://back-sistema-musica.herokuapp.com/api',
+  // baseUrl: 'https://back-sistema-musica-2022.herokuapp.com/api',
 };
 
 /*
