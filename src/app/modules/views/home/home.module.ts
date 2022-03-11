@@ -16,4 +16,4 @@ import { MaterialModule} from '../../../shared/material/material.module';
     MaterialModule
   ]
 })
-export class ProtectedModule { }
+export class HomeModule { }

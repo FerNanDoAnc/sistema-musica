@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren:()=> import( './modules/views/home/home.module').then(m=>m.ProtectedModule),
+    loadChildren:()=> import( './modules/views/home/home.module').then(m=>m.HomeModule),
     canActivate:[ValidarTokenGuard],
     canLoad:[ValidarTokenGuard]
   },
