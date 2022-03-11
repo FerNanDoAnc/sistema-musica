@@ -8,7 +8,7 @@ import { MaterialModule} from '../../../shared/material/material.module';
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     CommonModule,

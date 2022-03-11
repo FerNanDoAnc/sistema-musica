@@ -2,32 +2,32 @@
 
 <div class="home">
     
-    <h1>Dashboard</h1>
+    <!-- <h1>Dashboard</h1>
     <hr>
 
     <p>
         Estás autenticado
-    </p>
+    </p> -->
 
-    <div class="portada">foto-portada
-    </div>
+    <!-- <div class="portada">foto-portada
+    </div> -->
     <!-- PERFIL-FOTO -->
-    <div class="perfil">
+    <!-- <div class="perfil">
         <div  class="perfil-user">
             <img src="favicon.ico" >
         </div>
-    </div>
+    </div> -->
     <!-- NOMBRE -->
-    <div class="nombre">
+    <!-- <div class="nombre">
         <div class="" >
             <div class="noto">
                 <h4 style="font-weight: bold;margin-bottom: 0;">Informacion de Usuario
                 </h4>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- INFO -->
-    <div class="info">
+    <!-- <div class="info">
         <div class="info-full" >
             <div class="info-role noto">
                 <h5 style="font-weight: bold;margin-bottom: 0;">
@@ -40,13 +40,78 @@
                 </h5>
             </div>
         </div>
-    </div>
+    </div> -->
 
     
-    <button (click)="logout()"
-    class="btn btn-danger">
-    Cerrar Sesion
-    </button>
+    
+    <mat-sidenav-container fullscreen style="background-color: #808191;">
+
+        <mat-sidenav #sidenav mode="push">
+
+            <mat-toolbar color="accent">
+                <span>Menu</span>
+                <span class="spacer"></span>
+
+                <button mat-icon-button
+                        (click)="sidenav.toggle()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-toolbar>
+
+            <mat-nav-list>
+                <a routerLink="./listado"
+                    mat-list-item
+                    (click)="sidenav.toggle()">
+                    <mat-icon mat-list-icon>label</mat-icon>
+                    <span>Lista de Repertorios</span>
+                </a>
+
+                <a routerLink="./agregar"
+                    mat-list-item
+                    (click)="sidenav.toggle()">
+                    <mat-icon mat-list-icon>add</mat-icon>
+                    <span>Añadir Repertorio</span>
+                </a>
+                
+                <a routerLink="./buscar"
+                    mat-list-item
+                    (click)="sidenav.toggle()">
+                    <mat-icon mat-list-icon>search</mat-icon>
+                    <span>Buscar</span>
+                </a>
+            </mat-nav-list>
+        
+        </mat-sidenav>
+
+        <!-- Botones principales -->
+        
+        <mat-toolbar >
+            <div class="row col-12">
+                <div class="col-1">
+                    <button mat-icon-button class=""
+                            (click)="sidenav.toggle()">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </div>
+                <div class="col-9" style="margin-top: 5px;">
+                    <span class="spacer"></span>
+                    <span>Bienvenido : &nbsp;&nbsp; {{usuario.nombre}}</span>
+                </div>
+                <div class="col-2">
+                <button (click)="logout()"
+                    class="btn btn-danger">
+                    Cerrar Sesion
+                </button>
+                </div>
+            </div>
+        </mat-toolbar>
+        
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+
+    </mat-sidenav-container>
+
 
   </div>
   
