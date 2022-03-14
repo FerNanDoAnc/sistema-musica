@@ -15,6 +15,18 @@ const routes: Routes = [
     canLoad:[ValidarTokenGuard]
   },
   {
+    path: 'repertorios',
+    loadChildren:()=> import( './modules/views/repertorios/repertorios.module').then(m=>m.RepertoriosModule),
+    canActivate:[ValidarTokenGuard],
+    canLoad:[ValidarTokenGuard]
+  },
+  {
+    path: 'buscar',
+    loadChildren:()=> import( './modules/views/buscar/buscar.module').then(m=>m.BuscarModule),
+    canActivate:[ValidarTokenGuard],
+    canLoad:[ValidarTokenGuard]
+  },
+  {
     path: '**',
     redirectTo: 'auth'
   }

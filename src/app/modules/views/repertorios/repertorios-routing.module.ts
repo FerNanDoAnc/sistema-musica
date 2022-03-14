@@ -1,12 +1,29 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
+import { RepertoriosComponent } from './repertorios.component';
+import { AgregarRepertorioComponent } from './agregar-repertorio/agregar-repertorio.component';
 
+const routes: Routes = [
 
+  {
+    path: '', 
+    children: [
+      {path: '', component: RepertoriosComponent},
+      {path: '', redirectTo: 'repertorios'},
+      {path: 'agregar', component: AgregarRepertorioComponent},
+      { path: '**', redirectTo: 'repertorios' }
+    ]
+  }
+
+];
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    RouterModule.forChild(routes)
+  ],
+  exports: [
+    RouterModule
   ]
 })
 export class RepertoriosRoutingModule { }
