@@ -48,7 +48,7 @@ export class RegisterComponent   {
       .subscribe( ok=>{
 
         if(ok===true){
-          this.router.navigateByUrl('/dashboard');
+          this.router.navigateByUrl('/home');
           Swal.fire({
             title: this.usuario.msg,
             html: 'Bienvenido: '+this.usuario.nombre,

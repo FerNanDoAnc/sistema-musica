@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
-import { MaterialModule } from 'src/app/shared/material/material.module';
+import { MaterialModule } from 'src/app/material/material.module';
 
 @Component({
   selector: 'app-login',
@@ -51,7 +51,7 @@ export class LoginComponent  {
       .subscribe( ok=>{
       
         if(ok===true){
-          this.router.navigateByUrl('/dashboard');
+          this.router.navigateByUrl('/home');
           Swal.fire({
             title: this.usuario.msg,
             html: 'Bienvenido :'+this.usuario.nombre,

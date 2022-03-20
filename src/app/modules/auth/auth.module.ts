@@ -7,7 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { MainComponent } from './pages/main/main.component';
 
-import { MaterialModule } from '../../shared/material/material.module';
+import { MaterialModule } from '../../material/material.module';
 
 @NgModule({
   declarations: [

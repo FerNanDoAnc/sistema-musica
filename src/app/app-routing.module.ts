@@ -9,23 +9,17 @@ const routes: Routes = [
     loadChildren:()=> import( './modules/auth/auth.module').then(m=>m.AuthModule)
   },
   {
-    path: 'dashboard',
-    loadChildren:()=> import( './modules/views/home/home.module').then(m=>m.HomeModule),
+    path: 'home',
+    loadChildren:()=> import( './modules/home/home.module').then(m=>m.HomeModule),
     canActivate:[ValidarTokenGuard],
     canLoad:[ValidarTokenGuard]
   },
-  {
-    path: 'repertorios',
-    loadChildren:()=> import( './modules/views/repertorios/repertorios.module').then(m=>m.RepertoriosModule),
-    canActivate:[ValidarTokenGuard],
-    canLoad:[ValidarTokenGuard]
-  },
-  {
-    path: 'buscar',
-    loadChildren:()=> import( './modules/views/buscar/buscar.module').then(m=>m.BuscarModule),
-    canActivate:[ValidarTokenGuard],
-    canLoad:[ValidarTokenGuard]
-  },
+  // {
+  //   path: 'repertorios',
+  //   loadChildren:()=> import( './modules/repertorios/repertorios.module').then(m=>m.RepertoriosModule),
+  //   canActivate:[ValidarTokenGuard],
+  //   canLoad:[ValidarTokenGuard]
+  // },
   {
     path: '**',
     redirectTo: 'auth'

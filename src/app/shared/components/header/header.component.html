@@ -1,14 +1,15 @@
-  <header>
-      <figure>
-          <img src="assets/logo.png" alt="logo" class="logo" style="cursor: pointer" routerLink="/">
-      </figure>
-      <nav class="menu">
-          <ul>
-              <li>Features</li>
-              <li style="cursor: pointer" routerLink="/home">Home</li>
-              <li style="cursor: pointer" routerLink="/canciones">Canciones</li>
-              <li style="cursor: pointer" routerLink="/usuarios">Usuarios</li>
-              <li><button type="button" class="btn btn-danger" style="margin-left: 20px; font-size: 1.5rem;" routerLink="/">Cierre de sesi&oacute;n</button></li>
-          </ul>
-      </nav>
-  </header>
+
+<div class="row col-12">
+    <div class="col-10" style="margin-top: 5px;">
+        <span class="spacer"></span>
+        <span>Bienvenido : &nbsp;&nbsp; {{usuario.nombre}}</span>
+    </div>
+    <div class="col-2">
+    <button (click)="logout()"
+        class="btn btn-danger">
+        Cerrar Sesion
+    </button>
+    </div>
+</div>
+         
+        

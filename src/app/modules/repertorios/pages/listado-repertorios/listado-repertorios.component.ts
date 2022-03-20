@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { RepertorioService } from '../../../shared/services/repertorio.service';
-import { Repertorio } from '../../../core/interfaces/repertorio.interface';
+import { Repertorio } from '../../../../core/interfaces/repertorio.interface';
+import { RepertorioService } from '../../../../shared/services/repertorio.service';
 
 @Component({
-  selector: 'app-repertorios',
-  templateUrl: './repertorios.component.html',
-  styleUrls: ['./repertorios.component.scss']
+  selector: 'app-listado-repertorios',
+  templateUrl: './listado-repertorios.component.html',
+  styleUrls: ['./listado-repertorios.component.scss']
 })
-export class RepertoriosComponent implements OnInit {
+export class ListadoRepertoriosComponent implements OnInit {
 
   repertorios:Repertorio[]=[];
   // repertorios:any=[];
@@ -31,5 +31,4 @@ export class RepertoriosComponent implements OnInit {
       err=>console.log(err)
     );
   }
-
 }

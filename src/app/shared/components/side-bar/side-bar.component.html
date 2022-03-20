@@ -1,0 +1,61 @@
+<mat-sidenav-container class="sidenav-container" fullscreen >
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    
+    <mat-toolbar color="accent" >
+      <span>Menu</span>
+      <span class="spacer"></span>
+
+      <button mat-icon-button
+              (click)="drawer.toggle()">
+          <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a routerLink="/home/repertorios"
+          mat-list-item>
+          <mat-icon mat-list-icon>label</mat-icon>
+          <span>Lista de Repertorios</span>
+      </a>
+
+      <a routerLink="/home/repertorios/agregar"
+          mat-list-item>
+          <mat-icon mat-list-icon>add</mat-icon>
+          <span>Añadir Repertorio</span>
+      </a>
+      
+      <a routerLink="/home/buscar"
+          mat-list-item
+          (click)="drawer.toggle()">
+          <mat-icon mat-list-icon>search</mat-icon>
+          <span>Buscar</span>
+      </a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar style="background-color: #424242;">  
+      <div class="col-1">
+          <button mat-icon-button class="" 
+              (click)="drawer.toggle()">
+              <mat-icon>menu</mat-icon>
+          </button>
+      </div>
+      <div class="col-11">
+          <app-header></app-header>
+      </div>
+      
+    </mat-toolbar>
+
+      <!-- Add Content Here -->
+      
+      <div class="container">
+          <router-outlet></router-outlet>
+      </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
