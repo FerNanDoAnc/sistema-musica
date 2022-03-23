@@ -1,1 +1,95 @@
-<p>agregar-repertorio works!</p>
+<br>
+
+<h1>
+    {{
+        (repertorio._id)
+        ? 'Editar repertorio'
+        : 'Agregar repertorio'
+    }}
+    :
+    <!-- <small> 
+        {{repertorio.nombre}}
+    </small>  -->
+</h1>
+<br>
+
+<div fxLayout="row"
+    fxLayoutGap="40px"
+    fxLayout.xs="column"
+    >
+
+    <div fxFlex="50"
+        fxLayout="column">
+        
+        <div fxLayout="row"
+            fxLayout.xs="column"
+            fxLayoutGap="20px">
+
+            <mat-form-field fxFlex="100"
+                            fxLayout.xs="column">
+                <mat-label>
+                    Nombre
+                </mat-label>
+                <input type="text"
+                        matInput
+                        [(ngModel)]="repertorio.nombre"
+                        required>
+            </mat-form-field>
+
+        </div>
+
+        <!-- <mat-form-field >
+            <mat-label>
+                Creador
+            </mat-label>
+            <mat-select required
+                        [(ngModel)]="repertorio.publisher"
+                        >
+                <mat-option *ngFor="let publisher of publishers"
+                            [value]="publisher._id">
+                    {{publisher.desc}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field> -->
+
+        <!-- <mat-form-field >
+            <mat-label>
+                Url Foto
+            </mat-label>
+            <input type="url"
+                    matInput
+                    [(ngModel)]="repertorio.alt_img"
+                    required>
+        </mat-form-field>
+        <br> -->
+        
+        <div fxLayout>
+            <button *ngIf="repertorio._id"
+                    mat-raised-button
+                    color="warn"
+                    (click)="borrarRepertorio()">
+                <mat-icon>delete</mat-icon>
+                Eliminar
+            </button>
+
+            <span class="spacer"></span>
+
+            <button mat-raised-button 
+                    color="accent"
+                    (click)="guardar()">
+                <mat-icon>save_as</mat-icon>
+                {{
+                    (repertorio._id)
+                    ? 'Actualizar repertorio'
+                    : 'Crear repertorio'
+                }}
+            </button>
+        </div>
+        
+    </div>
+
+    <!-- <div fxFlex="50">
+        <img [src]="repertorio | imagen" alt="repertorio">
+    </div> -->
+
+</div>

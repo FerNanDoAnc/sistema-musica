@@ -15,19 +15,19 @@
     </mat-toolbar>
 
     <mat-nav-list>
-      <a routerLink="/home/repertorios"
-          mat-list-item>
+      <a routerLink="/home/repertorios/lista"
+          mat-list-item (click)="drawer.toggle()">
           <mat-icon mat-list-icon>label</mat-icon>
           <span>Lista de Repertorios</span>
       </a>
 
       <a routerLink="/home/repertorios/agregar"
-          mat-list-item>
+          mat-list-item (click)="drawer.toggle()">
           <mat-icon mat-list-icon>add</mat-icon>
           <span>Añadir Repertorio</span>
       </a>
       
-      <a routerLink="/home/buscar"
+      <a routerLink="/home/repertorios/buscar"
           mat-list-item
           (click)="drawer.toggle()">
           <mat-icon mat-list-icon>search</mat-icon>
@@ -54,7 +54,7 @@
       <!-- Add Content Here -->
       
       <div class="container">
-          <router-outlet></router-outlet>
+        <router-outlet></router-outlet>
       </div>
 
   </mat-sidenav-content>

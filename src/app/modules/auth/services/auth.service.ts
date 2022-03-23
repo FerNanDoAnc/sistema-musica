@@ -5,7 +5,7 @@ import {catchError, map, tap} from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
 
-import { AuthResponse, Usuario } from '../interfaces/interfaces';
+import { AuthResponse, Usuario, AuthResponseLocalStorage } from '../interfaces/interfaces';
 
 
 @Injectable({
@@ -101,16 +101,18 @@ export class AuthService {
     const headers = new HttpHeaders()
       .set('x-token',localStorage.getItem('token') || '');
 
-    return this.http.get<AuthResponse>(url,{headers})
+    return this.http.get<AuthResponseLocalStorage>(url,{headers})
       .pipe(
         map(resp=>{
           
           //Viene descomprimido 
           // para que no se borren los datos al recargar
           localStorage.setItem('token',resp.token!);
+          localStorage.setItem('_id',resp._id!);
+          // localStorage.setItem('usuario',JSON.stringify(resp));
           this._usuario = {
             nombre: resp.nombre!,
-            uid: resp.uid!,
+            uid: resp._id!,
             correo: resp.correo!,
             rol: resp.rol!
           }

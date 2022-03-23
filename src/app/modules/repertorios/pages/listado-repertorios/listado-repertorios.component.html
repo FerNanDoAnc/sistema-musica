@@ -1,4 +1,5 @@
     
+    <br>
     <h1>Lista de Repertorios</h1>
     <mat-divider></mat-divider>
     <br>
@@ -12,7 +13,9 @@
             fxFlex.lg="15"
             fxFlex.sm="30"
             *ngFor="let repertorio of repertorios">
-            
-            <app-repertorio-tarjeta [repertorio]="repertorio"></app-repertorio-tarjeta>
+            <div class="p-2">
+                <app-repertorio-tarjeta [repertorio]="repertorio"></app-repertorio-tarjeta>
+
+            </div>
         </div>
     </div>

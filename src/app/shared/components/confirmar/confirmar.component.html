@@ -1,0 +1,19 @@
+<h1>¿Estás seguro?</h1>
+<hr>
+<p>
+    ¿Eliminar a :{{data.nombre}} ?
+
+</p>
+<br>
+
+<div>
+    <button mat-button
+            (click)="borrar()"
+            color="warn">
+        Si
+    </button>
+    <button mat-button
+            (click)="cerrar()">
+        No
+    </button>
+</div>

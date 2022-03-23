@@ -1,6 +1,7 @@
 export interface RepertorioResponse {
     ok: boolean;
     uid?: string;
+    _id?: string;
     token?: string;
     msg?: string;
     nombre?: string;
@@ -11,17 +12,20 @@ export interface Repertorio {
     total?: number;
     repertorios?: RepertorioList;
     uid?: string;
+    _id?: string;
     msg?: string;
     nombre?: string;
 }
 export interface RepertorioList {
     uid?: string;
+    _id?: string;
     nombre?: string;
     usuario?: Usuario;
 }
 export interface Usuario {
     ok?: boolean;
     uid?: string;
+    _id?: string;
     nombre?: string;
     token?: string;
     msg?: string;

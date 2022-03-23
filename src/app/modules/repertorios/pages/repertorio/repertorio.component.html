@@ -1,0 +1,39 @@
+<mat-grid-list cols="1" *ngIf="!repertorio; else divRepertorio">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divRepertorio>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px">
+
+        <div fxFlex="50">
+            <h1>
+                {{repertorio.nombre}}
+                <!-- <small>-{{repertorio.usuario}}</small> -->
+                <mat-divider></mat-divider>
+                <br>
+                <!-- <img [src]="repertorio | imagen" alt=""> -->
+            </h1>
+        </div>
+
+        <div fxFlex="50" style="color: white;">
+            <!-- <h1>{{repertorio.nombre}}</h1> -->
+            <mat-divider></mat-divider>
+            <mat-list>
+                <!-- <mat-label>Nombre</mat-label>
+                <mat-list-item>{{repertorio.nombre}}</mat-list-item> -->
+                <mat-label>Usuario</mat-label>
+                <mat-list-item>{{repertorio.usuario.nombre}}</mat-list-item>
+                <!-- <mat-list-item>{{repertorio.publisher}}</mat-list-item> -->
+                <!-- <mat-list-item>{{repertorio.alter_ego}}</mat-list-item> -->
+            </mat-list>
+            <br>
+
+            <button mat-button color="warn" (click)="volver()">
+                Volver
+            </button>
+        </div>
+
+    </div>
+</ng-template>

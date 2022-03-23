@@ -6,11 +6,15 @@ import { AgregarRepertorioComponent } from './pages/agregar-repertorio/agregar-r
 import { SharedModule } from '../../shared/shared.module';
 import { ListadoRepertoriosComponent } from './pages/listado-repertorios/listado-repertorios.component';
 import { RouterModule } from '@angular/router';
+import { RepertorioComponent } from './pages/repertorio/repertorio.component';
+import { BuscarComponent } from './pages/buscar/buscar.component';
 
 @NgModule({
   declarations: [
     AgregarRepertorioComponent,
-    ListadoRepertoriosComponent
+    ListadoRepertoriosComponent,
+    RepertorioComponent,
+    BuscarComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +24,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     AgregarRepertorioComponent,
-    ListadoRepertoriosComponent
+    ListadoRepertoriosComponent,
+    RepertorioComponent
   ]
 })
 export class RepertoriosModule { }

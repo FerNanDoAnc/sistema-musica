@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ListadoRepertoriosComponent } from '../repertorios/pages/listado-repertorios/listado-repertorios.component';
 import { AgregarRepertorioComponent } from '../repertorios/pages/agregar-repertorio/agregar-repertorio.component';
+import { RepertorioComponent } from '../repertorios/pages/repertorio/repertorio.component';
+import { BuscarComponent } from '../repertorios/pages/buscar/buscar.component';
 
 const routes: Routes = [
 
@@ -21,10 +23,13 @@ const routes: Routes = [
     path: '', 
     component: HomePageComponent,
     children: [
-      {path: 'repertorios', component: ListadoRepertoriosComponent},
-      {path: '', redirectTo: 'repertorios'},
+      {path: 'repertorios/lista', component: ListadoRepertoriosComponent},
       {path: 'repertorios/agregar', component: AgregarRepertorioComponent},
-      { path: '**', redirectTo: 'repertorios' }
+      {path: 'repertorios/editar/:_id', component: AgregarRepertorioComponent},
+      { path: 'repertorios/buscar', component: BuscarComponent },
+      { path:'repertorios/:_id', component: RepertorioComponent},
+      // {path: '', redirectTo: 'repertorios/lista'},
+      { path: '**', redirectTo: 'repertorios/lista' },
     ]
   },
   

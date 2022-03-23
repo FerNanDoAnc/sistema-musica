@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { ConfirmarComponent } from './components/confirmar/confirmar.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
     RepertorioTarjetaComponent,
     HeaderComponent,
     SideBarComponent,
+    ConfirmarComponent,
   ],
   imports: [
     CommonModule,

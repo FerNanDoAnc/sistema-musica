@@ -1,6 +1,6 @@
 export interface AuthResponse {
     ok: boolean;
-    uid?: string;
+    uid: string;
     nombre?: string;
     token?: string;
     msg?: string;
@@ -15,14 +15,15 @@ export interface Usuario {
     msg?: string;
 }
 
-// export interface AuthResponseLogin {
-//     ok: boolean;
-//     _id?: string;
-//     nombre?: string;
-//     token?: string;
-//     message?: string;
-//     correo?: string;
-// }
+export interface AuthResponseLocalStorage {
+    ok: boolean;
+    _id?: string;
+    nombre?: string;
+    token?: string;
+    msg?: string;
+    correo?: string;
+    rol?: string;
+}
 
 // export interface UsuarioLogin {
 //     _id: string;
