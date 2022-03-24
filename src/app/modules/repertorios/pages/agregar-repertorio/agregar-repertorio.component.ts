@@ -94,5 +94,8 @@ export class AgregarRepertorioComponent implements OnInit {
       duration: 2000,
     });
   }
+  volver(){
+    this.router.navigate(['/home/repertorios']);
+  }
 
 }
