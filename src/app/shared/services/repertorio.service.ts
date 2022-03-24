@@ -20,19 +20,28 @@ export class RepertorioService {
     .pipe(
       map(
         (resp:any )=>{
-          console.log("getRepertorios=",resp);
+          console.log("getRepertoriosAll",resp);
           return resp.repertorios;
         }
       )
     );
   }
-
+  getRepertorioPorUsuario(_id:string):Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}/repertorios/usuario/${_id}`)
+    .pipe(
+      map(
+        (resp:any )=>{
+          console.log("getRepertorioPorUusario",resp.repertorios);
+          return resp.repertorios;
+        }
+      )
+    );
+  }
   getRepertorioPorId(_id:string):Observable<RepertorioList>{
     return this.http.get<RepertorioList>(`${this.baseUrl}/repertorios/${_id}`)
     .pipe(
       map(
         (resp:any )=>{
-          console.log("getRepertorioPorId=",resp);
           return resp.repertorio;
         }
       )

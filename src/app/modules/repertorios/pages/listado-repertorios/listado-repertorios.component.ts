@@ -9,24 +9,24 @@ import { RepertorioService } from '../../../../shared/services/repertorio.servic
 })
 export class ListadoRepertoriosComponent implements OnInit {
 
-  repertorios:Repertorio[]=[];
+  idLocal:any=localStorage.getItem('_id');
+  
+  // repertorios! : any;
+  repertorios:any[]=[];
   // repertorios:any=[];
   constructor(
-    private repertorioService: RepertorioService
+    private repertoriosService: RepertorioService
   ) { }
 
   ngOnInit(): void {
     this.getRepertoriosList();
   }
   getRepertoriosList(){
-    this.repertorioService.getRepertorios()
+    this.repertoriosService.getRepertorioPorUsuario(this.idLocal)
     .subscribe(
       repertorios=>{
         this.repertorios=repertorios;
-        // const usuariosData=Object.values(this.repertorios);
-        // console.log("usuariosData=",usuariosData);
-        // const obj = Object.assign({}, repertorios);
-        // console.log("obj",obj)}
+        console.log("repertorios Por wqqweewq",repertorios);
       },
       err=>console.log(err)
     );
