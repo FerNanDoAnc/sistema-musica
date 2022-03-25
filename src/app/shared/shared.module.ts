@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { ConfirmarComponent } from './components/confirmar/confirmar.component';
 import { UsuarioTarjetaComponent } from './components/usuario-tarjeta/usuario-tarjeta.component';
+import { CancionTarjetaComponent } from './components/cancion-tarjeta/cancion-tarjeta.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { UsuarioTarjetaComponent } from './components/usuario-tarjeta/usuario-ta
     SideBarComponent,
     ConfirmarComponent,
     UsuarioTarjetaComponent,
+    CancionTarjetaComponent,
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { UsuarioTarjetaComponent } from './components/usuario-tarjeta/usuario-ta
     RepertorioTarjetaComponent,
     HeaderComponent,
     SideBarComponent,
-    UsuarioTarjetaComponent
+    UsuarioTarjetaComponent,
+    CancionTarjetaComponent
   ]
 })
 export class SharedModule { }

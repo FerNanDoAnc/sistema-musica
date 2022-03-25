@@ -30,14 +30,4 @@ export class UsuarioService {
     return this.http.put<any>(`${this.baseUrl}/usuarios/${usuario.uid}`, usuario);
   }
 
-  // agregarRepertorio(repertorio: RepertorioList):Observable<RepertorioList>{
-  //   return this.http.post<RepertorioList>(`${this.baseUrl}/repertorios`, repertorio);
-  // }
-
-  // actualizarRepertorio(repertorio: any):Observable<any>{
-  //   return this.http.put<any>(`${this.baseUrl}/repertorios/${repertorio._id}`, repertorio);
-  // }
-  // borrarRepertorio(_id:string):Observable<any>{
-  //   return this.http.delete<any>(`${this.baseUrl}/repertorios/${_id}`);
-  // }
 }

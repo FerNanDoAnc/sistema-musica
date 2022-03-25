@@ -1,0 +1,35 @@
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{cancion.nombre}}</mat-card-title>
+        <!-- <mat-card-subtitle>{{repertorio.usuario}}</mat-card-subtitle> -->
+    </mat-card-header>
+
+    <!-- <img mat-card-image [src]="repertorio | imagen"> -->
+
+    <mat-card-content>
+        <!-- <h3>{{repertorio.publisher}}</h3> -->
+        <p>
+            <strong>Usuario:</strong>
+            {{cancion.usuario.nombre}}
+            <br>
+            <strong>Repertorio:</strong>
+            <span>
+                {{cancion.repertorio.nombre}}
+            </span>
+        </p>
+    </mat-card-content>
+
+    <!-- <mat-card-actions>
+        <button mat-button color="warn" 
+                [routerLink]="['/home/repertorios',repertorio._id]">
+            Ver Repertorio
+        </button>
+        
+        <button mat-button color="warn" 
+                [routerLink]="['/home/repertorios/editar',repertorio._id]">
+            Editar
+        </button>
+    </mat-card-actions> -->
+
+</mat-card>

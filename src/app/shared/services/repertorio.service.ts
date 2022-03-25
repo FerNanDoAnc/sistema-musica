@@ -20,7 +20,6 @@ export class RepertorioService {
     .pipe(
       map(
         (resp:any )=>{
-          console.log("getRepertoriosAll",resp);
           return resp.repertorios;
         }
       )

@@ -10,7 +10,7 @@
         <div fxFlex="50">
             <h1>
                 {{repertorio.nombre}}
-                <!-- <small>-{{repertorio.usuario}}</small> -->
+                <!-- <small>-{{repertorio.usuario.nombre}}</small> -->
                 <mat-divider></mat-divider>
                 <br>
                 <!-- <img [src]="repertorio | imagen" alt=""> -->
@@ -18,15 +18,22 @@
         </div>
 
         <div fxFlex="50" style="color: white;">
-            <!-- <h1>{{repertorio.nombre}}</h1> -->
+            <mat-label>Canciones: </mat-label>
             <mat-divider></mat-divider>
             <mat-list>
                 <!-- <mat-label>Nombre</mat-label>
                 <mat-list-item>{{repertorio.nombre}}</mat-list-item> -->
-                <mat-label>Usuario</mat-label>
-                <mat-list-item>{{repertorio.usuario.nombre}}</mat-list-item>
-                <!-- <mat-list-item>{{repertorio.publisher}}</mat-list-item> -->
-                <!-- <mat-list-item>{{repertorio.alter_ego}}</mat-list-item> -->
+
+                <!-- Traer cancion por repertorio -->
+                <div fxFlex="20"
+                    fxFlex.lg="15"
+                    fxFlex.sm="30"
+                    *ngFor="let cancion of canciones">
+                    <div class="p-2">
+                        <app-cancion-tarjeta [cancion]="cancion"></app-cancion-tarjeta>
+
+                    </div>
+                </div>
             </mat-list>
             <br>
 
