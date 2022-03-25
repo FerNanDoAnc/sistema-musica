@@ -1,0 +1,101 @@
+<br>
+
+<h1>
+    {{
+        (usuario.uid)
+        ? 'Editar usuario'
+        : 'Agregar usuario'
+    }}
+    :
+    <!-- <small> 
+        {{usuario.nombre}}
+    </small>  -->
+</h1>
+<br>
+
+<div fxLayout="row"
+    fxLayoutGap="40px"
+    fxLayout.xs="column"
+    >
+
+    <div fxFlex="50"
+        fxLayout="column">
+        
+        <div fxLayout="row"
+            fxLayout.xs="column"
+            fxLayoutGap="20px">
+
+            <mat-form-field fxFlex="100"
+                            fxLayout.xs="column">
+                <mat-label>
+                    Nombre
+                </mat-label>
+                <input type="text"
+                        matInput
+                        [(ngModel)]="usuario.nombre"
+                        required>
+            </mat-form-field>
+
+        </div>
+        
+        <mat-form-field >
+            <mat-label>
+                Correo
+            </mat-label>
+            <input type="text"
+                        matInput
+                        [(ngModel)]="usuario.correo"
+                        required>
+        </mat-form-field>
+
+        <!-- <mat-form-field >
+            <mat-label>
+                Creador
+            </mat-label>
+            <mat-select required
+                        [(ngModel)]="usuario.publisher"
+                        >
+                <mat-option *ngFor="let publisher of publishers"
+                            [value]="publisher._id">
+                    {{publisher.desc}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field> -->
+
+        <!-- <mat-form-field >
+            <mat-label>
+                Url Foto
+            </mat-label>
+            <input type="url"
+                    matInput
+                    [(ngModel)]="usuario.alt_img"
+                    required>
+        </mat-form-field>
+        <br> -->
+        
+        <div fxLayout>
+            <span class="spacer"></span>
+
+            <button mat-raised-button 
+                    color="accent"
+                    (click)="guardar()">
+                <mat-icon>save_as</mat-icon>
+                {{
+                    (usuario.uid)
+                    ? 'Actualizar usuario'
+                    : 'Crear usuario'
+                }}
+            </button>
+        </div>
+        
+    </div>
+    <br>
+    
+    <button mat-button color="warn" (click)="volver()">
+        Volver
+    </button>
+    <!-- <div fxFlex="50">
+        <img [src]="usuario | imagen" alt="usuario">
+    </div> -->
+
+</div>

@@ -11,8 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { RepertoriosModule } from '../repertorios/repertorios.module';
-import { ListadoRepertoriosComponent } from '../repertorios/pages/listado-repertorios/listado-repertorios.component';
-import { AgregarRepertorioComponent } from '../repertorios/pages/agregar-repertorio/agregar-repertorio.component';
+import { UsuariosModule } from '../usuarios/usuarios.module';
 
 
 @NgModule({
@@ -25,6 +24,7 @@ import { AgregarRepertorioComponent } from '../repertorios/pages/agregar-reperto
     MaterialModule,
     SharedModule,
     RepertoriosModule,
+    UsuariosModule,
 
     MatGridListModule,
     MatCardModule,

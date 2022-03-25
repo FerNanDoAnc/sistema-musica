@@ -12,6 +12,7 @@ import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { ConfirmarComponent } from './components/confirmar/confirmar.component';
+import { UsuarioTarjetaComponent } from './components/usuario-tarjeta/usuario-tarjeta.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ConfirmarComponent } from './components/confirmar/confirmar.component';
     HeaderComponent,
     SideBarComponent,
     ConfirmarComponent,
+    UsuarioTarjetaComponent,
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,7 @@ import { ConfirmarComponent } from './components/confirmar/confirmar.component';
     RepertorioTarjetaComponent,
     HeaderComponent,
     SideBarComponent,
-    
+    UsuarioTarjetaComponent
   ]
 })
 export class SharedModule { }

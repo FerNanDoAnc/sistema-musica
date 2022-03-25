@@ -5,6 +5,8 @@ import { ListadoRepertoriosComponent } from '../repertorios/pages/listado-repert
 import { AgregarRepertorioComponent } from '../repertorios/pages/agregar-repertorio/agregar-repertorio.component';
 import { RepertorioComponent } from '../repertorios/pages/repertorio/repertorio.component';
 import { BuscarComponent } from '../repertorios/pages/buscar/buscar.component';
+import { ListarUsuarioComponent } from '../usuarios/pages/listar-usuario/listar-usuario.component';
+import { ActualizarUsuarioComponent } from '../usuarios/pages/actualizar-usuario/actualizar-usuario.component';
 
 const routes: Routes = [
 
@@ -26,10 +28,12 @@ const routes: Routes = [
       {path: 'repertorios/lista', component: ListadoRepertoriosComponent},
       {path: 'repertorios/agregar', component: AgregarRepertorioComponent},
       {path: 'repertorios/editar/:_id', component: AgregarRepertorioComponent},
-      { path: 'repertorios/buscar', component: BuscarComponent },
-      { path:'repertorios/:_id', component: RepertorioComponent},
+      {path: 'repertorios/buscar', component: BuscarComponent },
+      {path: 'repertorios/:_id', component: RepertorioComponent},
+      {path: 'usuario', component: ListarUsuarioComponent},
+      {path: 'usuario/editar/:uid', component: ActualizarUsuarioComponent},
       // {path: '', redirectTo: 'repertorios/lista'},
-      { path: '**', redirectTo: 'repertorios/lista' },
+      {path: '**', redirectTo: 'repertorios/lista' }
     ]
   },
   

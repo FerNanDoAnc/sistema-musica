@@ -26,7 +26,6 @@ export class ListadoRepertoriosComponent implements OnInit {
     .subscribe(
       repertorios=>{
         this.repertorios=repertorios;
-        console.log("repertorios Por wqqweewq",repertorios);
       },
       err=>console.log(err)
     );
