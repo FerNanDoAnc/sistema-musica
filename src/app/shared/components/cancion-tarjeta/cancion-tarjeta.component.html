@@ -25,6 +25,15 @@
                 <a target="_blank" rel="noopener noreferrer" href="{{ cancion.img }}">Repertorio</a>
             </p>
         </mat-card-content>
+
+        <mat-card-content fxLayoutAlign="space-between center" >
+            <div>
+                <button mat-raised-button color="warn" (click)="onAddPartitura()">
+                    <mat-icon>add</mat-icon>
+                    Agregar partitura
+                </button>
+            </div>
+        </mat-card-content>
         <!-- mat-raised-button -->
         <mat-card-actions fxLayoutAlign="end">
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">

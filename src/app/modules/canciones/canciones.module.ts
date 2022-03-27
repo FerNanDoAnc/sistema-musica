@@ -13,8 +13,8 @@ import { AgregarCancionComponent } from './agregar-cancion/agregar-cancion.compo
   ],
   imports: [
     CommonModule,
-      MaterialModule,
-      SharedModule
+    MaterialModule,
+    SharedModule
   ],
   entryComponents: [
     CrearCancionDialogComponent,

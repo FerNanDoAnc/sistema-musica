@@ -6,6 +6,7 @@ import { ConfirmarComponent } from '../confirmar/confirmar.component';
 import { CancionService } from '../../services/cancion.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { CrearPartituraDialogComponent } from '../../../modules/partituras/pages/crear-partitura-dialog/crear-partitura-dialog.component';
 
 @Component({
   selector: 'app-cancion-tarjeta',
@@ -86,6 +87,24 @@ export class CancionTarjetaComponent implements OnInit  {
         console.log("resp",resp);
         // this.guardarCancion();
         // this.router.navigate(['/home/crear-cancion']);
+      }
+    });
+  }
+
+  // =====================================================
+  onAddPartitura(){
+    this.openDialogPartitura();
+  }
+  openDialogPartitura(): void {
+    const dialogRef= this.dialog.open(CrearPartituraDialogComponent,{
+      // width: '500px',
+      // height: '500px',
+      // data: {message: '¿Desea crear una nueva canción?'}
+
+    });
+    dialogRef.afterClosed().subscribe(resp=>{
+      if(resp){
+        console.log("resp",resp);
       }
     });
   }

@@ -13,6 +13,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { RepertoriosModule } from '../repertorios/repertorios.module';
 import { UsuariosModule } from '../usuarios/usuarios.module';
 import { CancionesModule } from '../canciones/canciones.module';
+import { PartiturasModule } from '../partituras/partituras.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { CancionesModule } from '../canciones/canciones.module';
     RepertoriosModule,
     UsuariosModule,
     CancionesModule,
+    PartiturasModule,
 
     MatGridListModule,
     MatCardModule,
