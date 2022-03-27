@@ -31,11 +31,11 @@ export class CancionTarjetaComponent implements OnInit  {
     if(!this.router.url.includes('editar')){
       return
     }
-    this.getCancionPorIdFunc();
+    this.getCancionPorIdFuncion();
     
   }
   // para obtener cancion y borrarla
-  getCancionPorIdFunc(){
+  getCancionPorIdFuncion(){
     this.activatedRoute.params
     .pipe(
       switchMap(({_id})=>this.cancionService.getCancionPorId(_id))
@@ -56,7 +56,7 @@ export class CancionTarjetaComponent implements OnInit  {
             .subscribe(resp=>{
               this.mostrarSnackBar("Cancion borrada ");
               // window.history.back();
-              // this.router.navigate(['/home/repertorios']);
+              window.location.reload();
             })
         }
       }
@@ -71,7 +71,6 @@ export class CancionTarjetaComponent implements OnInit  {
   }
 
   onEditCancion(){
-    console.log("EDITAR CANCION",this.cancion);
     this.openDialog(this.cancion);
   }
   

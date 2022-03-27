@@ -65,6 +65,7 @@ export class AgregarCancionComponent implements OnInit {
         this.mostrarSnackBar("Cancion Creada");
         // this.router.navigate(['/home/repertorios/',this.idRepPorId]);
         this.dialogRef.close();
+        window.location.reload();
       })
     }
   }
