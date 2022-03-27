@@ -37,14 +37,10 @@ export class AgregarCancionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(!this.router.url.includes('editar')){
-      return
+    // obtener id desde el dialog de tarjeta
+    if(this.data?.content?.hasOwnProperty('_id')){
+      this.cancion=this.data.content;
     }
-    this.activatedRoute.params
-    .pipe(
-      switchMap(({_id})=>this.cancionesService.getCancionPorId(_id))
-    )
-    .subscribe(cancion=>this.cancion=cancion);
     
   }
 
@@ -58,40 +54,42 @@ export class AgregarCancionComponent implements OnInit {
       // Actualizar
       this.cancionesService.actualizarCancion(this.cancion)
         .subscribe(resp=>{
-          console.log("ACTU TS CANCION",resp);
           this.mostrarSnackBar("Cancion actualizada")
-          // this.router.navigate(['/home/repertorios']);
+          this.dialogRef.close();
         });
     }
     else{ 
       // Crear
       this.cancionesService.agregarCancion(this.cancion).
       subscribe(cancion=>{
-        // this.router.navigate(['/home/repertorios/editar',repertorio._id]);
         this.mostrarSnackBar("Cancion Creada");
-        // this.router.navigate(['/home/repertorios']);
+        // this.router.navigate(['/home/repertorios/',this.idRepPorId]);
+        this.dialogRef.close();
       })
     }
   }
-  borrarCancion(){
-    const dialog=this.dialog.open(ConfirmarComponent,{
-      width:'250px',
-      data:{...this.cancion}
-    })
 
-    dialog.afterClosed().subscribe(
-      (result)=>{
-        if(result){
-          this.cancionesService.borrarCancion(this.cancion._id!)
-            .subscribe(cancion=>{
-              this.mostrarSnackBar("cancion borrada");
-              // this.router.navigate(['/home/repertorios']);
-            })
-        }
-      }
-    );
+  // //En caso se desee borrar desde el dialog
+  // borrarCancion(){
+  //   const dialog=this.dialog.open(ConfirmarComponent,{
+  //     width:'250px',
+  //     data:{...this.cancion}
+  //   })
+
+  //   dialog.afterClosed().subscribe(
+  //     (result)=>{
+  //       if(result){
+  //         this.cancionesService.borrarCancion(this.cancion._id!)
+  //           .subscribe(cancion=>{
+  //             this.mostrarSnackBar("cancion borrada");
+  //             // this.router.navigate(['/home/repertorios']);
+  //           })
+  //       }
+  //     }
+  //   );
     
-  }
+  // }
+
   mostrarSnackBar( mensaje:string){
     this.snackBar.open(mensaje, '!Ok', {
       duration: 2000,

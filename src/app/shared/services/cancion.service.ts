@@ -34,6 +34,7 @@ export class CancionService {
     .pipe(
       map(
         (resp:any )=>{
+          console.log("SERV CACN POR ID",resp);
           return resp.repertorio;
         }
       )

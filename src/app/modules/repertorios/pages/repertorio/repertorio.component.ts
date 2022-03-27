@@ -38,7 +38,11 @@ export class RepertorioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getRepertorioPorId();
+    this.getCancionRepertorio();
+  }
 
+  getRepertorioPorId(){
     this.activatedRoute.params
     .pipe(
       switchMap( ({_id})=>this.repertoriosService.getRepertorioPorId(_id))
@@ -46,8 +50,6 @@ export class RepertorioComponent implements OnInit {
     .subscribe( repertorio=>{
       this.repertorio=repertorio; 
     });
-
-    this.getCancionRepertorio();
   }
 
   volver(){
@@ -63,11 +65,11 @@ export class RepertorioComponent implements OnInit {
     .subscribe(
       canciones=>{
         this.canciones=canciones;
-        console.log("canciones",canciones);
       },
       err=>console.log(err)
     );
   }
+
   onNewCancion(){
     this.openDialog();
   }
@@ -82,8 +84,6 @@ export class RepertorioComponent implements OnInit {
     dialogRef.afterClosed().subscribe(resp=>{
       if(resp){
         console.log("resp",resp);
-        // this.guardarCancion();
-        // this.router.navigate(['/home/crear-cancion']);
       }
     });
   }
