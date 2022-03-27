@@ -1,22 +1,40 @@
+
 <br>
-    <h1>Datos Personales</h1>
+<span fxLayout="row"  >
+    <span fxLayoutAlign="center" fxFlex="23">
+        <button mat-button color="warn" (click)="volver()">
+            <span class="material-icons">
+                arrow_back
+                </span>
+        </button>
+    </span>
+    <span fxLayoutAlign="center" fxFlex="50">
+        <h1>
+            <span class="material-icons"> 
+                manage_accounts
+            </span>
+            Datos personales
+        </h1>
+    </span>
+</span>
+<br>
     <mat-divider></mat-divider>
-    <br>
+<br>
 
-    <div fxLayout="row wrap"
-        fxLayout.xs="column"
-        fxLayoutAlign="center"
-        fxLayoutGap="20px">
+<div fxLayout="row wrap" style="margin-left: 5%; margin-right: 5%;"
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="20px">
 
-        <div fxFlex="20"
-            fxFlex.lg="15"
-            fxFlex.sm="30"
-            *ngFor="let usuario of usuarios">
-            <div class="p-2">
-                
-                <app-usuario-tarjeta [usuario]="usuario"></app-usuario-tarjeta>
+    <div fxFlex="80"
+        fxFlex.lg="70"
+        fxFlex.sm="60"
+        *ngFor="let usuario of usuarios">
+        <div class="p-2">
+            
+            <app-usuario-tarjeta [usuario]="usuario"></app-usuario-tarjeta>
 
-            </div>
         </div>
-        
     </div>
+    
+</div>

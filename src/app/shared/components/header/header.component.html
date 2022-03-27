@@ -1,13 +1,27 @@
 
-<div class="row col-12">
-    <div class="col-9" style="margin-top: 5px;">
-        
-    </div>
-    <div class="col-2" style="margin-top: 5px;">
+<div fxLayout="row " 
+  fxLayoutAlign="center" >
+
+    <div fxFlex="80"
+      fxFlex.lg="85"
+      fxFlex.sm="60" 
+      fxLayoutAlign="end"
+      style="margin-top: 5px;">
         <span class="spacer"></span>
-        <span>{{usuario.nombre}}</span>
+        <span fxLayoutAlign="center" fxLayoutGap="15px" fxLayoutAlign="space-around center" >
+          <span class="material-icons"  >
+            account_circle
+          </span>
+          <h1>
+            {{usuario.nombre}}
+          </h1>
+        </span>
     </div>
-    <div class="col-1">
+
+    <div fxFlex="15"
+      fxFlex.lg="10"
+      fxFlex.sm="10"
+      fxLayoutAlign="end">
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <mat-icon>arrow_drop_down</mat-icon>
           </button>

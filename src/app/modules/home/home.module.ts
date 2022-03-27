@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { RepertoriosModule } from '../repertorios/repertorios.module';
 import { UsuariosModule } from '../usuarios/usuarios.module';
+import { CancionesModule } from '../canciones/canciones.module';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { UsuariosModule } from '../usuarios/usuarios.module';
     SharedModule,
     RepertoriosModule,
     UsuariosModule,
+    CancionesModule,
 
     MatGridListModule,
     MatCardModule,

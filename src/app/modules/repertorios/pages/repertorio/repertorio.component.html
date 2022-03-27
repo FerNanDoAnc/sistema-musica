@@ -5,42 +5,75 @@
 </mat-grid-list>
 
 <ng-template #divRepertorio>
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px">
-
-        <div fxFlex="50">
-            <h1>
-                {{repertorio.nombre}}
-                <!-- <small>-{{repertorio.usuario.nombre}}</small> -->
-                <mat-divider></mat-divider>
-                <br>
-                <!-- <img [src]="repertorio | imagen" alt=""> -->
-            </h1>
-        </div>
-
-        <div fxFlex="50" style="color: white;">
-            <mat-label>Canciones: </mat-label>
-            <mat-divider></mat-divider>
-            <mat-list>
-                <!-- <mat-label>Nombre</mat-label>
-                <mat-list-item>{{repertorio.nombre}}</mat-list-item> -->
-
-                <!-- Traer cancion por repertorio -->
-                <div fxFlex="20"
-                    fxFlex.lg="15"
-                    fxFlex.sm="30"
-                    *ngFor="let cancion of canciones">
-                    <div class="p-2">
-                        <app-cancion-tarjeta [cancion]="cancion"></app-cancion-tarjeta>
-
-                    </div>
-                </div>
-            </mat-list>
-            <br>
-
+    <br>
+    <span fxLayout="row"  >
+        <span fxLayoutAlign="center" fxFlex="21">
             <button mat-button color="warn" (click)="volver()">
-                Volver
+                <span class="material-icons">
+                    arrow_back
+                    </span>
             </button>
-        </div>
+        </span>
+        <span fxLayoutAlign="start" fxFlex="100">
+            <h1>
+                <span class="material-icons"> 
+                    playlist_add
+                </span>
+                {{repertorio.nombre}}
+            </h1>
+        </span>
+    </span>
+    <br>
+        <mat-divider></mat-divider>
+    <br>
 
+    <div fxLayout="row" style="margin-left: 8%; margin-right: 8%;"
+        fxLayoutGap="100px"
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        >
+
+        <div fxFlex="100"
+            fxFlex.lg="95"
+            fxFlex.sm="90">
+
+            <div fxLayout="row wrap"
+                fxLayout.xs=""
+                fxLayoutGap="20px">
+                <div fxFlex="50" fxFlex.lg="45" fxFlex.sm="40" fxLayoutAlign="start">
+                    <span >Canciones: </span>
+                </div>
+
+                <div fxFlex="50" fxFlex.lg="45" fxFlex.sm="40" fxLayoutAlign="end">
+                    <button mat-button color="warn" 
+                        (click)="onNewCancion()" >
+                        <span class="material-icons">
+                            add_circle
+                        </span>
+                        Agregar Cancion
+                    </button>
+                </div>
+                
+            </div>
+            <mat-divider></mat-divider>
+            
+        </div>
+    </div>
+    
+    <div style="margin-left: 8%; margin-right: 8%;"
+        fxLayout="column" 
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="25px">
+        
+        <div fxFlex="100"
+            fxFlex.lg="100"
+            fxFlex.sm="100"
+            *ngFor="let cancion of canciones">
+            <div class="p-2">
+                <app-cancion-tarjeta [cancion]="cancion"></app-cancion-tarjeta>
+            </div>
+        </div>
+        
     </div>
 </ng-template>

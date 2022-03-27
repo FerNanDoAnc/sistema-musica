@@ -126,6 +126,7 @@ export class AuthService {
   // -------------------------------------------------
   // Cerrar sesion
   logout(){
+    localStorage.removeItem('repertorioPorId');
     localStorage.clear();
   }
 

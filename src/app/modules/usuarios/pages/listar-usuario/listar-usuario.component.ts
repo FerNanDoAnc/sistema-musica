@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioList,Usuario } from 'src/app/core/interfaces/usuario.interface';
 import { UsuarioService } from '../../../../shared/services/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-usuario',
@@ -16,7 +17,8 @@ export class ListarUsuarioComponent implements OnInit {
   usuarios:Usuario[]=[];
 
   constructor(
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private router:Router,
   ) { }
 
   ngOnInit(): void {
@@ -34,4 +36,8 @@ export class ListarUsuarioComponent implements OnInit {
     );
   }
 
+  volver(){
+    this.router.navigate(['/home/repertorios']);
+    // window.history.back();
+  }
 }

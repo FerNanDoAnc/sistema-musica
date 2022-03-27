@@ -14,6 +14,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { ConfirmarComponent } from './components/confirmar/confirmar.component';
 import { UsuarioTarjetaComponent } from './components/usuario-tarjeta/usuario-tarjeta.component';
 import { CancionTarjetaComponent } from './components/cancion-tarjeta/cancion-tarjeta.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { CancionTarjetaComponent } from './components/cancion-tarjeta/cancion-ta
     CommonModule,
     MaterialModule,
     RouterModule,
+    FlexLayoutModule,
 
     LayoutModule,
     MatToolbarModule,
@@ -42,7 +44,8 @@ import { CancionTarjetaComponent } from './components/cancion-tarjeta/cancion-ta
     HeaderComponent,
     SideBarComponent,
     UsuarioTarjetaComponent,
-    CancionTarjetaComponent
+    CancionTarjetaComponent,
+    FlexLayoutModule
   ]
 })
 export class SharedModule { }

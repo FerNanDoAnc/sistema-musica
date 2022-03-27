@@ -19,11 +19,31 @@ export class CancionService {
     .pipe(
       map(
         (resp:any )=>{
-          console.log("getCancionPorRepertorio",resp);
           return resp.canciones;
         }
       )
     );
   }
 
+  agregarCancion(canciones: any):Observable<any>{
+    return this.http.post<any>(`${this.baseUrl}/canciones`, canciones);
+  }
+
+  getCancionPorId(_id:string):Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}/canciones/${_id}`)
+    .pipe(
+      map(
+        (resp:any )=>{
+          return resp.repertorio;
+        }
+      )
+    );
+  }
+  actualizarCancion(cancion: any):Observable<any>{
+    console.log("ACTUALIZAR CANCION",cancion);
+    return this.http.put<any>(`${this.baseUrl}/canciones/${cancion._id}`, cancion);
+  }
+  borrarCancion(_id:string):Observable<any>{
+    return this.http.delete<any>(`${this.baseUrl}/canciones/${_id}`);
+  }
 }

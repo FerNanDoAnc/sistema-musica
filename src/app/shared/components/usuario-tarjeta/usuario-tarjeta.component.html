@@ -1,40 +1,46 @@
 
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>{{usuario.nombre}}</mat-card-title>
-        <!-- <mat-card-subtitle>{{repertorio.usuario}}</mat-card-subtitle> -->
+<mat-card style="border-radius: 10px;">
+    
+    <mat-card-header fxLayoutAlign="center">
+        <mat-card-title >
+            Configuracion de la cuenta
+        </mat-card-title>
+        <!-- <mat-card-title>{{usuario.nombre}}</mat-card-title> -->
     </mat-card-header>
+    <br>
 
-    <!-- <img mat-card-image [src]="repertorio | imagen"> -->
+    <mat-card-header 
+        fxLayout="row wrap" 
+        fxLayout.xs="column"
+        fxLayoutAlign="center" >
 
-    <mat-card-content>
-        <!-- <h3>{{repertorio.publisher}}</h3> -->
-        <p>
-            <strong>Nombre:</strong>
-            {{usuario.nombre}}
+        <div fxLayout="row wrap" style="margin-left: 10%; margin-right: 10%;" 
+            fxFlex="100" >
+            <mat-card-subtitle style="margin-left: 10%; margin-right: 10%;" >
+                Nombre: 
+            </mat-card-subtitle>
+            <mat-card-title  >
+                {{usuario.nombre}}
+            </mat-card-title>
+        </div>
             <br>
-            <strong>Correo:</strong>
-            <span>
+        <div fxLayout="row wrap" style="margin-left: 10%; margin-right: 10%;" 
+            fxFlex="100" >
+            <mat-card-subtitle style="margin-left: 10%; margin-right: 12%;" >
+                Correo: 
+            </mat-card-subtitle>
+            <span >
                 {{usuario.correo}}
             </span>
-        </p>
-    </mat-card-content>
+        </div>
+            
+    </mat-card-header>
 
-    <mat-card-actions>
-        <!-- <button mat-button color="warn" 
-                [routerLink]="['/home/usuario',usuario.uid]">
-            Ver Datos
-        </button>
-         -->
+    <mat-card-actions fxLayoutAlign="center">
         <button mat-button color="warn" 
                 [routerLink]="['/home/usuario/editar',usuario.uid]">
             Editar
         </button>
     </mat-card-actions>
-    <br>
-    
 
 </mat-card>
-<button mat-button color="warn" (click)="volver()">
-    Volver
-</button>

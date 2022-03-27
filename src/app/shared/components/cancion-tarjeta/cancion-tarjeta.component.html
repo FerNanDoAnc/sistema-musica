@@ -1,24 +1,55 @@
 
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>{{cancion.nombre}}</mat-card-title>
-        <!-- <mat-card-subtitle>{{repertorio.usuario}}</mat-card-subtitle> -->
+<mat-card style="border-radius: 10px;"   >
+    <mat-card-header fxLayout="row" fxLayoutAlign="space-between center" >
+        <mat-card-title fxLayoutAlign="start">
+            <span class="material-icons">
+                music_note
+                </span>
+            {{cancion.nombre}}
+        </mat-card-title>
+    
+        <mat-card-content fxLayoutAlign="center" >
+            <!-- <h3>{{repertorio.publisher}}</h3> -->
+            <p>
+                <strong>Usuario:</strong>
+                {{cancion.usuario.nombre}}
+                <br>
+                <strong>Link:</strong>
+                {{cancion.link}}
+                <br>
+                <strong>Repertorio:</strong>
+                <span>
+                    {{cancion.repertorio.nombre}}
+                </span>
+                    
+            </p>
+        </mat-card-content>
+        <!-- mat-raised-button -->
+        <mat-card-actions fxLayoutAlign="end">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" class="customize"> 
+                <button mat-menu-item
+                    (click)="onEditCancion(cancion)">
+                    <button mat-raised-button color="accent">
+                        <mat-icon>edit</mat-icon>
+                        Actualizar Cancion
+                    </button>
+                </button>
+                <button mat-menu-item 
+                    (click)="borrarCancion()">
+                    <button mat-raised-button color="warn">
+                            <mat-icon>delete</mat-icon>
+                        Eliminar
+                    </button>
+                </button>
+            </mat-menu>
+        </mat-card-actions>
     </mat-card-header>
 
     <!-- <img mat-card-image [src]="repertorio | imagen"> -->
 
-    <mat-card-content>
-        <!-- <h3>{{repertorio.publisher}}</h3> -->
-        <p>
-            <strong>Usuario:</strong>
-            {{cancion.usuario.nombre}}
-            <br>
-            <strong>Repertorio:</strong>
-            <span>
-                {{cancion.repertorio.nombre}}
-            </span>
-        </p>
-    </mat-card-content>
 
     <!-- <mat-card-actions>
         <button mat-button color="warn" 

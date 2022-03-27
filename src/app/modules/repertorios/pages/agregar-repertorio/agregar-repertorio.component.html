@@ -1,25 +1,45 @@
 <br>
 
-<h1>
-    {{
-        (repertorio._id)
-        ? 'Editar repertorio'
-        : 'Agregar repertorio'
-    }}
-    :
-    <!-- <small> 
-        {{repertorio.nombre}}
-    </small>  -->
-</h1>
+<span fxLayout="row"  >
+    <span fxLayoutAlign="center" fxFlex="23">
+        <button mat-button color="warn" (click)="volver()">
+            <span class="material-icons">
+                arrow_back
+                </span>
+        </button>
+    </span>
+    <span fxLayoutAlign="center" fxFlex="50">
+        <h1>
+            <span class="material-icons"> 
+                playlist_add
+            </span>
+            {{
+                (repertorio._id)
+                ? 'Editar repertorio'
+                : 'Agregar repertorio'
+            }}
+            :
+            <!-- <small> 
+                {{repertorio.nombre}}
+            </small>  -->
+        </h1>
+    </span>
+</span>
+<br>
+    <mat-divider></mat-divider>
 <br>
 
-<div fxLayout="row"
-    fxLayoutGap="40px"
+
+<div fxLayout="row" style="margin-left: 8%; margin-right: 8%;"
+    fxLayoutGap="60px"
     fxLayout.xs="column"
+    fxLayoutAlign="center"
     >
 
-    <div fxFlex="50"
-        fxLayout="column">
+    <div 
+        fxFlex="60"
+        fxFlex.lg="50"
+        fxFlex.sm="50">
         
         <div fxLayout="row"
             fxLayout.xs="column"
@@ -37,33 +57,11 @@
             </mat-form-field>
 
         </div>
+        <br>
 
-        <!-- <mat-form-field >
-            <mat-label>
-                Creador
-            </mat-label>
-            <mat-select required
-                        [(ngModel)]="repertorio.publisher"
-                        >
-                <mat-option *ngFor="let publisher of publishers"
-                            [value]="publisher._id">
-                    {{publisher.desc}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field> -->
-
-        <!-- <mat-form-field >
-            <mat-label>
-                Url Foto
-            </mat-label>
-            <input type="url"
-                    matInput
-                    [(ngModel)]="repertorio.alt_img"
-                    required>
-        </mat-form-field>
-        <br> -->
-        
-        <div fxLayout>
+        <div fxLayout 
+            fxLayout.xs="column" 
+            fxLayoutAlign="space-evenly center">
             <button *ngIf="repertorio._id"
                     mat-raised-button
                     color="warn"
@@ -71,6 +69,7 @@
                 <mat-icon>delete</mat-icon>
                 Eliminar
             </button>
+            <br>
 
             <span class="spacer"></span>
 
@@ -85,15 +84,9 @@
                 }}
             </button>
         </div>
-        
+
     </div>
     <br>
     
-    <button mat-button color="warn" (click)="volver()">
-        Volver
-    </button>
-    <!-- <div fxFlex="50">
-        <img [src]="repertorio | imagen" alt="repertorio">
-    </div> -->
-
+    
 </div>

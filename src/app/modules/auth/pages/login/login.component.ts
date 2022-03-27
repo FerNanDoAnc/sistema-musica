@@ -19,7 +19,7 @@ export class LoginComponent  {
   }
 
   miFormulario: FormGroup=this.fb.group({
-    correo: ['test1@gmail.com',[
+    correo: ['mozart@gmail.com',[
       Validators.required,
       Validators.email,
       Validators.maxLength(80),
@@ -54,7 +54,7 @@ export class LoginComponent  {
           this.router.navigateByUrl('/home');
           Swal.fire({
             title: this.usuario.msg,
-            html: 'Bienvenido :'+this.usuario.nombre,
+            html: '¡Bienvenid@ '+this.usuario.nombre+'!',
             icon: 'success',
             showConfirmButton: false,
             timer: 1500,

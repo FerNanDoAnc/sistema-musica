@@ -41,6 +41,7 @@ export class RepertorioService {
     .pipe(
       map(
         (resp:any )=>{
+          localStorage.setItem("repertorioPorId",resp.repertorio._id);
           return resp.repertorio;
         }
       )

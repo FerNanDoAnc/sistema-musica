@@ -5,6 +5,11 @@ import { RepertorioService } from '../../../../shared/services/repertorio.servic
 import { switchMap } from 'rxjs/operators';
 import { CancionService } from '../../../../shared/services/cancion.service';
 
+// componente del dialogo crear cancion
+import { MatDialog } from '@angular/material/dialog';
+import { CrearCancionDialogComponent } from '../../../canciones/crear-cancion-dialog/crear-cancion-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-repertorio',
   templateUrl: './repertorio.component.html',
@@ -15,16 +20,21 @@ export class RepertorioComponent implements OnInit {
   idRepertorioLocal:any=localStorage.getItem('_id_repertorio');
 
   repertorio! : any;
-  // canciones! : any;
   canciones:any[]=[];
-  
-  // repertorio! : RepertorioList;  
+  cancion: any= {
+    nombre:'',
+    link:'',
+  }
 
   constructor(
     private activatedRoute:ActivatedRoute,
     private repertoriosService:RepertorioService,
     private cancionesService:CancionService,
-    private router:Router
+    private router:Router,
+
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar,
+
   ) { }
 
   ngOnInit(): void {
@@ -44,6 +54,8 @@ export class RepertorioComponent implements OnInit {
     this.router.navigate(['/home/repertorios']);
   }
 
+
+// CANCIONES =====================================================
   getCancionRepertorio(){
     this.activatedRoute.params
     .pipe(
@@ -55,6 +67,32 @@ export class RepertorioComponent implements OnInit {
       },
       err=>console.log(err)
     );
+  }
+  onNewCancion(){
+    this.openDialog();
+  }
+// =============================================================
+  openDialog(): void {
+    const dialogRef= this.dialog.open(CrearCancionDialogComponent,{
+      // width: '500px',
+      // height: '500px',
+      // data: {message: '¿Desea crear una nueva canción?'}
+
+    });
+    dialogRef.afterClosed().subscribe(resp=>{
+      if(resp){
+        console.log("resp",resp);
+        // this.guardarCancion();
+        // this.router.navigate(['/home/crear-cancion']);
+      }
+    });
+  }
+
+  // =============================================================
+  mostrarSnackBar( mensaje:string){
+    this.snackBar.open(mensaje, '!Ok', {
+      duration: 2000,
+    });
   }
 
 }

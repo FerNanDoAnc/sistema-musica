@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { Repertorio, RepertorioList, Usuario } from '../../../../core/interfaces/repertorio.interface';
 import { RepertorioService } from '../../../../shared/services/repertorio.service';
 import { ConfirmarComponent } from '../../../../shared/components/confirmar/confirmar.component';
 
@@ -51,7 +50,6 @@ export class AgregarRepertorioComponent implements OnInit {
       // Actualizar
       this.repertoriosService.actualizarRepertorio(this.repertorio)
         .subscribe(resp=>{
-          console.log("actu",resp);
           this.mostrarSnackBar("Registro actualizado")
           this.router.navigate(['/home/repertorios']);
         });
