@@ -26,13 +26,24 @@
             </p>
         </mat-card-content>
 
+        <!-- Partituras -->
         <mat-card-content fxLayoutAlign="space-between center" >
-            <div>
-                <button mat-raised-button color="warn" (click)="onAddPartitura()">
-                    <mat-icon>add</mat-icon>
-                    Agregar partitura
+            <div *ngIf="cancion.img; else divPartitura">
+                <button mat-raised-button color="warn" (click)="onViewPartitura()">
+                    <mat-icon>visibility</mat-icon>
+                    Ver partitura
                 </button>
             </div>
+            <ng-template #divPartitura>
+                <button mat-raised-button color="accent" (click)="onAddPartitura()">
+                    <mat-icon>add_box</mat-icon>
+                    Agregar partitura
+                </button>
+                <!-- <div class="custom-input-file" color="warn">
+                    <input type="file" id="fichero-tarifas" class="input-file" value="">
+                    Agregar partitura
+                </div> -->
+            </ng-template>
         </mat-card-content>
         <!-- mat-raised-button -->
         <mat-card-actions fxLayoutAlign="end">

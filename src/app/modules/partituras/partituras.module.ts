@@ -4,13 +4,17 @@ import { CrearPartituraDialogComponent } from './pages/crear-partitura-dialog/cr
 import { SharedModule } from '../../shared/shared.module';
 import { MaterialModule } from '../../material/material.module';
 import { AgregarPartituraComponent } from './pages/agregar-partitura/agregar-partitura.component';
+import { ListarPartituraDialogComponent } from './pages/listar-partitura-dialog/listar-partitura-dialog.component';
+import { ListarPartituraComponent } from './pages/listar-partitura/listar-partitura.component';
 
 
 
 @NgModule({
   declarations: [
     CrearPartituraDialogComponent,
-    AgregarPartituraComponent
+    AgregarPartituraComponent,
+    ListarPartituraDialogComponent,
+    ListarPartituraComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +24,9 @@ import { AgregarPartituraComponent } from './pages/agregar-partitura/agregar-par
   ],
   exports:[
     CrearPartituraDialogComponent,
-    AgregarPartituraComponent
+    AgregarPartituraComponent,
+    ListarPartituraDialogComponent,
+    ListarPartituraComponent
   ]
 })
 export class PartiturasModule { }

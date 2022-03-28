@@ -7,6 +7,7 @@ import { CancionService } from '../../services/cancion.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { CrearPartituraDialogComponent } from '../../../modules/partituras/pages/crear-partitura-dialog/crear-partitura-dialog.component';
+import { ListarPartituraDialogComponent } from '../../../modules/partituras/pages/listar-partitura-dialog/listar-partitura-dialog.component';
 
 @Component({
   selector: 'app-cancion-tarjeta',
@@ -41,7 +42,9 @@ export class CancionTarjetaComponent implements OnInit  {
     .pipe(
       switchMap(({_id})=>this.cancionService.getCancionPorId(_id))
     )
-    .subscribe(cancion=>this.cancion=cancion);
+    .subscribe(cancion=>{
+      this.cancion=cancion;
+    });
   }
 
   borrarCancion(){
@@ -84,7 +87,7 @@ export class CancionTarjetaComponent implements OnInit  {
     const dialogRef= this.dialog.open(CrearCancionDialogComponent,config);
     dialogRef.afterClosed().subscribe(resp=>{
       if(resp){
-        console.log("resp",resp);
+        console.log("onEditCancion",resp);
         // this.guardarCancion();
         // this.router.navigate(['/home/crear-cancion']);
       }
@@ -92,6 +95,25 @@ export class CancionTarjetaComponent implements OnInit  {
   }
 
   // =====================================================
+  // PARTITURAS
+  // =====================================================
+  onViewPartitura(){
+    this.openDialogListPartiture(this.cancion);
+  }
+  openDialogListPartiture(cancion?: any){
+    const config={
+      data:{
+        content:this.cancion
+      }
+    };
+    const dialogRef= this.dialog.open(ListarPartituraDialogComponent,config);
+    dialogRef.afterClosed().subscribe(resp=>{
+      if(resp){
+        console.log("onViewPartitura",resp);
+      }
+    });
+  }
+  // 
   onAddPartitura(){
     this.openDialogPartitura();
   }
@@ -104,7 +126,7 @@ export class CancionTarjetaComponent implements OnInit  {
     });
     dialogRef.afterClosed().subscribe(resp=>{
       if(resp){
-        console.log("resp",resp);
+        console.log("onAddPartitura",resp);
       }
     });
   }
