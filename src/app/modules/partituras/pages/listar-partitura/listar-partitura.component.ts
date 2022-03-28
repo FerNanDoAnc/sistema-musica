@@ -20,7 +20,7 @@ export class ListarPartituraComponent implements OnInit {
   ngOnInit(): void {
     if(this.data?.content?.hasOwnProperty('_id')){
       this.cancion=this.data.content;
-      console.log("cancion desde PARTITURA TS",this.cancion);
+      console.log("LIST  PARTITURA TS",this.cancion);
     }
   }
 

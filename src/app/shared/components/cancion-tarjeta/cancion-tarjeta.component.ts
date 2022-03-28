@@ -115,15 +115,15 @@ export class CancionTarjetaComponent implements OnInit  {
   }
   // 
   onAddPartitura(){
-    this.openDialogPartitura();
+    this.openDialogPartitura(this.cancion);
   }
-  openDialogPartitura(): void {
-    const dialogRef= this.dialog.open(CrearPartituraDialogComponent,{
-      // width: '500px',
-      // height: '500px',
-      // data: {message: '¿Desea crear una nueva canción?'}
-
-    });
+  openDialogPartitura(cancion?: any): void {
+    const config={
+      data:{
+        content:this.cancion
+      }
+    };
+    const dialogRef= this.dialog.open(CrearPartituraDialogComponent,config);
     dialogRef.afterClosed().subscribe(resp=>{
       if(resp){
         console.log("onAddPartitura",resp);
