@@ -6,6 +6,7 @@ import { MaterialModule } from '../../material/material.module';
 import { AgregarPartituraComponent } from './pages/agregar-partitura/agregar-partitura.component';
 import { ListarPartituraDialogComponent } from './pages/listar-partitura-dialog/listar-partitura-dialog.component';
 import { ListarPartituraComponent } from './pages/listar-partitura/listar-partitura.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -18,6 +19,7 @@ import { ListarPartituraComponent } from './pages/listar-partitura/listar-partit
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MaterialModule,
     SharedModule
 

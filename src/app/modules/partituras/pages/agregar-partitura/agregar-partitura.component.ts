@@ -12,12 +12,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AgregarPartituraComponent implements OnInit {
 
   @Input() cancion!: any ;
-  // partitura={
-  //   archivo:'',
-  // };
   private fileTmp:any;
-  archivo!:Array<File>;
-  // uploadedFiles: File[] = [];
+
   constructor(
     public dialogRef: MatDialogRef<CrearPartituraDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data:any,
@@ -48,11 +44,11 @@ export class AgregarPartituraComponent implements OnInit {
     const cancion= new FormData();
     cancion.append('archivo',this.fileTmp.fileRaw);
     cancion.append('_id',this.cancion._id);
-    // this.cancion.archivo =body;
 
     this.uploadService.actualizarCanPartitura(cancion)
       .subscribe(resp=>{
         this.dialogRef.close();
+        window.location.reload();
         
       })
 
@@ -85,17 +81,6 @@ export class AgregarPartituraComponent implements OnInit {
   }
 
   // ===========================================================================
-
-  CrearPartitura(){
-
-    this.uploadService.actualizarCanPartitura(this.cancion)
-      .subscribe(resp=>{
-        console.log("CrearPartitura",resp);
-        this.mostrarSnackBar("Partitura Creada")
-        this.dialogRef.close();
-        window.location.reload();
-      });
-  }
 
   mostrarSnackBar( mensaje:string){
     this.snackBar.open(mensaje, '!Ok', {

@@ -4,8 +4,10 @@
       <mat-card-title> {{cancion.nombre}}</mat-card-title>
       
       <mat-card-actions>
-        <button mat-button>Eliminar</button>
-        <button mat-button>Editar</button>
+        <!-- <button mat-button>Eliminar</button> -->
+        <button mat-button color="warn" (click)="editPartitura()">
+            Editar
+        </button>
       </mat-card-actions>
 
     </mat-card-header>
