@@ -12,9 +12,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AgregarPartituraComponent implements OnInit {
 
   @Input() cancion!: any ;
-  partitura={
-    archivo:null,
-  };
+  // partitura={
+  //   archivo:'',
+  // };
+  private fileTmp:any;
+  archivo!:Array<File>;
+  // uploadedFiles: File[] = [];
   constructor(
     public dialogRef: MatDialogRef<CrearPartituraDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data:any,
@@ -26,9 +29,62 @@ export class AgregarPartituraComponent implements OnInit {
   ngOnInit(): void {
     if(this.data?.content?.hasOwnProperty('_id')){
       this.cancion=this.data.content;
-      console.log("NEW PARTITURA TS",this.cancion);
     }
   }
+  // ===========================================================================
+  // *************************  UPLOAD FILE  ***********************************
+  // ===========================================================================
+  
+  onFileChange(event:any){
+    const [file] = event.target.files;
+    this.fileTmp = {
+      fileRaw: file,
+      fileName: file.name,
+    }
+  }
+
+  onUpload(){
+    
+    const cancion= new FormData();
+    cancion.append('archivo',this.fileTmp.fileRaw);
+    cancion.append('_id',this.cancion._id);
+    // this.cancion.archivo =body;
+
+    this.uploadService.actualizarCanPartitura(cancion)
+      .subscribe(resp=>{
+        this.dialogRef.close();
+        
+      })
+
+    // PARA VARIOS PDF
+    // let formData = new FormData();
+    // for(let i=0;i< this.archivo.length; i++){
+    //   formData.append(
+    //     "uploads[]", 
+    //     this.archivo[i], 
+    //     this.archivo[i].name)
+    // }
+
+    // const unoD = formData.getAll("uploads");
+    // const uploadData =  unoD[0];
+    // this.cancion.archivo = uploadData;
+    // console.log("uploadData",uploadData);
+    // Service
+    // this.uploadService.actualizarCanPartitura(this.cancion)
+    //   .subscribe(
+    //     (res)=>{
+    //       console.log("res",res);
+    //       // this.partitura.archivo = res.nombreArchivo;
+    //       // this.CrearPartitura();
+    //     },
+    //     (err)=>{
+    //       console.log("err",err);
+    //     }
+    //   );
+
+  }
+
+  // ===========================================================================
 
   CrearPartitura(){
 
@@ -37,6 +93,7 @@ export class AgregarPartituraComponent implements OnInit {
         console.log("CrearPartitura",resp);
         this.mostrarSnackBar("Partitura Creada")
         this.dialogRef.close();
+        window.location.reload();
       });
   }
 

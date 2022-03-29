@@ -34,9 +34,10 @@
                         required>
             </mat-form-field> -->
 
+            <!-- [(ngModel)]="cancion.archivo" -->
             <form>
                 <label for="archivo">Seleccionar Partitura</label>
-                <input type="file" id="archivo" [(ngModel)]="cancion.archivo" name="archivo">
+                <input type="file" id="archivo" (change)="onFileChange($event)" name="archivo">
               </form>
               
         </div>
@@ -69,7 +70,7 @@
                 
                 <button mat-raised-button 
                         color="accent"
-                        (click)="CrearPartitura()">
+                        (click)="onUpload()">
                     <mat-icon>save_as</mat-icon>
                     {{
                         (cancion._id)
