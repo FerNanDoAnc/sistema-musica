@@ -3,11 +3,10 @@
 
 <h1 for="archivo">
     {{
-        (cancion._id)
+        (cancion.img)
         ? 'Editar Partitura'
         : 'Agregar Partitura'
     }}
-    :
 </h1>
 <br>
 
@@ -51,7 +50,7 @@
                         (click)="onUpload()">
                     <mat-icon>save_as</mat-icon>
                     {{
-                        (cancion.uid)
+                        (cancion.img)
                         ? 'Editar Partitura'
                         : 'Crear Partitura'
                     }}

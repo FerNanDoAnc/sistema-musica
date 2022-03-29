@@ -11,9 +11,10 @@
       </mat-card-actions>
 
     </mat-card-header>
-    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-    <iframe src="https://res.cloudinary.com/da0vmaada/image/upload/v1648407757/np4ex8kidwt9lvnx0ler.pdf"
-    width="800px" height="680px" type="application/pdf">
-    </iframe>
+    <div>{{cancion.img}}</div>
+    <img mat-card-image [src]="cancion.img" alt="Repertorio">
+    <!-- <iframe [src]="cancion.img"
+      width="800px" height="680px" type="application/pdf">
+    </iframe> -->
   </mat-card>
   
