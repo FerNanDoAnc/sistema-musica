@@ -2,6 +2,15 @@
     background: rgba(255, 255, 255, 0);
 }
 
+.tarjeta-cancion{
+    border-radius: 10px; 
+    height: 60px; 
+    margin: 0px; 
+    background: rgb(24, 24, 24);
+}
+.tarjeta-cancion:hover{
+    background-color: #202020;
+}
 
 .custom-input-file {
     background-color: #cbce0c;

@@ -6,18 +6,23 @@
 // MENU
 .sidenav {
   width: 260px;
-  background-color: rgb(24, 24, 24);
+  background-color: #202020;
+  // background-color: rgb(24, 24, 24);
 }
 
 // TITULO MENU
 .sidenav .mat-toolbar {
-  background: rgb(24, 24, 24);
+  // background: rgb(24, 24, 24);
+  background-color: #202020;
+
   color: #fff;
 }
 
 // HEADER
 .toolbar-header{
-  background: rgb(24, 24, 24);
+  // background: rgb(24, 24, 24);
+  background-color: #202020;
+
   // background: linear-gradient( rgba(0,0,0,.6) 0, rgb(56, 7, 23) );
 }
 
