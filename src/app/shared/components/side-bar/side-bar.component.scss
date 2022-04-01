@@ -1,15 +1,24 @@
 .sidenav-container {
   height: 100%;
-  background: radial-gradient(circle closest-side, rgb(87, 21, 42), rgb(44, 44, 44));
+  background: radial-gradient(circle at top, rgb(56, 7, 23), rgb(34, 34, 34));
 }
 
+// MENU
 .sidenav {
   width: 260px;
+  background-color: rgb(24, 24, 24);
 }
 
+// TITULO MENU
 .sidenav .mat-toolbar {
-  background: #8f03fa;
+  background: rgb(24, 24, 24);
   color: #fff;
+}
+
+// HEADER
+.toolbar-header{
+  background: rgb(24, 24, 24);
+  // background: linear-gradient( rgba(0,0,0,.6) 0, rgb(56, 7, 23) );
 }
 
 .mat-toolbar.mat-primary {

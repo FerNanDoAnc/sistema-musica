@@ -4,7 +4,7 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     
-    <mat-toolbar color="accent" >
+    <mat-toolbar>
       <span>Menu</span>
       <span class="spacer"></span>
 
@@ -38,7 +38,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar style="background-color: #424242;">  
+    <mat-toolbar class="toolbar-header">  
       <div class="col-1">
           <button mat-icon-button class="" 
               (click)="drawer.toggle()">
