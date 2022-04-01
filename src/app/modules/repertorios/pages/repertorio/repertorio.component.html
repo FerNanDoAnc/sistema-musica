@@ -60,17 +60,17 @@
         </div>
     </div>
     
-    <div style="margin-left: 8%; margin-right: 8%;"
+    <div style="margin-left: 8%; margin-right: 8%; margin-top: 2%;" 
         fxLayout="column" 
         fxLayout.xs="column"
         fxLayoutAlign="center"
-        fxLayoutGap="25px">
+        fxLayoutGap="5px">
         
         <div fxFlex="100"
             fxFlex.lg="100"
             fxFlex.sm="100"
             *ngFor="let cancion of canciones">
-            <div class="p-2">
+            <div >
                 <app-cancion-tarjeta [cancion]="cancion"></app-cancion-tarjeta>
             </div>
         </div>
