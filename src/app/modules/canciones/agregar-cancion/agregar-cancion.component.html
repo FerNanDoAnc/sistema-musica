@@ -1,22 +1,22 @@
 
 <br>
 
-<h1>
+<h1  fxLayout="row" fxLayoutAlign="center center" >
     {{
         (cancion._id)
         ? 'Editar Cancion'
         : 'Agregar Cancion'
     }}
-    :
+    
 </h1>
-<br>
+<br><br>
 
-<div fxLayout="row"
-    fxLayoutGap="40px"
+<div fxLayout="column"
+    fxLayoutGap="10px"
     fxLayout.xs="column"
     >
 
-    <div fxFlex="50"
+    <div fxFlex="80" style="margin-left: 10%;"
         fxLayout="column">
         
         <div fxLayout="row"
@@ -44,20 +44,13 @@
                         [(ngModel)]="cancion.link"
                         required>
         </mat-form-field>
-
+        <br>
         
-        <div fxLayout>
-            <div mat-dialog-actions >
-                <!-- <button *ngIf="cancion._id"
-                    mat-raised-button
-                    color="warn"
-                    (click)="borrarCancion()">
-                    <mat-icon>delete</mat-icon>
-                    Eliminar
-                </button> -->
-
+        <div fxLayout="row" >
+            <div mat-dialog-actions fxLayoutGap="40px" >
                 <span class="spacer"></span>
                 <button mat-button mat-raised-button color="primary" (click)="onClickNo()">
+                    <mat-icon>backspace</mat-icon>
                     Cancelar
                 </button>
                 <span class="spacer"></span>
@@ -76,6 +69,5 @@
         </div>
         
     </div>
-    <br>
-    
+
 </div>

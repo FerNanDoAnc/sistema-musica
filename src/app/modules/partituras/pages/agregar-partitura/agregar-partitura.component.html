@@ -1,7 +1,7 @@
 
 <br>
 
-<h1 for="archivo">
+<h1 for="archivo" fxLayout="row" fxLayoutAlign="center center" >
     {{
         (cancion.img)
         ? 'Editar Partitura'
@@ -29,8 +29,8 @@
               </form>
               
         </div>
-        <div fxLayout>
-            <div mat-dialog-actions >
+        <div fxLayout="row">
+            <div mat-dialog-actions>
                 <!-- <button *ngIf="cancion._id"
                     mat-raised-button
                     color="warn"

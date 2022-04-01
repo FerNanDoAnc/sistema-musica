@@ -1,0 +1,25 @@
+.musica-uno{
+    width: 20px !important;
+    height: 20px !important;
+    // margin: 0%;
+    display: block;
+    animation: musica-uno 5s infinite;
+}
+@keyframes musica-uno{
+    0%{
+        transform: translateY(-50px);
+    }
+    30%{
+        transform: translateY(0)
+        rotate(5deg);
+    }
+    50%{
+        transform: rotate(-5deg);
+    }
+    75%{
+        transform: rotate(-5deg);
+    }
+    100%{
+        transform: translateY(-50px);
+    }
+}
