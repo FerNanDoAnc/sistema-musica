@@ -1,5 +1,5 @@
-<br>
-
+<body class="contenedorUser">
+    <br>
 <span fxLayout="row"  >
     <span fxLayoutAlign="center" fxFlex="23">
         <button mat-button color="warn" (click)="volver()">
@@ -9,8 +9,8 @@
         </button>
     </span>
     <span fxLayoutAlign="center" fxFlex="50">
-        <h1>
-            <span class="material-icons"> 
+        <h1 style="color: white;" >
+            <span class="material-icons" style="color: white;"> 
                 edit
             </span>
             {{
@@ -26,91 +26,219 @@
     <mat-divider></mat-divider>
 <br>
 
-<div fxLayout="row" style="margin-left: 8%; margin-right: 8%;"
-    fxLayoutGap="60px"
-    fxLayout.xs="column"
-    fxLayoutAlign="center"
-    >
+<div fxLayout="row wrap" style="margin-left: 5%; margin-right: 5%;"
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="20px">
 
-    <div fxFlex="60"
-        fxFlex.lg="50"
-        fxFlex.sm="50">
-        
-        <div fxLayout="row"
-            fxLayout.xs="column"
-            fxLayoutGap="20px">
+        <div fxFlex="80"
+            fxFlex.lg="70"
+            fxFlex.sm="60">
+            <div class="p-2">
+                
+                <mat-card class="tarjeta-usuario" fxLayout="column" >
 
-            <mat-form-field fxFlex="100"
-                            fxLayout.xs="column">
-                <mat-label>
-                    Nombre
-                </mat-label>
-                <input type="text"
-                        matInput
-                        [(ngModel)]="usuario.nombre"
-                        required>
-            </mat-form-field>
+                    <mat-card-title-group  fxLayout="row wrap"
+                        fxLayout.xs="column"
+                        fxFlex="100"
+                        fxFlex.lg="90"
+                        fxFlex.sm="80" >
+                        <mat-card-title 
+                            fxLayoutAlign="center" 
+                            fxLayout="row "  
+                            fxLayout.xs="column"
+                            style="margin-top: 5%; margin-bottom: 10%;">
+                            <span fxLayout="row"  >
+                                <span fxLayoutAlign="center" fxFlex="100">
+                                    <h1>
+                                        <span class="material-icons"> 
+                                            edit
+                                        </span>
+                                        
+                                    </h1>
+                                </span>
+                            </span>
+                        </mat-card-title>
+                
+                        <mat-card-subtitle
+                            fxLayout="row wrap" 
+                            fxLayout.xs="column"
+                            fxLayoutAlign="center" >
+                            
+                            <div fxFlex="100"
+                            fxFlex.lg="90"
+                            fxFlex.sm="80">
+                            
+                                <div fxLayout="row"
+                                    fxLayout.xs="column"
+                                    fxLayoutGap="20px">
+                        
+                                    <mat-form-field fxFlex="100"
+                                                    fxLayout.xs="column">
+                                        <mat-label>
+                                            Nombre
+                                        </mat-label>
+                                        <input type="text"
+                                                matInput
+                                                [(ngModel)]="usuario.nombre"
+                                                required>
+                                    </mat-form-field>
+                        
+                                </div>
+                                
+                                <div fxLayout="row">
+                                    <mat-form-field fxFlex="100"
+                                        fxLayout.xs="column">
+                                        <mat-label>
+                                            Correo
+                                        </mat-label>
+                                        <input type="text"
+                                                    matInput
+                                                    [(ngModel)]="usuario.correo"
+                                                    required>
+                                    </mat-form-field>
+                            </div>
+                        </div>
+                        <br>
+                
+                        </mat-card-subtitle>
+                        
+                        <span fxLayout="row wrap" fxLayout.xs="column" >
+                            <img style="margin-top: 20%; 
+                                margin-right: 5%;
+                                margin-left: 5%;
+                                height: 200px;
+                                width: 250px;
+                                border-radius:  10px; " fxLayout="row wrap" fxLayout.xs="column"
+                                mat-card-xl-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP_e849pwUnr062RS03-CXFq4U4yzH1iNulg&usqp=CAU" >
+                        
+                        </span>
+                    
+                    </mat-card-title-group>
+                    <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
+                        <div fxLayout fxLayout fxLayoutAlign="center">
+                                <span class="spacer"></span>
+                    
+                                <!-- <button mat-raised-button 
+                                        color="accent"
+                                        (click)="guardar()">
+                                    <mat-icon>save_as</mat-icon>
+                                    {{
+                                        (usuario.uid)
+                                        ? 'Actualizar usuario'
+                                        : 'Crear usuario'
+                                    }}
+                                </button> -->
+                                <button class="boton seis" 
+                                        mat-raised-button 
+                                        (click)="guardar()">
+                                        <mat-icon>save_as</mat-icon>
+                                        {{
+                                            (usuario.uid)
+                                            ? 'Actualizar '
+                                            : 'Crear usuario'
+                                        }}
+                                    <svg>
+                                        <rect x="0" y="0" fill="none"></rect>
+                                    </svg>
+                                </button>
+                            </div>
+                    </mat-card-content>
+                </mat-card>
 
-        </div>
-        
-        <div fxLayout="row">
-            <mat-form-field fxFlex="100"
-                fxLayout.xs="column">
-                <mat-label>
-                    Correo
-                </mat-label>
-                <input type="text"
-                            matInput
-                            [(ngModel)]="usuario.correo"
-                            required>
-            </mat-form-field>
-        </div>
-
-        <!-- <mat-form-field >
-            <mat-label>
-                Creador
-            </mat-label>
-            <mat-select required
-                        [(ngModel)]="usuario.publisher"
-                        >
-                <mat-option *ngFor="let publisher of publishers"
-                            [value]="publisher._id">
-                    {{publisher.desc}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field> -->
-
-        <!-- <mat-form-field >
-            <mat-label>
-                Url Foto
-            </mat-label>
-            <input type="url"
-                    matInput
-                    [(ngModel)]="usuario.alt_img"
-                    required>
-        </mat-form-field>
-        <br> -->
-        
-        <div fxLayout fxLayout fxLayoutAlign="center">
-            <span class="spacer"></span>
-
-            <button mat-raised-button 
-                    color="accent"
-                    (click)="guardar()">
-                <mat-icon>save_as</mat-icon>
-                {{
-                    (usuario.uid)
-                    ? 'Actualizar usuario'
-                    : 'Crear usuario'
-                }}
-            </button>
+            </div>
         </div>
         
     </div>
+</body>
+
+
+<!-- <body class="contenedorUser">
     <br>
 
-    <!-- <div fxFlex="50">
-        <img [src]="usuario | imagen" alt="usuario">
-    </div> -->
-
-</div>
+    <span fxLayout="row"  >
+        <span fxLayoutAlign="center" fxFlex="23">
+            <button mat-button color="warn" (click)="volver()">
+                <span class="material-icons">
+                    arrow_back
+                    </span>
+            </button>
+        </span>
+        <span fxLayoutAlign="center" fxFlex="50">
+            <h1>
+                <span class="material-icons"> 
+                    edit
+                </span>
+                {{
+                    (usuario.uid)
+                    ? 'Editar usuario'
+                    : 'Agregar usuario'
+                }}
+                :
+            </h1>
+        </span>
+    </span>
+    <br>
+        <mat-divider></mat-divider>
+    <br>
+    
+    <div fxLayout="row" style="margin-left: 8%; margin-right: 8%;"
+        fxLayoutGap="60px"
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        >
+    
+        <div fxFlex="60"
+            fxFlex.lg="50"
+            fxFlex.sm="50">
+            
+            <div fxLayout="row"
+                fxLayout.xs="column"
+                fxLayoutGap="20px">
+    
+                <mat-form-field fxFlex="100"
+                                fxLayout.xs="column">
+                    <mat-label>
+                        Nombre
+                    </mat-label>
+                    <input type="text"
+                            matInput
+                            [(ngModel)]="usuario.nombre"
+                            required>
+                </mat-form-field>
+    
+            </div>
+            
+            <div fxLayout="row">
+                <mat-form-field fxFlex="100"
+                    fxLayout.xs="column">
+                    <mat-label>
+                        Correo
+                    </mat-label>
+                    <input type="text"
+                                matInput
+                                [(ngModel)]="usuario.correo"
+                                required>
+                </mat-form-field>
+            </div>
+            
+            <div fxLayout fxLayout fxLayoutAlign="center">
+                <span class="spacer"></span>
+    
+                <button mat-raised-button 
+                        color="accent"
+                        (click)="guardar()">
+                    <mat-icon>save_as</mat-icon>
+                    {{
+                        (usuario.uid)
+                        ? 'Actualizar usuario'
+                        : 'Crear usuario'
+                    }}
+                </button>
+            </div>
+            
+        </div>
+        <br>
+    
+    </div>
+</body> -->

@@ -1,22 +1,92 @@
+<mat-card class="tarjeta-usuario" fxLayout="column" >
 
-<mat-card style="border-radius: 10px;">
+    <mat-card-title-group  fxLayout="row wrap"
+        fxLayout.xs="column"
+        fxFlex="100"
+        fxFlex.lg="90"
+        fxFlex.sm="80" >
+        <mat-card-title 
+            fxLayoutAlign="center" 
+            fxLayout="row "  
+            fxLayout.xs="column"
+            style="margin-top: 5%; margin-bottom: 20%;">
+          Configuracion de la cuenta
+        </mat-card-title>
+
+        <mat-card-subtitle
+            fxLayout="row wrap" 
+            fxLayout.xs="column"
+            fxLayoutAlign="center" >
+            <div fxLayout="row wrap" style="margin-left: 3%; margin-right: 5%;" 
+                fxFlex="100" >
+                <mat-card-subtitle style="margin-left: 3%; margin-right: 5%;" >
+                    Nombre: 
+                </mat-card-subtitle>
+                <mat-card-title  >
+                    {{usuario.nombre}}
+                </mat-card-title>
+            </div>
+                <br>
+            <div fxLayout="row wrap" style="margin-left: 3%; margin-right: 5%;" 
+                fxFlex="100" >
+                <mat-card-subtitle style="margin-left: 3%; margin-right: 5%;" >
+                    Correo: 
+                </mat-card-subtitle>
+                <span >
+                    {{usuario.correo}}
+                </span>
+            </div>
+        </mat-card-subtitle>
+        
+        <span fxLayout="row wrap" fxLayout.xs="column" >
+            <img style="margin-top: 20%; 
+                margin-right: 5%;
+                margin-left: 5%;
+                height: 200px;
+                width: 250px;
+                border-radius:  10px; " fxLayout="row wrap" fxLayout.xs="column"
+                mat-card-xl-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP_e849pwUnr062RS03-CXFq4U4yzH1iNulg&usqp=CAU" >
+        
+        </span>
     
-    <mat-card-header fxLayoutAlign="center">
+    </mat-card-title-group>
+    <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
+        <mat-card-actions fxLayoutAlign="center">
+            <!-- <button mat-button color="warn" 
+                    [routerLink]="['/home/usuario/editar',usuario.uid]">
+                Editar
+            </button> -->
+            <button class="boton seis" 
+                mat-button
+                [routerLink]="['/home/usuario/editar',usuario.uid]">
+				<span>Editar</span>
+				<svg>
+					<rect x="0" y="0" fill="none"></rect>
+				</svg>
+			</button>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>
+
+
+
+<!-- <mat-card style="border-radius: 10px;">
+    
+    <mat-card-header fxLayoutAlign="center" fxLayout="row " >
         <mat-card-title >
             Configuracion de la cuenta
         </mat-card-title>
-        <!-- <mat-card-title>{{usuario.nombre}}</mat-card-title> -->
     </mat-card-header>
-    <br>
+    <br><br><br><br>
 
     <mat-card-header 
         fxLayout="row wrap" 
         fxLayout.xs="column"
         fxLayoutAlign="center" >
 
-        <div fxLayout="row wrap" style="margin-left: 10%; margin-right: 10%;" 
+        <div fxLayout="row wrap" style="margin-left: 3%; margin-right: 5%;" 
             fxFlex="100" >
-            <mat-card-subtitle style="margin-left: 10%; margin-right: 10%;" >
+            <mat-card-subtitle style="margin-left: 3%; margin-right: 5%;" >
                 Nombre: 
             </mat-card-subtitle>
             <mat-card-title  >
@@ -24,14 +94,31 @@
             </mat-card-title>
         </div>
             <br>
-        <div fxLayout="row wrap" style="margin-left: 10%; margin-right: 10%;" 
+        <div fxLayout="row wrap" style="margin-left: 3%; margin-right: 5%;" 
             fxFlex="100" >
-            <mat-card-subtitle style="margin-left: 10%; margin-right: 12%;" >
+            <mat-card-subtitle style="margin-left: 3%; margin-right: 5%;" >
                 Correo: 
             </mat-card-subtitle>
             <span >
                 {{usuario.correo}}
             </span>
+        </div>
+            
+    </mat-card-header>
+
+    <mat-card-header 
+        fxLayout="row " 
+        fxLayout.xs="column"
+        fxLayoutAlign="end" >
+
+        <div fxLayout="row " style="margin-left: 60%; margin-right: 5%; margin-top: -20%;" 
+            fxFlex="100" >
+            <mat-card-subtitle style="margin-left: 10%; margin-right: 10%;" >
+                Foto: 
+            </mat-card-subtitle>
+            <mat-card-title  style="margin-top: 10%; margin-right: 10%;" >
+                <img mat-card-xl-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+            </mat-card-title>
         </div>
             
     </mat-card-header>
@@ -43,4 +130,4 @@
         </button>
     </mat-card-actions>
 
-</mat-card>
+</mat-card> -->

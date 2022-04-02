@@ -1,6 +1,6 @@
 
-<mat-card class="tarjeta-cancion">
-    <mat-card-header fxLayout="row" fxLayoutAlign="space-between start" >
+<mat-card class="tarjeta-cancion" fxLayout="row" fxLayoutAlign="space-between center"  >
+    <mat-card-header fxLayout="row" fxLayoutAlign="space-between start" style="margin-top: 10px;" >
         <mat-card-title fxLayoutAlign="start">
             <span class="material-icons">
                 music_note
@@ -8,64 +8,60 @@
             {{cancion.nombre}}
         </mat-card-title>
     
-        <mat-card-content fxLayoutAlign="end" style="margin-top: -10px" >
-            <p>
-                <strong>Descripcion:</strong>
-                {{cancion.link}}
-                <br>
-                <strong *ngIf="cancion.img" >Partitura:</strong>
-                <a *ngIf="cancion.img" target="_blank" rel="noopener noreferrer" href="{{ cancion.img }}">Repertorio</a>
-                <!-- <strong>Usuario:</strong>
-                {{cancion.usuario.nombre}}
-                <br> -->
-                <!-- <strong>Repertorio:</strong>
-                <span>
-                    {{cancion.repertorio.nombre}}
-                </span> -->
-            </p>
-        </mat-card-content>
-
-        <!-- Partituras -->
-        <mat-card-content fxLayoutAlign="end center" style="margin-top: -10px;" >
-            <div class="example-button-container" *ngIf="cancion.img; else divPartitura">
-                <button mat-mini-fab color="warn" aria-label="Example icon button with a home icon" (click)="onViewPartitura()">
-                    <mat-icon>visibility</mat-icon>
-                </button>
-            </div>
-            <ng-template #divPartitura>
-                <button mat-mini-fab color="accent" aria-label="Example icon button with a home icon" (click)="onAddPartitura()">
-                    <mat-icon>add_box</mat-icon>
-                </button>
-                <!-- <button mat-raised-button color="accent" (click)="onAddPartitura()">
-                    <mat-icon>add_box</mat-icon>
-                    Agregar partitura
-                </button> -->
-            </ng-template>
-        </mat-card-content>
-        <!-- mat-raised-button -->
-        <mat-card-actions fxLayoutAlign="end start" style="margin-top: -15px;">
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" class="customize"> 
-                <button mat-menu-item
-                    (click)="onEditCancion()">
-                    <button mat-raised-button color="accent">
-                        <mat-icon>edit</mat-icon>
-                        Actualizar
-                    </button>
-                </button>
-                <button mat-menu-item 
-                    (click)="borrarCancion()">
-                    <button mat-raised-button color="warn">
-                        <mat-icon>delete</mat-icon>
-                        Eliminar
-                    </button>
-                </button>
-            </mat-menu>
-        </mat-card-actions>
     </mat-card-header>
 
+    <mat-card-content fxLayoutAlign="end" style="margin-top: 10px; overflow: hidden;" >
+        <p>
+            <strong>Descripcion:</strong>
+            {{cancion.link}}
+            <br>
+            <strong *ngIf="cancion.img" >Partitura:</strong>
+            <a *ngIf="cancion.img" target="_blank" rel="noopener noreferrer" href="{{ cancion.img }}">Repertorio</a>
+            <!-- <strong>Usuario:</strong>
+            {{cancion.usuario.nombre}}
+            <br> -->
+            <!-- <strong>Repertorio:</strong>
+            <span>
+                {{cancion.repertorio.nombre}}
+            </span> -->
+        </p>
+    </mat-card-content>
+
+    <!-- Partituras -->
+    <mat-card-content fxLayoutAlign="end center" style="margin-top: 10px;" >
+        <div class="example-button-container" *ngIf="cancion.img; else divPartitura">
+            <button mat-mini-fab color="warn" aria-label="Example icon button with a home icon" (click)="onViewPartitura()">
+                <mat-icon>visibility</mat-icon>
+            </button>
+        </div>
+        <ng-template #divPartitura>
+            <button mat-mini-fab color="accent" aria-label="Example icon button with a home icon" (click)="onAddPartitura()">
+                <mat-icon>add_box</mat-icon>
+            </button>
+        </ng-template>
+    </mat-card-content>
+    <!-- mat-raised-button -->
+    <mat-card-actions fxLayoutAlign="end start" style="margin-top: -15px;">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" class="customize"> 
+            <button mat-menu-item
+                (click)="onEditCancion()">
+                <button mat-raised-button color="accent">
+                    <mat-icon>edit</mat-icon>
+                    Actualizar
+                </button>
+            </button>
+            <button mat-menu-item 
+                (click)="borrarCancion()">
+                <button mat-raised-button color="warn">
+                    <mat-icon>delete</mat-icon>
+                    Eliminar
+                </button>
+            </button>
+        </mat-menu>
+    </mat-card-actions>
     <!-- <img mat-card-image [src]="repertorio | imagen"> -->
 
 
