@@ -1,79 +1,83 @@
-<mat-grid-list cols="1" *ngIf="!repertorio; else divRepertorio">
-    <mat-grid-tile>
-        <mat-spinner></mat-spinner>
-    </mat-grid-tile>
-</mat-grid-list>
-
-<ng-template #divRepertorio>
-    <br>
-    <span fxLayout="row"  >
-        <span fxLayoutAlign="center" fxFlex="21">
-            <button mat-button color="warn" (click)="volver()">
-                <span class="material-icons">
-                    arrow_back
-                    </span>
-            </button>
-        </span>
-        <span fxLayoutAlign="start" fxFlex="100">
-            <h1>
-                <span class="material-icons"> 
-                    playlist_add
-                </span>
-                {{repertorio.nombre}}
-            </h1>
-        </span>
-    </span>
-    <br>
-        <mat-divider></mat-divider>
-    <br>
-
-    <div fxLayout="row" style="margin-left: 8%; margin-right: 8%;"
-        fxLayoutGap="100px"
-        fxLayout.xs="column"
-        fxLayoutAlign="center"
-        >
-
-        <div fxFlex="100"
-            fxFlex.lg="95"
-            fxFlex.sm="90">
-
-            <div fxLayout="row wrap"
-                fxLayout.xs=""
-                fxLayoutGap="20px">
-                <div fxFlex="50" fxFlex.lg="45" fxFlex.sm="40" fxLayoutAlign="start">
-                    <span >Canciones: </span>
-                </div>
-
-                <div fxFlex="50" fxFlex.lg="45" fxFlex.sm="40" fxLayoutAlign="end">
-                    <button mat-button color="warn" 
-                        (click)="onNewCancion()" >
-                        <span class="material-icons">
-                            add_circle
+<body class="contenedorRepertorio">
+    
+    <mat-grid-list cols="1" *ngIf="!repertorio; else divRepertorio">
+        <mat-grid-tile>
+            <mat-spinner></mat-spinner>
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+    <ng-template #divRepertorio>
+        <br>
+        <span fxLayout="row"  >
+            <span fxLayoutAlign="center" fxFlex="21">
+                <button mat-button color="warn" (click)="volver()">
+                    <span class="material-icons">
+                        arrow_back
                         </span>
-                        Agregar Cancion
-                    </button>
+                </button>
+            </span>
+            <span fxLayoutAlign="start" fxFlex="100">
+                <h1>
+                    <span class="material-icons"> 
+                        playlist_add
+                    </span>
+                    {{repertorio.nombre}}
+                </h1>
+            </span>
+        </span>
+        <br>
+            <mat-divider></mat-divider>
+        <br>
+    
+        <div fxLayout="row" style="margin-left: 8%; margin-right: 8%;"
+            fxLayoutGap="100px"
+            fxLayout.xs="column"
+            fxLayoutAlign="center"
+            >
+    
+            <div fxFlex="100"
+                fxFlex.lg="95"
+                fxFlex.sm="90">
+    
+                <div fxLayout="row wrap"
+                    fxLayout.xs=""
+                    fxLayoutGap="20px">
+                    <div fxFlex="50" fxFlex.lg="45" fxFlex.sm="40" fxLayoutAlign="start">
+                        <span >Canciones: </span>
+                    </div>
+    
+                    <div fxFlex="50" fxFlex.lg="45" fxFlex.sm="40" fxLayoutAlign="end">
+                        <button mat-button color="warn" 
+                            (click)="onNewCancion()" >
+                            <span class="material-icons">
+                                add_circle
+                            </span>
+                            Agregar Cancion
+                        </button>
+                    </div>
+                    
                 </div>
+                <mat-divider></mat-divider>
                 
             </div>
-            <mat-divider></mat-divider>
+        </div>
+        
+        <div style="margin-left: 8%; margin-right: 8%; margin-top: 2%;" 
+            fxLayout="column" 
+            fxLayout.xs="column"
+            fxLayoutAlign="center"
+            fxLayoutGap="5px">
+            
+            <div fxFlex="100"
+                fxFlex.lg="100"
+                fxFlex.sm="100"
+                *ngFor="let cancion of canciones">
+                <div >
+                    <app-cancion-tarjeta [cancion]="cancion"></app-cancion-tarjeta>
+                </div>
+            </div>
             
         </div>
-    </div>
-    
-    <div style="margin-left: 8%; margin-right: 8%; margin-top: 2%;" 
-        fxLayout="column" 
-        fxLayout.xs="column"
-        fxLayoutAlign="center"
-        fxLayoutGap="5px">
-        
-        <div fxFlex="100"
-            fxFlex.lg="100"
-            fxFlex.sm="100"
-            *ngFor="let cancion of canciones">
-            <div >
-                <app-cancion-tarjeta [cancion]="cancion"></app-cancion-tarjeta>
-            </div>
-        </div>
-        
-    </div>
-</ng-template>
+    </ng-template>
+
+</body>
