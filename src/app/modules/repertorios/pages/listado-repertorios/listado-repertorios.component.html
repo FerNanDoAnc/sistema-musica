@@ -11,21 +11,22 @@
     <br>
     <mat-divider></mat-divider>
     <br>
-    
+
     <div fxLayout="row wrap" 
         fxLayout.xs="column"
         fxLayoutAlign="center"
         fxLayoutGap="25px">
-    
+
         <div fxFlex="50"
             fxFlex.lg="40"
             fxFlex.sm="30"
             *ngFor="let repertorio of repertorios">
             <div class="p-2">
                 <app-repertorio-tarjeta [repertorio]="repertorio"></app-repertorio-tarjeta>
-    
+
             </div>
         </div>
     </div>
-</body>    
+
+</body>
 
