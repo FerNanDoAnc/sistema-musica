@@ -67,7 +67,6 @@ export class LoginComponent  {
             title: 'Error',
             text: ''+ok+'!',
             icon: 'error',
-            timer: 2500,
             confirmButtonText: 'Ok',
             width: 350
           });

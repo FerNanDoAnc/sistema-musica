@@ -11,10 +11,10 @@
       </mat-card-actions>
 
     </mat-card-header>
-    <div>{{cancion.img}}</div>
-    <img mat-card-image [src]="cancion.img" alt="Repertorio">
-    <!-- <iframe [src]="cancion.img"
-      width="800px" height="680px" type="application/pdf">
-    </iframe> -->
+    <!-- <div>{{cancion.img}}</div> -->
+    <!-- <img mat-card-image [src]="cancion.img" alt="Repertorio"> -->
+    <iframe src="http://docs.google.com/viewer?url={{cancion.img}}&embedded=true" width="100%" height="500px" style="border: none;">
+    </iframe>
+    
   </mat-card>
   
