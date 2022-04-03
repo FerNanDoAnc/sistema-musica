@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ListarPartituraDialogComponent } from '../listar-partitura-dialog/listar-partitura-dialog.component';
 import { CrearPartituraDialogComponent } from '../crear-partitura-dialog/crear-partitura-dialog.component';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-listar-partitura',
@@ -10,6 +11,9 @@ import { CrearPartituraDialogComponent } from '../crear-partitura-dialog/crear-p
 })
 export class ListarPartituraComponent implements OnInit {
 
+  name = 'Angular 6';
+  visorPdf: SafeResourceUrl;
+
   @Input() cancion!: any ;
 
   constructor(
@@ -17,8 +21,12 @@ export class ListarPartituraComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data:any,
 
     public dialog: MatDialog,
+    private sanitizer: DomSanitizer,
+    
 
-  ) { }
+  ) { 
+    this.visorPdf =  this.sanitizer.bypassSecurityTrustResourceUrl(this.data.content.img);
+  }
 
   ngOnInit(): void {
     if(this.data?.content?.hasOwnProperty('_id')){
