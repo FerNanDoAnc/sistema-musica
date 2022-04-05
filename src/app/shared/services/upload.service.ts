@@ -19,9 +19,9 @@ export class UploadService {
     return this.http.put<any>(`${this.baseUrl}/uploads/canciones/${cancion.get('_id')}`, cancion);
   }
 
-  actualizarUsuPartitura(usuario: any):Observable<any>{
+  actualizarUsuarioPerfil(usuario: FormData):Observable<any>{
     console.log("ACTUALIZAR CANCION",usuario);
-    return this.http.put<any>(`${this.baseUrl}/uploads/usuarios/${usuario.uid}`, usuario);
+    return this.http.put<any>(`${this.baseUrl}/uploads/usuarios/${usuario.get('uid')}`, usuario);
   }
 
 }

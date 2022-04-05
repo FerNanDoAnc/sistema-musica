@@ -104,16 +104,22 @@
                         </mat-card-subtitle>
                         
                         <span fxLayout="row wrap" fxLayout.xs="column" >
-                            <img style="margin-top: 20%; 
-                                margin-right: 5%;
-                                margin-left: 5%;
-                                height: 200px;
-                                width: 250px;
-                                border-radius:  10px; " fxLayout="row wrap" fxLayout.xs="column"
-                                mat-card-xl-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP_e849pwUnr062RS03-CXFq4U4yzH1iNulg&usqp=CAU" >
-                        
+                            <label for="archivo">
+                                <img style="margin-top: 10%; 
+                                    margin-right: 5%;
+                                    margin-left: 5%;
+                                    height: 200px;
+                                    width: 250px;
+                                    border-radius:  10px; " fxLayout="row wrap" fxLayout.xs="column"
+                                    mat-card-xl-image [src]="imageSrc || usuario.img" >
+                                    <span style="margin-left: 30%;"> Seleccionar foto</span>
+                            </label>
                         </span>
-                    
+                        <form class="custom-input-file"  style="margin-left: 50%; display: none; ">
+                            <input type="file" id="archivo" (change)="onFileChange($event)" name="archivo"
+                               >
+                        </form>
+                                
                     </mat-card-title-group>
                     <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
                         <div fxLayout fxLayout fxLayoutAlign="center">
