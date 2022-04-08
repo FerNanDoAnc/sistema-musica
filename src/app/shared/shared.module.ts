@@ -15,6 +15,7 @@ import { ConfirmarComponent } from './components/confirmar/confirmar.component';
 import { UsuarioTarjetaComponent } from './components/usuario-tarjeta/usuario-tarjeta.component';
 import { CancionTarjetaComponent } from './components/cancion-tarjeta/cancion-tarjeta.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { IntegranteTarjetaComponent } from './components/integrante-tarjeta/integrante-tarjeta.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ConfirmarComponent,
     UsuarioTarjetaComponent,
     CancionTarjetaComponent,
+    IntegranteTarjetaComponent,
   ],
   imports: [
     CommonModule,
@@ -45,7 +47,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     SideBarComponent,
     UsuarioTarjetaComponent,
     CancionTarjetaComponent,
-    FlexLayoutModule
+    FlexLayoutModule,
+    IntegranteTarjetaComponent
   ]
 })
 export class SharedModule { }

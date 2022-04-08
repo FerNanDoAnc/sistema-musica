@@ -11,7 +11,6 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class ListarPartituraComponent implements OnInit {
 
-  name = 'Angular 6';
   visorPdf: SafeResourceUrl;
 
   @Input() cancion!: any ;

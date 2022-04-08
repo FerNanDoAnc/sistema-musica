@@ -1,0 +1,18 @@
+
+
+
+<div fxLayout="column wrap" 
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="25px">
+
+    <div fxFlex="100"
+        fxFlex.lg="90"
+        fxFlex.sm="80"
+        *ngFor="let integrante of correosInte">
+        <div class="p-2">
+            <app-integrante-tarjeta [integrante]="integrante"></app-integrante-tarjeta>
+
+        </div>
+    </div>
+</div>

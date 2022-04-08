@@ -14,6 +14,7 @@ import { RepertoriosModule } from '../repertorios/repertorios.module';
 import { UsuariosModule } from '../usuarios/usuarios.module';
 import { CancionesModule } from '../canciones/canciones.module';
 import { PartiturasModule } from '../partituras/partituras.module';
+import { IntegrantesModule } from '../integrantes/integrantes.module';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { PartiturasModule } from '../partituras/partituras.module';
     UsuariosModule,
     CancionesModule,
     PartiturasModule,
+    IntegrantesModule,
 
     MatGridListModule,
     MatCardModule,

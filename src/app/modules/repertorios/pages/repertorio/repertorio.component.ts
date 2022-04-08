@@ -9,6 +9,7 @@ import { CancionService } from '../../../../shared/services/cancion.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CrearCancionDialogComponent } from '../../../canciones/crear-cancion-dialog/crear-cancion-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AddListIntegrantesComponent } from '../../../../modules/integrantes/pages/add-list-integrantes/add-list-integrantes.component';
 
 @Component({
   selector: 'app-repertorio',
@@ -89,9 +90,28 @@ export class RepertorioComponent implements OnInit {
   }
 
   // =============================================================
+  // MUSICOS-INTEGRANTES
+  // =============================================================
+  onNewMusician(){
+    this.openDialogNewMusician(this.repertorio);
+  }
+  openDialogNewMusician(repertorio?: any): void {
+    const config={
+      data:{
+        content:this.repertorio
+      }
+    };
+    const dialogRef= this.dialog.open(AddListIntegrantesComponent,config);
+    dialogRef.afterClosed().subscribe(resp=>{
+      if(resp){
+        console.log("resp",resp);
+      }
+    });
+  }
+  // =============================================================
   mostrarSnackBar( mensaje:string){
     this.snackBar.open(mensaje, '!Ok', {
-      duration: 2000,
+      duration: 2500,
     });
   }
 
