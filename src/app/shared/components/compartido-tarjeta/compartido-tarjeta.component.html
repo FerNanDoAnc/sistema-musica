@@ -1,0 +1,38 @@
+
+    
+<mat-card class="carta-repertorio">
+    <mat-card-header fxLayoutAlign="space-around center" >
+        <mat-card-title>{{compartido.nombre}}</mat-card-title>
+    </mat-card-header>
+<!-- [routerLink]="['/home/repertorios',repertorio._id]" -->
+    <mat-card-content >
+        <div fxLayout="column" >
+            <div style="margin-left: 4%; margin-right: 6%;">
+                <strong style="margin-left: 10%; margin-right: 6%;" >Nombre:</strong>
+                {{compartido.nombre}}
+                <br>
+            </div>
+            <!-- <div style="margin-left: 4%; margin-right: 6%;">
+                <strong style="margin-left: 10%; margin-right: 6%;">Usuario:</strong>
+                <span>
+                    {{compartido.usuario.nombre}}
+                </span>
+            </div> -->
+        </div>
+    </mat-card-content>
+
+    <mat-card-actions fxLayoutAlign="space-around center" >
+        <!-- <button mat-button color="warn" 
+                [routerLink]="['/home/repertorios/editar',repertorio._id]">
+            Editar
+        </button> -->
+        <!-- <button mat-button color="warn" 
+                [routerLink]="['/home/repertorios',repertorio._id]">
+            Ver Repertorio
+        </button> -->
+        <button mat-button color="warn">
+            Ver Repertorio
+        </button>
+    </mat-card-actions>
+
+</mat-card>

@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { AddListIntegrantesDialogComponent } from '../add-list-integrantes-dialog/add-list-integrantes-dialog.component';
 import { IntegranteService } from '../../../../shared/services/integrante.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ConfirmarComponent } from '../../../../shared/components/confirmar/confirmar.component';
 
 @Component({
   selector: 'app-add-list-integrantes',
@@ -30,6 +31,7 @@ export class AddListIntegrantesComponent implements OnInit {
 
     private integranteService: IntegranteService,
     private snackBar: MatSnackBar,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -57,10 +59,32 @@ export class AddListIntegrantesComponent implements OnInit {
   cudIntegrantes(){
     this.integranteService.actualizarIntegranteRepertorio(this.corInt)
     .subscribe(resp=>{
-      console.log("CUD TS",resp);
-      this.mostrarSnackBar("Registro actualizado")
+      window.location.reload();
+      this.mostrarSnackBar("Usuario Agregado")
       // this.router.navigate(['/home/repertorios']);
     });
+  }
+  
+  borrarUsuario(deleteme:any) {
+    const dialog=this.dialog.open(ConfirmarComponent,{
+      width:'250px',
+      data:{...this.corInt}
+    })
+
+    dialog.afterClosed().subscribe(
+      (result)=>{
+        if(result){
+
+          this.corInt.integrantes.splice(deleteme,1);
+          this.integranteService.actualizarIntegranteRepertorio(this.corInt)
+            .subscribe(resp=>{
+              window.location.reload();
+              this.mostrarSnackBar("Usuario Eliminado")
+            });
+
+        }
+      }
+    );
   }
 
   onclick(prouser:any){

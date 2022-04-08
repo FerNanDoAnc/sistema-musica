@@ -26,6 +26,12 @@
           <mat-icon mat-list-icon>add</mat-icon>
           <span>Añadir Repertorio</span>
       </a>
+
+      <a routerLink="/home/compartidos/lista"
+          mat-list-item (click)="drawer.toggle()">
+          <mat-icon mat-list-icon>group</mat-icon>
+          <span>Compartido Conmigo</span>
+      </a>
       
       <!-- <a routerLink="/home/repertorios/buscar"
           mat-list-item

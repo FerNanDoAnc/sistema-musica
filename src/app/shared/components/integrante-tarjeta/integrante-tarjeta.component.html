@@ -3,7 +3,7 @@
         <mat-card-title fxLayoutAlign="start">
             <span class="material-icons">
                 group &nbsp;&nbsp;
-                </span>
+            </span>
             {{integrante.correo}}
         </mat-card-title>
     </mat-card-header>
@@ -21,7 +21,7 @@
                 </button>
             </button> -->
             <button mat-menu-item 
-                (click)="borrarUsuario()">
+                (click)="borrarUsuario(integrante)">
                 <button mat-raised-button color="warn">
                     <mat-icon>delete</mat-icon>
                     Eliminar

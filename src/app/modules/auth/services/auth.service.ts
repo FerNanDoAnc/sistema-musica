@@ -109,6 +109,7 @@ export class AuthService {
           // para que no se borren los datos al recargar
           localStorage.setItem('token',resp.token!);
           localStorage.setItem('_id',resp._id!);
+          localStorage.setItem('correo',resp.correo!);
           // localStorage.setItem('usuario',JSON.stringify(resp));
           this._usuario = {
             nombre: resp.nombre!,

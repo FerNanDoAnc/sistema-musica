@@ -11,6 +11,7 @@ import { IntegranteService } from '../../services/integrante.service';
 })
 export class IntegranteTarjetaComponent implements OnInit {
 
+  repertorioPorId:any=localStorage.getItem('repertorioPorId');
   @Input() integrante!: any ;
 
   constructor(
@@ -20,10 +21,11 @@ export class IntegranteTarjetaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log("REpertorio",this.integrante);
+
   }
 
-  borrarUsuario() {
+
+  borrarUsuario(deleteme:any) {
     const dialog=this.dialog.open(ConfirmarComponent,{
       width:'250px',
       data:{...this.integrante}
@@ -32,16 +34,12 @@ export class IntegranteTarjetaComponent implements OnInit {
     dialog.afterClosed().subscribe(
       (result)=>{
         if(result){
-          this.integranteService.actualizarIntegranteRepertorio(this.integrante.correo)
+          this.integranteService.actualizarIntegranteRepertorio(this.repertorioPorId)
             .subscribe(resp=>{
               console.log("DELETE TS",resp);
               window.location.reload();
               this.mostrarSnackBar("Usuario Eliminado")
             });
-          // this.cancionService.borrarCancion(this.cancion._id!)
-          //   .subscribe(resp=>{
-          //     window.location.reload();
-          //   })
         }
       }
     );
