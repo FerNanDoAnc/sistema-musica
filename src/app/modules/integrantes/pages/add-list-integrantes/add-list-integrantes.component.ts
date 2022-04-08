@@ -18,15 +18,17 @@ export class AddListIntegrantesComponent implements OnInit {
   correosInte:any []=[];
 
   corInt: any= {
+    _id: this.data.content._id,
     nombre: this.data.content.nombre,
     usuario:this.idLocal,
+    integrantes:this.correosInte,
   }
   
   constructor(
     public dialogRef: MatDialogRef<AddListIntegrantesDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data:any,
 
-    private repertoriosService: IntegranteService,
+    private integranteService: IntegranteService,
     private snackBar: MatSnackBar,
   ) { }
 
@@ -50,16 +52,22 @@ export class AddListIntegrantesComponent implements OnInit {
       this.correosInte.push(element2);
     }
     
-    console.log("CUD TS",this.corInt);
   }
   
   cudIntegrantes(){
-    this.repertoriosService.actualizarIntegranteRepertorio(this.corInt)
+    this.integranteService.actualizarIntegranteRepertorio(this.corInt)
     .subscribe(resp=>{
       console.log("CUD TS",resp);
       this.mostrarSnackBar("Registro actualizado")
       // this.router.navigate(['/home/repertorios']);
     });
+  }
+
+  onclick(prouser:any){
+    this.corInt.integrantes.push({correo:prouser.value});
+    prouser.value='';
+
+    this.cudIntegrantes();
   }
 
   mostrarSnackBar( mensaje:string){

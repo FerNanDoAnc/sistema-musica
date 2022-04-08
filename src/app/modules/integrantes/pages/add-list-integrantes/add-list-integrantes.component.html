@@ -1,5 +1,17 @@
 
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
 
+            <input #myuser type="text" class="form control" placeholder="Ingresa usuario">
+            <button mat-raised-button color="primary" (click)="onclick(myuser)" >
+                <mat-icon>add</mat-icon>
+                Agregar
+            </button>
+            
+        </div>
+    </div>
+</div>
 
 <div fxLayout="column wrap" 
     fxLayout.xs="column"
@@ -12,7 +24,6 @@
         *ngFor="let integrante of correosInte">
         <div class="p-2">
             <app-integrante-tarjeta [integrante]="integrante"></app-integrante-tarjeta>
-
         </div>
     </div>
 </div>
