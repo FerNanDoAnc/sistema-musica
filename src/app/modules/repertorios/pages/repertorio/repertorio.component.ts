@@ -66,6 +66,7 @@ export class RepertorioComponent implements OnInit {
     .subscribe(
       canciones=>{
         this.canciones=canciones;
+        console.log("canciones",canciones);
       },
       err=>console.log(err)
     );

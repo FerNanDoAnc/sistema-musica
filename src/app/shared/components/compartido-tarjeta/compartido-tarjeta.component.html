@@ -1,7 +1,7 @@
 
     
 <mat-card class="carta-repertorio">
-    <mat-card-header fxLayoutAlign="space-around center" >
+    <mat-card-header fxLayoutAlign="space-around center" [routerLink]="['/home/repertorios',compartido._id]">
         <mat-card-title>{{compartido.nombre}}</mat-card-title>
     </mat-card-header>
 <!-- [routerLink]="['/home/repertorios',repertorio._id]" -->
@@ -30,7 +30,7 @@
                 [routerLink]="['/home/repertorios',repertorio._id]">
             Ver Repertorio
         </button> -->
-        <button mat-button color="warn" >
+        <button mat-button color="warn" [routerLink]="['/home/repertorios',compartido._id]" >
             Ver Repertorio
         </button>
     </mat-card-actions>
