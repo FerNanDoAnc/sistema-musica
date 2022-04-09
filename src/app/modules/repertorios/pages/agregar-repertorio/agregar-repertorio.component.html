@@ -41,12 +41,11 @@
         fxFlex.lg="50"
         fxFlex.sm="50">
         
-        <div fxLayout="row"
+        <div fxLayout="row"  style="margin-top: 25px;"
             fxLayout.xs="column"
             fxLayoutGap="20px">
 
-            <mat-form-field fxFlex="100"
-                            fxLayout.xs="column">
+            <mat-form-field fxFlex="100" fxLayout.xs="column">
                 <mat-label>
                     Nombre
                 </mat-label>
@@ -57,9 +56,26 @@
             </mat-form-field>
 
         </div>
-        <br>
+        
+        <span fxLayout="row wrap" fxLayout.xs="column"  style="margin-top: -25px; margin-left: -18px;">
+            <label for="archivo" fxFlex="100">
+                <img style="margin-top: 10%; 
+                    margin-right: 5%;
+                    margin-left: 5%;
+                    height: 200px;
+                    width: 100%;
+                    border-radius:  10px; " fxLayout="row wrap" fxLayout.xs="column"
+                    mat-card-xl-image [src]="imageSrc || repertorio.img" >
+                    <span style="margin-left: 40%;"> Seleccionar Imagen</span>
+            </label>
+        </span>
+        <form class="custom-input-file"  style="margin-left: 50%; display: none; ">
+            <input type="file" id="archivo" (change)="onFileChange($event)" name="archivo"
+               >
+        </form>
 
-        <div fxLayout 
+
+        <div fxLayout style="margin-top: 25px; margin-bottom: 20px;"
             fxLayout.xs="column" 
             fxLayoutAlign="space-evenly center">
             <button *ngIf="repertorio._id"

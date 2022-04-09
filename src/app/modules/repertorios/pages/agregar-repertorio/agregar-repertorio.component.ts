@@ -14,7 +14,8 @@ import { ConfirmarComponent } from '../../../../shared/components/confirmar/conf
 export class AgregarRepertorioComponent implements OnInit {
 
   idLocal:any=localStorage.getItem('_id');
-  // usuario : Usuario[] = [];
+  imageSrc!: string;
+  private fileTmp:any;
 
   repertorio: any= {
     nombre:'',
@@ -39,6 +40,24 @@ export class AgregarRepertorioComponent implements OnInit {
         switchMap(({_id})=>this.repertoriosService.getRepertorioPorId(_id))
       )
       .subscribe(repertorio=>this.repertorio=repertorio);
+  }
+
+  onFileChange(event:any){
+    const [file] = event.target.files;
+    this.fileTmp = {
+      fileRaw: file,
+      fileName: file.name,
+    }
+
+    // PREVIEW
+    this.imageSrc = file.name;
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imageSrc = e.target.result;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
   guardar(){
