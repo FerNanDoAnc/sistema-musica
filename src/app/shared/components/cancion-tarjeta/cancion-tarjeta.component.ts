@@ -19,6 +19,9 @@ export class CancionTarjetaComponent implements OnInit  {
   idLocal:any=localStorage.getItem('_id');
   idRepPorId:any=localStorage.getItem('repertorioPorId');
 
+  usuarioCanReper:any[]=[];
+  mostrarBotones:boolean=false;
+
   constructor(
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
@@ -30,11 +33,12 @@ export class CancionTarjetaComponent implements OnInit  {
   @Input() cancion!: any ;
 
   ngOnInit(): void {
+    this.ocultarMostrarBotones();
+    
     if(!this.router.url.includes('editar')){
       return
     }
     this.getCancionPorIdFuncion();
-    
   }
   // para obtener cancion y borrarla
   getCancionPorIdFuncion(){
@@ -45,6 +49,16 @@ export class CancionTarjetaComponent implements OnInit  {
     .subscribe(cancion=>{
       this.cancion=cancion;
     });
+  }
+
+  ocultarMostrarBotones(){
+    // Obtener id de usuariod e canciones
+      if(this.cancion.usuario._id==this.idLocal){
+        this.mostrarBotones=true;
+      }else{
+        this.mostrarBotones=false;
+      }
+
   }
 
   borrarCancion(){
