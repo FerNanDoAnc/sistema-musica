@@ -24,7 +24,7 @@
                     {{repertorio.nombre}}
                 </h1>
             </span>
-            <div fxFlex="50" fxFlex.lg="45" fxFlex.sm="40" fxLayoutAlign="end">
+            <div fxFlex="50" fxFlex.lg="45" fxFlex.sm="40" fxLayoutAlign="end" *ngIf="mostrarBotonesReper">
                 <button mat-button color="warn" 
                     (click)="onNewMusician()" >
                     <span class="material-icons">
@@ -55,7 +55,7 @@
                         <span style="color: white;" >Canciones: </span>
                     </div>
     
-                    <div fxFlex="50" fxFlex.lg="45" fxFlex.sm="40" fxLayoutAlign="end">
+                    <div fxFlex="50" fxFlex.lg="45" fxFlex.sm="40" fxLayoutAlign="end" *ngIf="mostrarBotonesReper">
                         <button mat-button color="warn" 
                             (click)="onNewCancion()" >
                             <span class="material-icons">

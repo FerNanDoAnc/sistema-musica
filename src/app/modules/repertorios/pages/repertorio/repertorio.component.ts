@@ -19,8 +19,17 @@ import { AddListIntegrantesComponent } from '../../../../modules/integrantes/pag
 export class RepertorioComponent implements OnInit {
 
   idRepertorioLocal:any=localStorage.getItem('_id_repertorio');
+  idLocal:any=localStorage.getItem('_id');
 
+  usuarioRepComp:any[]=[];
+  mostrarBotonesReper:boolean=false;
+
+  usuarioCanReper:any[]=[];
+  mostrarBotones:boolean=false;
+
+  repertorios:any[]=[];
   repertorio! : any;
+
   canciones:any[]=[];
   cancion: any= {
     nombre:'',
@@ -50,11 +59,26 @@ export class RepertorioComponent implements OnInit {
     )
     .subscribe( repertorio=>{
       this.repertorio=repertorio; 
+      this.repertorios.push(repertorio);
+      
+      for(let i of this.repertorios){
+        this.usuarioRepComp.push(i.usuario._id);
+      }
+      for(let i of this.usuarioRepComp){
+        if(this.idLocal==i){
+          this.mostrarBotonesReper=true;
+        }
+      }
     });
   }
 
   volver(){
-    this.router.navigate(['/home/repertorios']);
+    if(this.mostrarBotonesReper==true){
+      this.router.navigate(['/home/repertorios']);
+    }
+    if(this.mostrarBotonesReper==false){
+      this.router.navigate(['/home/compartidos/lista']);
+    }
   }
 
 
@@ -66,7 +90,21 @@ export class RepertorioComponent implements OnInit {
     .subscribe(
       canciones=>{
         this.canciones=canciones;
-        console.log("canciones",canciones);
+
+        // Obtener id de usuariod e canciones
+        // for(let i of this.canciones){
+        //   this.usuarioCanReper.push(i.usuario._id);
+        // }
+        // for(let i of this.usuarioCanReper){
+        //   if(this.idLocal==i){
+        //     this.mostrarBotones=true;
+        //     console.log("BOTON TRUE");
+        //   }
+        //   if(this.idLocal!=i){
+        //     this.mostrarBotones=false;
+        //     console.log("BOTON FALSE");
+        //   }
+        // }
       },
       err=>console.log(err)
     );
@@ -85,7 +123,6 @@ export class RepertorioComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(resp=>{
       if(resp){
-        console.log("resp",resp);
       }
     });
   }
@@ -105,7 +142,7 @@ export class RepertorioComponent implements OnInit {
     const dialogRef= this.dialog.open(AddListIntegrantesComponent,config);
     dialogRef.afterClosed().subscribe(resp=>{
       if(resp){
-        console.log("resp",resp);
+        
       }
     });
   }

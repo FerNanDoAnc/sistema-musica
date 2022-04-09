@@ -87,7 +87,6 @@ export class CancionTarjetaComponent implements OnInit  {
     const dialogRef= this.dialog.open(CrearCancionDialogComponent,config);
     dialogRef.afterClosed().subscribe(resp=>{
       if(resp){
-        console.log("onEditCancion",resp);
         // this.guardarCancion();
         // this.router.navigate(['/home/crear-cancion']);
       }
@@ -109,7 +108,7 @@ export class CancionTarjetaComponent implements OnInit  {
     const dialogRef= this.dialog.open(ListarPartituraDialogComponent,config);
     dialogRef.afterClosed().subscribe(resp=>{
       if(resp){
-        console.log("onViewPartitura",resp);
+
       }
     });
   }
@@ -126,7 +125,6 @@ export class CancionTarjetaComponent implements OnInit  {
     const dialogRef= this.dialog.open(CrearPartituraDialogComponent,config);
     dialogRef.afterClosed().subscribe(resp=>{
       if(resp){
-        console.log("onAddPartitura",resp);
       }
     });
   }

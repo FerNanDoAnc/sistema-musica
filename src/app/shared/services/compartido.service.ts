@@ -16,8 +16,7 @@ export class CompartidoService {
     return this.http.get<any>(`${this.baseUrl}/repertorios/compartido/${correo}`)
     .pipe(
       map(
-        (resp:any )=>{
-          console.log("SERVICE COMPARTIDO",resp);
+        (resp:any )=>{ 
           return [resp.integrantes];
         }
       )

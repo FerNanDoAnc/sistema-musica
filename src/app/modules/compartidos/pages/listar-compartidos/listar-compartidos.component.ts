@@ -9,11 +9,13 @@ import { CompartidoService } from '../../../../shared/services/compartido.servic
 export class ListarCompartidosComponent implements OnInit {
 
   correoLocal:any=localStorage.getItem('correo');
-  idLocal:any=localStorage.getItem('_id');
+  idLocal:any=localStorage.getItem('_id'); 
+
+  usuarioRepComp:any[]=[];
+  mostrarBotones:boolean=false;
 
   capturarCorreoBackend:any[]=[];
   separarCorreos:any =[];
-  separarCorreosDos:any []=[];
 
   compartidos:any[] =[];
 
@@ -36,6 +38,16 @@ export class ListarCompartidosComponent implements OnInit {
           this.separarCorreos.push(element);
         }
         this.compartidos=this.separarCorreos;
+
+        // mostrar botones si id es igual
+        for(let i of this.separarCorreos){
+          this.usuarioRepComp.push(i.usuario);
+        }
+        for(let i of this.usuarioRepComp){
+          if(this.idLocal==i){
+            this.mostrarBotones=true;
+          }
+        }
 
       },
       err=>console.log(err)
