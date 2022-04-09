@@ -26,12 +26,13 @@
         </div>
     </mat-card-content>
 
-    <mat-card-actions fxLayoutAlign="space-around center" style="margin-top: -8%;" >
-        <button mat-button color="warn" 
+    <mat-card-actions fxLayoutAlign="space-around center" style="margin-top: -5%;" >
+        <button mat-button style="background-color: #FFA23A; color: white; border-radius: 6px; "
                 [routerLink]="['/home/repertorios/editar',repertorio._id]">
+                <img style="height: 30px;" src="https://img.icons8.com/dotty/80/000000/refresh.png"/>
             Editar
         </button>
-        <button mat-button color="warn" 
+        <button mat-button style="background-color: #7F46F1; color: white; border-radius: 6px; "
                 [routerLink]="['/home/repertorios',repertorio._id]">
             Ver Repertorio
         </button>

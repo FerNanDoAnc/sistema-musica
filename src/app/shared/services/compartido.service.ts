@@ -17,6 +17,7 @@ export class CompartidoService {
     .pipe(
       map(
         (resp:any )=>{ 
+          console.log("COMPRT SERVICE",resp);
           return [resp.integrantes];
         }
       )

@@ -47,19 +47,17 @@ export class AddListIntegrantesComponent implements OnInit {
     for(let element of inteValue){
       this.integrantes.push(element);
     }
-
     // Obtener correos de integrantes
-    const corr= Object.values(this.integrantes[3]);
+    const corr= Object.values(this.integrantes[4]);
     for(let element2 of corr){
       this.correosInte.push(element2);
     }
-    
   }
   
   cudIntegrantes(){
     this.integranteService.actualizarIntegranteRepertorio(this.corInt)
     .subscribe(resp=>{
-      window.location.reload();
+      // window.location.reload();
       this.mostrarSnackBar("Usuario Agregado")
       // this.router.navigate(['/home/repertorios']);
     });
@@ -78,7 +76,7 @@ export class AddListIntegrantesComponent implements OnInit {
           this.corInt.integrantes.splice(deleteme,1);
           this.integranteService.actualizarIntegranteRepertorio(this.corInt)
             .subscribe(resp=>{
-              window.location.reload();
+              // window.location.reload();
               this.mostrarSnackBar("Usuario Eliminado")
             });
 

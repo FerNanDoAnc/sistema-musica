@@ -46,6 +46,7 @@ export class ListarCompartidosComponent implements OnInit {
         for(let i of this.usuarioRepComp){
           if(this.idLocal==i){
             this.mostrarBotones=true;
+            console.log("BOTON TRUE");
           }
         }
 
