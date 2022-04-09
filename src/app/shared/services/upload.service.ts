@@ -15,13 +15,16 @@ export class UploadService {
   ) { }
 
   actualizarCanPartitura(cancion: FormData):Observable<any>{
-    console.log("ADD PARTITURA SERVICE",cancion);
     return this.http.put<any>(`${this.baseUrl}/uploads/canciones/${cancion.get('_id')}`, cancion);
   }
 
   actualizarUsuarioPerfil(usuario: FormData):Observable<any>{
-    console.log("ACTUALIZAR CANCION",usuario);
     return this.http.put<any>(`${this.baseUrl}/uploads/usuarios/${usuario.get('uid')}`, usuario);
+  }
+
+  actualizarRepertorioPerfil(repertorio: FormData):Observable<any>{
+    console.log("ACTUALIZAR REPERTORIO IMG",repertorio);
+    return this.http.put<any>(`${this.baseUrl}/uploads/repertorios/${repertorio.get('_id')}`, repertorio);
   }
 
 }

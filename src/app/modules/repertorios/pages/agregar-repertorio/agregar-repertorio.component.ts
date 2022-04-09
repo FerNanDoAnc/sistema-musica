@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { RepertorioService } from '../../../../shared/services/repertorio.service';
 import { ConfirmarComponent } from '../../../../shared/components/confirmar/confirmar.component';
+import { UploadService } from '../../../../shared/services/upload.service';
 
 @Component({
   selector: 'app-agregar-repertorio',
@@ -27,7 +28,8 @@ export class AgregarRepertorioComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router:Router,
     private snackBar: MatSnackBar,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private uploadService: UploadService,
   ) { }
 
   ngOnInit(): void {
@@ -60,6 +62,20 @@ export class AgregarRepertorioComponent implements OnInit {
     }
   }
 
+  onUpload(){
+    
+    const repertorio= new FormData();
+    repertorio.append('archivo',this.fileTmp.fileRaw);
+    repertorio.append('_id',this.repertorio._id);
+    
+    this.uploadService.actualizarRepertorioPerfil(repertorio)
+      .subscribe(resp=>{
+        console.log("REPERTORIO ACTU",resp);
+        window.location.reload();
+      })
+
+
+  }
   guardar(){
     // if(this.repertorio.nombre.trim().length === 0){
     //   return;
@@ -72,6 +88,8 @@ export class AgregarRepertorioComponent implements OnInit {
           this.mostrarSnackBar("Registro actualizado")
           this.router.navigate(['/home/repertorios']);
         });
+
+      this.onUpload();
     }
     else{ 
       // Crear
