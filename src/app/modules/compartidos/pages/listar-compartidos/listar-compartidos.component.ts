@@ -27,7 +27,11 @@ export class ListarCompartidosComponent implements OnInit {
     .subscribe(
       compartidos=>{
         if(compartidos.usuario==this.idLocal){
-          console.log("SON DIFERNETES");
+          console.log("SON IGUALES");
+        }
+        else{
+          console.log("COMPR",compartidos.usuario);
+          console.log("LOCAL",this.idLocal);
           this.compartidos=compartidos;
           console.log("COMPARTIDO TS",this.compartidos);
         }
