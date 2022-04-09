@@ -16,6 +16,8 @@ export class AgregarRepertorioComponent implements OnInit {
 
   idLocal:any=localStorage.getItem('_id');
   imageSrc!: string;
+  imgDefault:string = '../../../../../assets/imagen-modulos/back-repert.jpg';
+
   private fileTmp:any;
 
   repertorio: any= {
@@ -33,6 +35,7 @@ export class AgregarRepertorioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log("repertorio",this.repertorio);
     if(!this.router.url.includes('editar')){
       return
     }
@@ -42,6 +45,7 @@ export class AgregarRepertorioComponent implements OnInit {
         switchMap(({_id})=>this.repertoriosService.getRepertorioPorId(_id))
       )
       .subscribe(repertorio=>this.repertorio=repertorio);
+
   }
 
   onFileChange(event:any){
