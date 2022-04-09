@@ -2,9 +2,11 @@
 <mat-card class=" col-12 tarjeta-cancion" fxLayout="row" fxLayoutAlign="space-between center"  >
     <mat-card-header class="col-4" fxLayout="row" fxLayoutAlign="start" style="margin-top: 10px;overflow: hidden;" >
         <mat-card-title fxLayoutAlign="start">
-            <span class="material-icons">
+            <!-- <span class="material-icons">
                 music_note
-                </span>
+                </span> -->
+            <span><img style="width: 40px;height: 40px;" src="https://img.icons8.com/color/48/000000/music--v1.png"></span>
+            
             {{cancion.nombre}}
         </mat-card-title>
     
@@ -23,20 +25,27 @@
     <!-- Partituras -->
     <mat-card-content class="col-1" fxLayoutAlign="start" style="margin-top: 10px;overflow: hidden;" >
         <div class="example-button-container" *ngIf="cancion.img; else divPartitura">
-            <button mat-mini-fab color="warn" aria-label="Example icon button with a home icon" (click)="onViewPartitura()">
-                <mat-icon>visibility</mat-icon>
+            <button aria-label="Example icon button with a home icon" (click)="onViewPartitura()">
+                <span><img style="width: 40px;height: 40px;" src="https://img.icons8.com/nolan/64/visible.png"/></span>
             </button>
+            <!-- <button mat-mini-fab color="warn" aria-label="Example icon button with a home icon" (click)="onViewPartitura()">
+                <mat-icon>visibility</mat-icon>
+            </button> -->
         </div>
         <ng-template #divPartitura >
-            <button mat-mini-fab color="accent" aria-label="Example icon button with a home icon" (click)="onAddPartitura()" *ngIf="mostrarBotones">
-                <mat-icon>add_box</mat-icon>
+            <button aria-label="Example icon button with a home icon" (click)="onAddPartitura()" *ngIf="mostrarBotones">
+                <span><img style="width: 40px;height: 40px;" src="https://img.icons8.com/color/48/000000/add-tag.png"/></span>
             </button>
+            <!-- <button mat-mini-fab color="accent" aria-label="Example icon button with a home icon" (click)="onAddPartitura()" *ngIf="mostrarBotones">
+                <mat-icon>add_box</mat-icon>
+            </button> -->
         </ng-template>
     </mat-card-content>
     <!-- mat-raised-button -->
     <mat-card-actions class="col-1" fxLayoutAlign="start" style="margin-top: -15px;" *ngIf="mostrarBotones">
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-            <mat-icon>more_vert</mat-icon>
+            <!-- <mat-icon>more_vert</mat-icon> -->
+            <span><img style="width: 40px;height: 40px;" src="https://img.icons8.com/color-glass/48/000000/menu-2.png"/></span>
         </button>
         <mat-menu #menu="matMenu" class="customize"> 
             <button mat-menu-item

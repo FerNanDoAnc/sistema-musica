@@ -9,28 +9,23 @@
     <ng-template #divRepertorio>
         <br>
         <span fxLayout="row"  >
-            <span fxLayoutAlign="center" fxFlex="21">
+            <span fxLayoutAlign="center" fxFlex="20">
                 <button mat-button style="color: white;" (click)="volver()">
-                    <span class="material-icons">
-                        arrow_back
-                        </span>
+                    <img src="https://img.icons8.com/color-glass/48/000000/chevron-left.png"/>
                 </button>
             </span>
             <span fxLayoutAlign="start" fxFlex="100" style="color: white;">
                 <h1 style="color: white;">
-                    <span class="material-icons" style="color: white;"> 
+                    <!-- <span class="material-icons" style="color: white;"> 
                         playlist_add
-                    </span>
+                    </span> -->
                     {{repertorio.nombre}}
                 </h1>
             </span>
-            <div fxFlex="50" fxFlex.lg="45" fxFlex.sm="40" fxLayoutAlign="end" *ngIf="mostrarBotonesReper">
+            <div fxFlex="20" fxFlex.lg="20" fxFlex.sm="15" fxLayoutAlign="start" *ngIf="mostrarBotonesReper">
                 <button mat-button color="warn" 
                     (click)="onNewMusician()" >
-                    <span class="material-icons">
-                        add_circle
-                    </span>
-                    Agregar Músico
+                    <img src="https://img.icons8.com/color/48/000000/add-user-male-skin-type-7.png"/>
                 </button>
             </div>
         </span>
@@ -56,12 +51,9 @@
                     </div>
     
                     <div fxFlex="50" fxFlex.lg="45" fxFlex.sm="40" fxLayoutAlign="end" *ngIf="mostrarBotonesReper">
-                        <button mat-button color="warn" 
+                        <button mat-button color="warn" style="margin-top: -15px;"
                             (click)="onNewCancion()" >
-                            <span class="material-icons">
-                                add_circle
-                            </span>
-                            Agregar Cancion
+                            <img src="https://img.icons8.com/color/48/000000/add-song.png"/>
                         </button>
                     </div>
                     

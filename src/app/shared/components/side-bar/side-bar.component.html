@@ -1,35 +1,37 @@
 <mat-sidenav-container class="sidenav-container" fullscreen >
+  <!-- style="background-image: url('../../../../assets/imagen-modulos/fondo-10.png');" -->
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     
     <mat-toolbar>
-      <span>Menu</span>
+      <span style="font-size: 26px; margin-left: 10px; margin-top: 10px;">Men&uacute;</span>
       <span class="spacer"></span>
 
-      <button mat-icon-button
+      <button mat-icon-button style="margin-left: 110px;"
               (click)="drawer.toggle()">
-          <mat-icon>close</mat-icon>
+              <span><img src="https://img.icons8.com/fluency/48/000000/delete-sign.png"/></span>
+          <!-- <mat-icon>close</mat-icon> -->
       </button>
     </mat-toolbar>
 
     <mat-nav-list>
-      <a routerLink="/home/repertorios/lista"
+      <a routerLink="/home/repertorios/lista" style="margin-top: 10px;"
           mat-list-item (click)="drawer.toggle()">
-          <mat-icon mat-list-icon>queue_music</mat-icon>
+          <img style="margin-right: 5px;" src="https://img.icons8.com/color-glass/48/000000/playlist.png"/>
           <span>Lista de Repertorios</span>
       </a>
 
-      <a routerLink="/home/repertorios/agregar"
+      <a routerLink="/home/repertorios/agregar" style="margin-top: 15px;"
           mat-list-item (click)="drawer.toggle()">
-          <mat-icon mat-list-icon>add</mat-icon>
+          <span style="margin-right: 5px;"><img src="https://img.icons8.com/color/48/000000/add-rule.png"/></span>
           <span>Añadir Repertorio</span>
       </a>
 
-      <a routerLink="/home/compartidos/lista"
+      <a routerLink="/home/compartidos/lista" style="margin-top: 15px;"
           mat-list-item (click)="drawer.toggle()">
-          <mat-icon mat-list-icon>group</mat-icon>
+          <span style="margin-right: 5px;"><img src="https://img.icons8.com/color/48/000000/anghami.png"/></span>
           <span>Compartido Conmigo</span>
       </a>
       
@@ -48,7 +50,8 @@
       <div class="col-1">
           <button mat-icon-button class="" 
               (click)="drawer.toggle()">
-              <mat-icon>menu</mat-icon>
+              <span><img src="https://img.icons8.com/fluency/48/000000/menu--v2.png"/></span>
+              <!-- <mat-icon>menu</mat-icon> -->
           </button>
       </div>
       <div class="col-11">
