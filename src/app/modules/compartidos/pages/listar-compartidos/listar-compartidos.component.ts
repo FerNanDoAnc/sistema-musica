@@ -11,6 +11,10 @@ export class ListarCompartidosComponent implements OnInit {
   correoLocal:any=localStorage.getItem('correo');
   idLocal:any=localStorage.getItem('_id');
 
+  capturarCorreoBackend:any[]=[];
+  separarCorreos:any =[];
+  separarCorreosDos:any []=[];
+
   compartidos:any[] =[];
 
   constructor(
@@ -26,22 +30,13 @@ export class ListarCompartidosComponent implements OnInit {
     this.compartidoService.getRepertorioPorCompartido(this.correoLocal)
     .subscribe(
       compartidos=>{
-        this.compartidos=compartidos;
-        // const inteValue= Object.values(compartidos);
-        // for(let element of inteValue){
-        //   console.log("1ER",element);
-        //   // this.integrantes.push(element);
-        // }
+        this.capturarCorreoBackend=compartidos;
+        const inteValue= Object.values(this.capturarCorreoBackend[0]);
+        for(let element of inteValue){
+          this.separarCorreos.push(element);
+        }
+        this.compartidos=this.separarCorreos;
 
-        // if(compartidos.usuario==this.idLocal){
-        //   console.log("SON IGUALES");
-        // }
-        // else{
-        //   console.log("COMPR",compartidos);
-        //   console.log("LOCAL",this.idLocal);
-        //   this.compartidos=compartidos;
-        //   console.log("COMPARTIDO TS",this.compartidos);
-        // }
       },
       err=>console.log(err)
     );
