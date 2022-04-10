@@ -12,8 +12,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AgregarPartituraComponent implements OnInit {
 
   @Input() cancion!: any ;
-  private fileTmp:any;
-
+  public fileTmp:any;
+  nombreFile:any [] =[];
   constructor(
     public dialogRef: MatDialogRef<CrearPartituraDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data:any,
@@ -37,6 +37,9 @@ export class AgregarPartituraComponent implements OnInit {
       fileRaw: file,
       fileName: file.name,
     }
+    this.nombreFile=[]
+    this.nombreFile.push(this.fileTmp.fileName);
+    console.log("nombreFile",this.nombreFile);
   }
 
   onUpload(){
