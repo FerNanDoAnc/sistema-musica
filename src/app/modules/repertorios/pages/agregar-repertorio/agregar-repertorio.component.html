@@ -29,7 +29,7 @@
 <br>
 
 
-<div fxLayout="row" style="margin-left: 8%; margin-right: 8%;background:rgb(201, 201, 201);border-radius: 12px;"
+<div fxLayout="row" style="" class="carta-repertorio"
     fxLayoutGap="60px"
     fxLayout.xs="column"
     fxLayoutAlign="center"
@@ -56,7 +56,7 @@
 
         </div>
         
-        <span fxLayout="row wrap" fxLayout.xs="column"  style="margin-top: -25px; margin-left: -18px;">
+        <span fxLayout="row wrap" fxLayout.xs="column"  style="margin-top: -25px; margin-left: -18px;" *ngIf="repertorio._id">
             <label for="archivo" fxFlex="100">
                 <img style="margin-top: 10%; 
                     margin-right: 5%;
@@ -64,11 +64,11 @@
                     height: 200px;
                     width: 100%;
                     border-radius:  10px; " fxLayout="row wrap" fxLayout.xs="column"
-                    mat-card-xl-image [src]="repertorio.img || imageSrc || imgDefault" >
+                    mat-card-xl-image [src]="imageSrc || repertorio.img || imgDefault" >
                     <span style="margin-left: 40%;"> Seleccionar Imagen</span>
                 </label>
             </span>
-            <form class="custom-input-file"  style="margin-left: 50%; display: none; ">
+        <form class="custom-input-file"  style="margin-left: 50%; display: none; " *ngIf="repertorio._id">
             <input type="file" id="archivo" (change)="onFileChange($event)" name="archivo" >
         </form>
 
@@ -78,9 +78,9 @@
             fxLayoutAlign="space-evenly center">
             <button *ngIf="repertorio._id"
                     mat-raised-button
-                    color="warn"
+                    style="background-color: #FE5050;color: white;"
                     (click)="borrarRepertorio()">
-                <mat-icon>delete</mat-icon>
+                <span><img style="height: 25px; width: 25px;" src="https://img.icons8.com/wired/64/000000/delete-forever.png"/></span>
                 Eliminar
             </button>
             <br>
@@ -90,7 +90,7 @@
             <button mat-raised-button 
                     color="accent"
                     (click)="guardar()">
-                <mat-icon>save_as</mat-icon>
+                <span><img style="height: 25px; width: 25px;" src="https://img.icons8.com/wired/64/000000/save.png"/></span>
                 {{
                     (repertorio._id)
                     ? 'Actualizar repertorio'

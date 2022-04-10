@@ -8,15 +8,15 @@
     </span>
     <span fxLayoutAlign="center" fxFlex="50">
         <h1 style="color: white;" >
-            <span class="material-icons" style="color: white;"> 
-                edit
+            <span style="margin-right: 10px;"> 
+                <img src="https://img.icons8.com/color/48/000000/life-cycle-skin-type-7.png"/>
             </span>
             {{
                 (usuario.uid)
                 ? 'Editar usuario'
                 : 'Agregar usuario'
             }}
-            :
+            
         </h1>
     </span>
 </span>
@@ -36,86 +36,50 @@
                 
                 <mat-card class="tarjeta-usuario" fxLayout="column" >
 
-                    <mat-card-title-group  fxLayout="row wrap"
-                        fxLayout.xs="column"
-                        fxFlex="100"
-                        fxFlex.lg="90"
-                        fxFlex.sm="80" >
-                        <mat-card-title 
-                            fxLayoutAlign="center" 
-                            fxLayout="row "  
-                            fxLayout.xs="column"
-                            style="margin-top: 5%; margin-bottom: 10%;">
+                    <mat-card-title-group  fxLayout="row wrap" fxLayoutAlign="start" 
+                        fxLayout.xs="column" fxFlex="100" fxFlex.lg="90" fxFlex.sm="80" >
+                        <mat-card-title fxLayoutAlign="start" fxLayout="row" fxLayout.xs="column"
+                            style="margin-top: 5%; margin-bottom: 10%; margin-left: 3px;">
                             <span fxLayout="row"  >
                                 <span fxLayoutAlign="center" fxFlex="100">
                                     <h1>
-                                        <span class="material-icons"> 
-                                            edit
-                                        </span>
-                                        
+                                        <span><img src="https://img.icons8.com/color/48/000000/badge.png"/></span>
+                                        <span style="font-size: 24px;">Datos</span>
                                     </h1>
                                 </span>
                             </span>
                         </mat-card-title>
                 
-                        <mat-card-subtitle
-                            fxLayout="row wrap" 
-                            fxLayout.xs="column"
-                            fxLayoutAlign="center" >
-                            
-                            <div fxFlex="100"
-                            fxFlex.lg="90"
-                            fxFlex.sm="80">
-                            
-                                <div fxLayout="row"
-                                    fxLayout.xs="column"
-                                    fxLayoutGap="20px">
+                        <mat-card-subtitle fxLayout="row wrap"  fxLayout.xs="column" fxLayoutAlign="start" >
                         
-                                    <mat-form-field fxFlex="100"
-                                                    fxLayout.xs="column">
-                                        <mat-label>
-                                            Nombre
-                                        </mat-label>
-                                        <input type="text"
-                                                matInput
-                                                [(ngModel)]="usuario.nombre"
-                                                required>
-                                    </mat-form-field>
-                        
-                                </div>
-                                
-                                <div fxLayout="row">
-                                    <mat-form-field fxFlex="100"
-                                        fxLayout.xs="column">
-                                        <mat-label>
-                                            Correo
-                                        </mat-label>
-                                        <input type="text"
-                                                    matInput
-                                                    [(ngModel)]="usuario.correo"
-                                                    required>
-                                    </mat-form-field>
+                        <div fxFlex="100" fxFlex.lg="90" fxFlex.sm="80"> 
+                            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px"> 
+                                <mat-form-field fxFlex="100" fxLayout.xs="column">
+                                    <mat-label>  Nombre </mat-label>
+                                    <input type="text" matInput [(ngModel)]="usuario.nombre" required>
+                                </mat-form-field> 
+                            </div>
+                            
+                            <div fxLayout="row">
+                                <mat-form-field fxFlex="100" fxLayout.xs="column">
+                                    <mat-label> Correo </mat-label>
+                                    <input type="text" matInput [(ngModel)]="usuario.correo" required>
+                                </mat-form-field>
                             </div>
                         </div>
-                        <br>
-                
                         </mat-card-subtitle>
+                        <br>
                         
-                        <span fxLayout="row wrap" fxLayout.xs="column" >
+                        <span fxLayout="row wrap" fxLayout.xs="column" style="margin-left: 25%;margin-right: 5%;">
                             <label for="archivo">
-                                <img style="margin-top: 10%; 
-                                    margin-right: 5%;
-                                    margin-left: 5%;
-                                    height: 200px;
-                                    width: 250px;
-                                    border-radius:  10px; " fxLayout="row wrap" fxLayout.xs="column"
-                                    mat-card-xl-image [src]="imageSrc || usuario.img" >
+                                <img style="margin-top: 10%; height: 200px; width: 250px; border-radius:  10px; border-radius:  100px "
+                                    fxLayout="row wrap" fxLayout.xs="column"
+                                    mat-card-xl-image [src]="imageSrc || usuario.img" ><br>
                                     <span style="margin-left: 30%;"> Seleccionar foto</span>
                             </label>
                         </span>
                         <form class="custom-input-file"  style="margin-left: 50%; display: none; ">
-                            <input type="file" id="archivo" (change)="onFileChange($event)" name="archivo"
-                               >
+                            <input type="file" id="archivo" (change)="onFileChange($event)" name="archivo"  >
                         </form>
                                 
                     </mat-card-title-group>
@@ -133,13 +97,15 @@
                                         : 'Crear usuario'
                                     }}
                                 </button> -->
-                                <button class="boton seis" 
+                                <button class="boton seis" color="accent"
                                         mat-raised-button 
                                         (click)="guardar()">
-                                        <mat-icon>save_as</mat-icon>
+                                        <span>
+                                            <span><img style="height: 25px; width: 25px;" src="https://img.icons8.com/wired/64/000000/save.png"/></span>
+                                        </span>
                                         {{
                                             (usuario.uid)
-                                            ? 'Actualizar '
+                                            ? 'Guardar '
                                             : 'Crear usuario'
                                         }}
                                     <svg>
