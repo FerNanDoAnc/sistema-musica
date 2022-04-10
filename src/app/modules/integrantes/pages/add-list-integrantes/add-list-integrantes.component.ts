@@ -68,14 +68,13 @@ export class AddListIntegrantesComponent implements OnInit {
     pushear3.map((element,index)=>{
       this.correosInte.push(inteValues2[index])
     });
-    console.log(this.correosInte);
 
   }
   
   cudIntegrantes(){
     this.integranteService.actualizarIntegranteRepertorio(this.corInt)
     .subscribe(resp=>{
-      // window.location.reload();
+      window.location.reload();
       this.mostrarSnackBar("Usuario Agregado")
       // this.router.navigate(['/home/repertorios']);
     });
@@ -94,7 +93,7 @@ export class AddListIntegrantesComponent implements OnInit {
           this.corInt.integrantes.splice(deleteme,1);
           this.integranteService.actualizarIntegranteRepertorio(this.corInt)
             .subscribe(resp=>{
-              // window.location.reload();
+              window.location.reload();
               this.mostrarSnackBar("Usuario Eliminado")
             });
 
