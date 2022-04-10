@@ -41,17 +41,35 @@ export class AddListIntegrantesComponent implements OnInit {
     this.mostrarIntegrantes();
   }
 
-  mostrarIntegrantes(){    
-    // Separar y asignar arreglos
-    const inteValue= Object.values(this.repertorios);
-    for(let element of inteValue){
-      this.integrantes.push(element);
+  mostrarIntegrantes(){   
+
+    // RECORRER Y SACAR DE REPERTORIOS
+    const pushear=[];
+    let pushear2:any=[];
+    const inteKey= Object.keys(this.repertorios);
+    const inteValues= Object.values(this.repertorios);
+    for(let element of inteKey){
+      pushear.push(element)
     }
-    // Obtener correos de integrantes
-    const corr= Object.values(this.integrantes[4]);
-    for(let element2 of corr){
-      this.correosInte.push(element2);
+    pushear.map((element,index)=>{
+      if(element==='integrantes'){
+        pushear2=inteValues[index];
+      }
+    });
+
+    // RECORRER Y SCAR DE INTEGRANTES
+    let pushear3 =[];
+    let pushear4:any=[];
+    const inteKey2= Object.keys(pushear2);
+    const inteValues2= Object.values(pushear2);
+    for(let element2 of inteKey2){
+      pushear3.push(element2)
     }
+    pushear3.map((element,index)=>{
+      this.correosInte.push(inteValues2[index])
+    });
+    console.log(this.correosInte);
+
   }
   
   cudIntegrantes(){
