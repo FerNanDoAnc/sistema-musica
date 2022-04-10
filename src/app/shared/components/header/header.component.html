@@ -2,14 +2,16 @@
 <div fxLayout="row " 
   fxLayoutAlign="center" >
 
-    <div fxFlex="80"
+    <div fxFlex="80" 
       fxFlex.lg="85"
       fxFlex.sm="60" 
       fxLayoutAlign="end"
       style="margin-top: 5px;">
         <span class="spacer"></span>
         <span fxLayoutAlign="center" fxLayoutGap="15px" fxLayoutAlign="space-around center" >
-          <span><img src="https://img.icons8.com/color/48/000000/customer-skin-type-7.png"/></span>
+          <span >
+            <img style="height: 45px;width: 45px; border-radius: 100px;" [src]="usuarios.img" alt="USERIMG">
+          </span>
           <h1>
             {{usuario.nombre}}
           </h1>
