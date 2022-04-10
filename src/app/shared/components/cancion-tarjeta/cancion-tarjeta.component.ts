@@ -63,7 +63,7 @@ export class CancionTarjetaComponent implements OnInit  {
 
   borrarCancion(){
     const dialog=this.dialog.open(ConfirmarComponent,{
-      width:'250px',
+      width:'30%',
       data:{...this.cancion}
     })
 

@@ -109,7 +109,7 @@ export class AgregarRepertorioComponent implements OnInit {
 
   borrarRepertorio(){
     const dialog=this.dialog.open(ConfirmarComponent,{
-      width:'250px',
+      width:'30%',
       data:{...this.repertorio}
     })
 

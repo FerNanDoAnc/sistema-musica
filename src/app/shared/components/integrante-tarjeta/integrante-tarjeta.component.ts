@@ -27,7 +27,8 @@ export class IntegranteTarjetaComponent implements OnInit {
 
   borrarUsuario(deleteme:any) {
     const dialog=this.dialog.open(ConfirmarComponent,{
-      width:'250px',
+      width:'30%',  
+      
       data:{...this.integrante}
     })
 
