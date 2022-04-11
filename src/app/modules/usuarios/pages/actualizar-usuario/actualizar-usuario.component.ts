@@ -48,7 +48,7 @@ export class ActualizarUsuarioComponent implements OnInit {
     // if(this.usuario.nombre.trim().length === 0){
     //   return;
     // }
-
+    this.onUpload();
     if(this.usuario.uid){
       // Actualizar
       this.usuarioService.actualizarUsuario(this.usuario)
@@ -58,7 +58,7 @@ export class ActualizarUsuarioComponent implements OnInit {
           this.router.navigate(['/home/usuario']);
         });
 
-      this.onUpload()
+      
     }
 
   }
