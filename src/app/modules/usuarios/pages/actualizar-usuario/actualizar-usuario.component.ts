@@ -101,7 +101,7 @@ export class ActualizarUsuarioComponent implements OnInit {
     this.uploadService.actualizarUsuarioPerfil(usuario)
       .subscribe(resp=>{
         console.log("onUpload",resp);
-        // window.location.reload();
+        window.location.reload();
       })
 
 
