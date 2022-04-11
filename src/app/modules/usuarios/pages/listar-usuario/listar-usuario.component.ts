@@ -30,7 +30,7 @@ export class ListarUsuarioComponent implements OnInit {
       usuarios=>{
 
         this.usuarios[0]=usuarios;
-        console.log("PERFIL",usuarios);
+        console.log("getUsuarioPerfil TSSSS",usuarios);
       },
       err=>console.log(err)
     );

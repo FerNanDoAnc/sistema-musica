@@ -97,11 +97,10 @@ export class ActualizarUsuarioComponent implements OnInit {
     const usuario= new FormData();
     usuario.append('archivo',this.fileTmp.fileRaw);
     usuario.append('uid',this.usuario.uid);
-    
     this.uploadService.actualizarUsuarioPerfil(usuario)
       .subscribe(resp=>{
         console.log("onUpload",resp);
-        window.location.reload();
+        // window.location.reload();
       })
 
 

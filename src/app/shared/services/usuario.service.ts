@@ -19,7 +19,7 @@ export class UsuarioService {
     .pipe(
       map(
         (resp:any )=>{
-          console.log("Usuario",resp);
+          console.log("getUsuarioPorId",resp);
           return resp.usuario;
         }
       )
