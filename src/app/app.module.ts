@@ -20,7 +20,13 @@ import { AuthInteceptorService } from './shared/services/auth-inteceptor.service
     BrowserAnimationsModule,
     MaterialModule
   ],
-   
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInteceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
