@@ -48,7 +48,7 @@ export class ActualizarUsuarioComponent implements OnInit {
     // if(this.usuario.nombre.trim().length === 0){
     //   return;
     // }
-    this.onUpload();
+    // this.onUpload();
     if(this.usuario.uid){
       // Actualizar
       this.usuarioService.actualizarUsuario(this.usuario)
@@ -93,7 +93,7 @@ export class ActualizarUsuarioComponent implements OnInit {
   }
 
   onUpload(){
-    
+    this.guardar();
     const usuario= new FormData();
     usuario.append('archivo',this.fileTmp.fileRaw);
     usuario.append('uid',this.usuario.uid);
