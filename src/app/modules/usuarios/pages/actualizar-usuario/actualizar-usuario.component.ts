@@ -99,10 +99,10 @@ export class ActualizarUsuarioComponent implements OnInit {
     .subscribe(resp=>{
       console.log("onUpload",resp);
       this.router.navigate(['/home/usuario']);
-      // window.location.reload();
     })
     this.guardar();
-
+    
+    window.location.reload();
 
   }
   
