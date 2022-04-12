@@ -53,7 +53,7 @@ export class ActualizarUsuarioComponent implements OnInit {
       // Actualizar
       this.usuarioService.actualizarUsuario(this.usuario)
         .subscribe(resp=>{
-          console.log("actuUsuarioguardar",resp);
+          this.router.navigate(['/home/usuario']);
           this.mostrarSnackBar("Usuario actualizado")
         });
 
@@ -92,17 +92,16 @@ export class ActualizarUsuarioComponent implements OnInit {
   }
 
   onUpload(){
+    this.guardar();
     const usuario= new FormData();
     usuario.append('archivo',this.fileTmp.fileRaw);
     usuario.append('uid',this.usuario.uid);
     this.uploadService.actualizarUsuarioPerfil(usuario)
     .subscribe(resp=>{
-      console.log("onUpload",resp);
       this.router.navigate(['/home/usuario']);
+      window.location.reload();
     })
-    this.guardar();
     
-    window.location.reload();
 
   }
   
