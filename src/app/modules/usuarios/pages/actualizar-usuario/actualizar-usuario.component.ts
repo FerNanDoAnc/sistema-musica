@@ -55,7 +55,6 @@ export class ActualizarUsuarioComponent implements OnInit {
         .subscribe(resp=>{
           console.log("actuUsuarioguardar",resp);
           this.mostrarSnackBar("Usuario actualizado")
-          this.router.navigate(['/home/usuario']);
         });
 
       
@@ -99,6 +98,7 @@ export class ActualizarUsuarioComponent implements OnInit {
     this.uploadService.actualizarUsuarioPerfil(usuario)
     .subscribe(resp=>{
       console.log("onUpload",resp);
+      this.router.navigate(['/home/usuario']);
       // window.location.reload();
     })
     this.guardar();
