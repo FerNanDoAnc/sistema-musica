@@ -19,7 +19,7 @@ export class LoginComponent  {
   }
 
   miFormulario: FormGroup=this.fb.group({
-    correo: ['mozart@gmail.com',[
+    correo: ['',[
       Validators.required,
       Validators.email,
       Validators.maxLength(80),
@@ -27,7 +27,7 @@ export class LoginComponent  {
         /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
       )
     ]],
-    password: ['123456',[Validators.required,Validators.minLength(6)]]
+    password: ['',[Validators.required,Validators.minLength(6)]]
   });
 
   constructor(
