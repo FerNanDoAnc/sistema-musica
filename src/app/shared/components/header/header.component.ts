@@ -34,8 +34,6 @@ export class HeaderComponent implements OnInit {
     this.usuarioService.getUsuarioPorId(this.idLocal)
     .subscribe(
       usuarios=>{
-        console.log("PERFIL DESDE EL HEADER",usuarios);
-
         this.usuarios =usuarios;
       },
       err=>console.log(err)
