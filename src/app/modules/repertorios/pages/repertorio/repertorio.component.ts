@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { RepertorioList } from '../../../../core/interfaces/repertorio.interface';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RepertorioService } from '../../../../shared/services/repertorio.service';
 import { switchMap } from 'rxjs/operators';
@@ -14,7 +13,8 @@ import { AddListIntegrantesComponent } from '../../../../modules/integrantes/pag
 @Component({
   selector: 'app-repertorio',
   templateUrl: './repertorio.component.html',
-  styleUrls: ['./repertorio.component.scss']
+  styleUrls: ['./repertorio.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class RepertorioComponent implements OnInit {
 
@@ -29,6 +29,7 @@ export class RepertorioComponent implements OnInit {
 
   repertorios:any[]=[];
   repertorio! : any;
+  repertorioNombre! : any;
 
   canciones:any[]=[];
   cancion: any= {
@@ -51,6 +52,10 @@ export class RepertorioComponent implements OnInit {
     this.getRepertorioPorId();
     this.getCancionRepertorio();
   }
+  
+  capitalizarPrimeraLetra(str:any) { 
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  }
 
   getRepertorioPorId(){
     this.activatedRoute.params
@@ -58,6 +63,8 @@ export class RepertorioComponent implements OnInit {
       switchMap( ({_id})=>this.repertoriosService.getRepertorioPorId(_id))
     )
     .subscribe( repertorio=>{
+      let nomCap=this.capitalizarPrimeraLetra(repertorio.nombre);
+      this.repertorioNombre=nomCap;
       this.repertorio=repertorio; 
       this.repertorios.push(repertorio);
       
@@ -90,21 +97,6 @@ export class RepertorioComponent implements OnInit {
     .subscribe(
       canciones=>{
         this.canciones=canciones;
-
-        // Obtener id de usuariod e canciones
-        // for(let i of this.canciones){
-        //   this.usuarioCanReper.push(i.usuario._id);
-        // }
-        // for(let i of this.usuarioCanReper){
-        //   if(this.idLocal==i){
-        //     this.mostrarBotones=true;
-        //     console.log("BOTON TRUE");
-        //   }
-        //   if(this.idLocal!=i){
-        //     this.mostrarBotones=false;
-        //     console.log("BOTON FALSE");
-        //   }
-        // }
       },
       err=>console.log(err)
     );
@@ -153,4 +145,6 @@ export class RepertorioComponent implements OnInit {
     });
   }
 
+  // =============================================================
+  
 }

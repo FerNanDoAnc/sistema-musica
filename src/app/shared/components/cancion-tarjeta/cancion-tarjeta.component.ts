@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CrearCancionDialogComponent } from '../../../modules/canciones/crear-cancion-dialog/crear-cancion-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -12,7 +12,8 @@ import { ListarPartituraDialogComponent } from '../../../modules/partituras/page
 @Component({
   selector: 'app-cancion-tarjeta',
   templateUrl: './cancion-tarjeta.component.html',
-  styleUrls: ['./cancion-tarjeta.component.scss']
+  styleUrls: ['./cancion-tarjeta.component.scss'],
+  encapsulation:ViewEncapsulation.None,
 })
 export class CancionTarjetaComponent implements OnInit  {
 

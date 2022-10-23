@@ -53,12 +53,15 @@ export class LoginComponent  {
         if(ok===true){
           this.router.navigateByUrl('/home');
           Swal.fire({
-            title: this.usuario.msg,
+            // title: this.usuario.msg,
             html: '¡Bienvenid@ '+this.usuario.nombre+'!',
             icon: 'success',
-            showConfirmButton: false,
-            timer: 1500,
-            width: 350
+            iconColor: "#7ecb20",
+            showConfirmButton: true, 
+            confirmButtonColor: "#673ab7",  
+            width: 350, 
+            background: "#FFF",
+            backdrop:'rgba(224, 224, 224, 0.39)',
           });
 
         }else{

@@ -1,74 +1,45 @@
 
-<br>
-
-<h1  fxLayout="row" fxLayoutAlign="center center" >
-    <img style="height: 40px;" src="https://img.icons8.com/color/48/000000/musically.png" alt="">
-    {{
-        (cancion._id)
-        ? 'Editar Cancion'
-        : 'Agregar Cancion'
-    }}
+<div class="d-flex justify-content-between" style="flex-direction: column; padding: 0 .7rem;">
+    <div class="d-flex" style="margin-top: .5rem; padding-left: 7.5rem;">
+        <label class="text-w-700" style="font-weight: 700 !important; font-size: 1.3rem;"> 
+            {{
+                (cancion._id)
+                ? 'Editar'
+                : 'Agregar'
+            }}
+            <label style="color:#7f46f2">Cancion</label>
+        </label>
+        <i role="button" class="bi bi-x-lg" style="margin-left: auto;" (click)="onClickNo()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+        </i>
+    </div>
+    <br><br>
     
-</h1>
-<br><br>
-
-<div fxLayout="column"
-    fxLayoutGap="10px"
-    fxLayout.xs="column"
-    >
-
-    <div fxFlex="80" style="margin-left: 10%;"
-        fxLayout="column">
-        
-        <div fxLayout="row"
-            fxLayout.xs="column"
-            fxLayoutGap="20px">
-
-            <mat-form-field fxFlex="100"
-                            fxLayout.xs="column">
-                <mat-label>
-                    Nombre
-                </mat-label>
-                <input type="text"
-                        matInput
-                        [(ngModel)]="cancion.nombre"
-                        required>
+    <div style="margin-top: 1.2rem;">
+        <div class="d-flex flex-column justify-content-end" style="margin-bottom: 1rem;">
+            <mat-form-field fxFlex="100" fxLayout.xs="column">
+                <mat-label> Nombre </mat-label>
+                <input type="text" matInput [(ngModel)]="cancion.nombre" required>
             </mat-form-field>
-
         </div>
-        <mat-form-field >
-            <mat-label>
-                Descripcion
-            </mat-label>
-            <input type="text"
-                        matInput
-                        [(ngModel)]="cancion.link"
-                        required>
-        </mat-form-field>
-        <br>
-        
-        <div fxLayout="row" >
-            <div mat-dialog-actions fxLayoutGap="40px" >
-                <span class="spacer"></span>
-                <button mat-button mat-raised-button style="background-color: white; color: black;" (click)="onClickNo()">
-                    <img style="height: 35px; width: 35px;" src="https://img.icons8.com/color/48/000000/delete-sign--v1.png"/>
-                    Cancelar
-                </button>
-                <span class="spacer"></span>
-                
-                <button mat-raised-button 
-                        color="accent"
-                        (click)="guardar()">
-                        <span><img style="height: 25px; width: 25px;" src="https://img.icons8.com/wired/64/000000/save.png"/></span>
-                    {{
-                        (cancion._id)
-                        ? 'Actualizar'
-                        : 'Crear Cancion'
-                    }}
-                </button>
-            </div>
+        <div class="d-flex flex-column justify-content-end" style="margin-bottom: 1rem;">
+            <mat-form-field >
+                <mat-label> Descripcion </mat-label>
+                <input type="text" matInput [(ngModel)]="cancion.link" required>
+            </mat-form-field>
         </div>
-        
     </div>
 
+    <div class="d-flex justify-content-center mt-3">
+        <button class="button-global button-text iconify-mright button-dark button-bg-purple" style="width: 50%;" (click)="guardar()">
+            <span class="spanFilter"> {{
+                (cancion._id)
+                ? 'Actualizar'
+                : 'Crear Cancion'
+            }} 
+            </span>
+        </button>
+    </div> 
 </div>

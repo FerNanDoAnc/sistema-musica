@@ -50,11 +50,10 @@ export class RegisterComponent   {
         if(ok===true){
           this.router.navigateByUrl('/home');
           Swal.fire({
-            title: this.usuario.msg,
-            html: 'Bienvenido: '+this.usuario.nombre,
+            // title: this.usuario.msg,
+            html: '!Bienvenid@: '+this.usuario.nombre,
             icon: 'success',
-            showConfirmButton: false,
-            timer: 1500,
+            showConfirmButton: true, 
             width: 350
           });
 

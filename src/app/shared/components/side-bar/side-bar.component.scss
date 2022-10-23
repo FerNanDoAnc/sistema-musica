@@ -1,19 +1,36 @@
-.sidenav-container {
-  height: 100%;
-  background-color: white;
-  // background: radial-gradient(circle at top, rgb(56, 7, 23), rgb(34, 34, 34));
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0); 
+  // width: 100%;
+  // height: 100%; 
 }
 
 // MENU
 .sidenav {
   width: 300px;
   background-color: #202020;
-  // background-color: rgb(24, 24, 24);
 }
 
 // TITULO MENU
 .sidenav .mat-toolbar {
-  // background: rgb(24, 24, 24);
   background-color: #202020;
 
   color: #fff;
@@ -21,10 +38,7 @@
 
 // HEADER
 .toolbar-header{
-  // background: rgb(24, 24, 24);
   background-color: #202020;
-
-  // background: linear-gradient( rgba(0,0,0,.6) 0, rgb(56, 7, 23) );
 }
 
 .mat-toolbar.mat-primary {
@@ -32,3 +46,5 @@
   top: 0;
   z-index: 1;
 }
+
+// -------------------------------------------------------------------------------------------------------------------------------

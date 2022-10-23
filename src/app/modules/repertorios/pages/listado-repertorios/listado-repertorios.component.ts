@@ -11,9 +11,7 @@ export class ListadoRepertoriosComponent implements OnInit {
 
   idLocal:any=localStorage.getItem('_id');
   
-  // repertorios! : any;
-  repertorios:any[]=[];
-  // repertorios:any=[];
+  repertorios:any[]=[]; 
   constructor(
     private repertoriosService: RepertorioService
   ) { }
@@ -29,5 +27,14 @@ export class ListadoRepertoriosComponent implements OnInit {
       },
       err=>console.log(err)
     );
+  }
+  // --------------------------------------------------------------
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    // this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    // if (this.dataSource.paginator) {
+    //   this.dataSource.paginator.firstPage();
+    // }
   }
 }

@@ -1,6 +1,7 @@
 ::ng-deep .customize {
     background: rgba(255, 255, 255, 0);
 }
+// 
 
 .tarjeta-cancion{
     border-radius: 10px; 
@@ -43,3 +44,126 @@
    top: -1000px;
    border-radius: 6px;
   }
+
+// -------------------------------------------------------------------------------------------------------------------------
+
+.can-nombre{
+    font-size: 14px !important;
+}
+
+.main-card {
+    width: auto;
+    height: auto;
+    background: #FFF;
+    border-radius: 15px;
+    margin: -18px;
+}
+.d-fill {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 45% 39% 7% 9%; 
+}
+.icono-music{
+    padding-right: 17px;
+}
+.cancion-des,.cancion-nom,.cancion-pdf{
+    overflow-x: hidden;
+    margin: auto 20px auto 0;
+}
+.btn-opc{
+    cursor: pointer; 
+    margin-left: auto; 
+    border-radius: 50%; 
+    border: none; 
+    background: none;
+}
+.d-folder-color {
+    background: #F3F3F4;
+    font-weight: 500;
+    width: 100%; 
+    height: auto;  
+    padding: .9rem 1.2rem; 
+    cursor: pointer; 
+    border-radius: 10px;
+}
+.d-file-color:hover, 
+.d-folder-color:hover {
+    background: #D1D1D1;
+    font-weight: 700;
+}
+.flex-column2{
+    max-height: 335px; 
+    overflow: auto;
+}
+ 
+// ---------------------------------------pantallas lista canciones-------------------------------------------
+@media only screen and (max-width: 1024px) {  
+    .d-fill { 
+        grid-template-columns: 45% 39% 10% 6%; 
+    }
+}
+// 
+@media only screen and (max-width: 700px) {
+	.d-fill {
+        position: relative;
+        height:7rem;
+    }
+    .icono-music{ 
+        padding-left:8%;   
+        padding-top: 3%;
+    }
+    .cancion-nom{ 
+        position: absolute;
+        top: 33%;
+        padding-left: 0%; 
+        font-size: 14px;
+        width: 75%;
+    }
+    .cancion-pdf {
+        position: absolute;
+        top: 35%;
+        left: 75%;   
+    }
+    .btn-opc{
+        position: absolute;
+        top: 40%;
+        left: 88%; 
+    } 
+    .text-music{
+        margin-left:0%;    
+    }
+    .cancion-des {
+        position: absolute;
+        top: 55%;
+        left: 14.5%;   
+        font-size: 12px;
+    }
+}
+// 
+@media only screen and (max-width: 600px) { 
+    .text-music{
+        margin-left:0%;    
+    }
+    .cancion-des { 
+        left: 16.5%;    
+    }
+    
+}
+// 
+@media only screen and (max-width: 500px) {
+    .text-music{
+        margin-left:-3%;    
+    }
+    .cancion-des {  
+        left: 17.5%; 
+    }
+}
+// 
+@media only screen and (max-width: 400px) {
+    .text-music{
+        margin-left:-5%;    
+   } 
+   .cancion-des { 
+       left: 16.5%;    
+   }
+}
