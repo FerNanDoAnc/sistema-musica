@@ -132,7 +132,8 @@ export class CancionTarjetaComponent implements OnInit  {
     this.openDialogPartitura(this.cancion);
   }
   openDialogPartitura(cancion?: any): void {
-    const config={
+    const config={ 
+      height: 'auto',
       data:{
         content:this.cancion
       }

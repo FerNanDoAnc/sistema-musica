@@ -9,6 +9,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { CrearCancionDialogComponent } from '../../../canciones/crear-cancion-dialog/crear-cancion-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddListIntegrantesComponent } from '../../../../modules/integrantes/pages/add-list-integrantes/add-list-integrantes.component';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { NewMsgComponent } from 'src/app/modules/whatsapp/pages/new-msg/new-msg.component';
 
 @Component({
   selector: 'app-repertorio',
@@ -138,6 +140,27 @@ export class RepertorioComponent implements OnInit {
       }
     });
   }
+  // ============================================================= 
+  // WHATSAPP
+  // =============================================================
+  onNewWhatsApp(){
+    this.NewMsgComponent(this.repertorio);
+  }
+  NewMsgComponent(repertorio?: any): void {
+    const config={
+      height:'auto',
+      width:'420px',
+      data:{
+        content:this.repertorio
+      }
+    };
+    const dialogRef= this.dialog.open(NewMsgComponent,config);
+    dialogRef.afterClosed().subscribe(resp=>{
+      if(resp){
+        
+      }
+    });
+  }
   // =============================================================
   mostrarSnackBar( mensaje:string){
     this.snackBar.open(mensaje, '!Ok', {
@@ -146,5 +169,10 @@ export class RepertorioComponent implements OnInit {
   }
 
   // =============================================================
+  onDropped(event:CdkDragDrop<any>){ 
+    const anterior=event.previousIndex;
+    const actual=event.currentIndex;
+    moveItemInArray(this.canciones,anterior,actual);
+  }
   
 }

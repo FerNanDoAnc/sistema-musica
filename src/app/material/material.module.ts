@@ -39,6 +39,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 // import { NgxLoadingModule } from 'ngx-loading';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 const materialModules = [
   MatAutocompleteModule,
@@ -80,7 +81,8 @@ const materialModules = [
   FormsModule,
   ReactiveFormsModule,
   MatExpansionModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  DragDropModule
 ];
 
 

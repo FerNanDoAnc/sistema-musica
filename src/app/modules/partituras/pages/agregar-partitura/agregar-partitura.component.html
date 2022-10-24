@@ -1,43 +1,64 @@
 
-<br>
-
-<h1 for="archivo" fxLayout="row" fxLayoutAlign="center center" fxLayout.xs="column" >
-    <img src="https://img.icons8.com/color/48/000000/notepad.png"/>
-    {{
-        (cancion.img)
-        ? 'Editar Partitura'
-        : 'Agregar Partitura'
-    }}
-</h1>
-<br>
-
- 
-<div fxLayout="row" fxLayout.xs="column" 
-    style="background-color: rgb(255, 255, 255); border-radius: 12px; border-style:dashed; border-color: rgb(128, 177, 165);">
-    <form style="height: 150px !important;  width: 100%;" >
-        <label for="archivo" style="background-color: rgb(255, 255, 255); border-radius: 12px;  width: 100%;">
-            <!-- <img style="width: 150px; height: 100px; border-radius: 12px;" 
-                src="../../../../../assets/imagen-modulos/subir-file-2.png"> -->
-            <img style="margin-left: 35%;" src="https://img.icons8.com/color/144/000000/upload-2--v1.png"/>
-        </label>
-        
-        <input type="file" id="archivo" (change)="onFileChange($event)" name="archivo" style="display: none;">
-    </form> 
-</div>
-<div style="color: black; margin-left: 25%; margin-top: -40px ;overflow: hidden;">{{nombreFile}}</div>    
-<br>
-
-<div fxLayout="row" fxLayout.xs="column" >
-    <div mat-dialog-actions style="margin-left: 30%;"> 
-        <button mat-raised-button 
-                color="accent"
-                (click)="onUpload()">
-                <span><img style="height: 25px; width: 25px;" src="https://img.icons8.com/wired/64/000000/save.png"/></span>
+<div class="d-flex justify-content-between" style="flex-direction: column; padding: 0 .7rem;">
+    <div class="d-flex" style="margin-top: .5rem; padding-left: 5.5rem;">
+        <label class="text-w-700" style="font-weight: 700 !important; font-size: 1.3rem">
             {{
                 (cancion.img)
-                ? 'Editar Partitura'
-                : 'Crear Partitura'
+                ? 'Editar'
+                : 'Agregar'
             }}
+            <label style="color:#7f46f1">Partitura</label>
+        </label>
+        <i role="button" class="bi bi-x-lg" style="margin-left: auto;" (click)="closeDialog()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+        </i>
+    </div>
+
+    <form [formGroup]="formDialog">
+        <div style="margin-top: 2.5rem;">
+            <div class="d-flex flex-column justify-content-end" *ngIf="!cancion.img" style="margin-top: 2.3rem; font-size: 12px;">
+                <mat-label class="text-w-medium mb-auto"> Selecciona Partitura </mat-label>
+            
+                <div style="width: 100%; height: 13.5rem;">
+                    <input #archivo id="archivo" style="opacity: 0; height: 100%; width: 100%; cursor: pointer;" type="file" 
+                    accept="image/*,.xlsx,.pptx,.docx,.doc,.xls,.ppt,.pdf" formControlName="files" (change)="onFileChange($event)">
+            
+                    <div style="height: 100%; width: 100%; margin-top: -13.5rem;" *ngIf="fileCarga">
+                        <mat-icon for="archivo" class="ilustracion-archivo" svgIcon="fileNone"></mat-icon>
+                    </div>
+            
+                    <div *ngIf="fileImgExcel" class="d-flex justify-content-center" style="height: 100%; width: 100%; position: relative; margin-top: -13.5rem;"> 
+                        <mat-icon class="ilustracion-archivo" svgIcon="fileUpload"></mat-icon>
+                        <div class="d-flex" style="width: 85%; position: absolute; top: calc(100% - 5rem); border-radius: 12px; 
+                        padding: .5rem 1rem; background: #FFF; box-shadow: 0px 4px 16px rgba(78, 78, 78, 0.1);">
+                            <mat-icon style="width: 23px;" svgIcon="fileIcon"></mat-icon>
+                            <span style="margin: auto 0; margin-left: .7rem; color: #000000; font-weight: 800;"> {{ nombreFile }}  </span>
+                            <mat-icon style="margin-left: auto; width: 12px; cursor: pointer;" svgIcon="closeIcon"(click)="removerFile(fileTmp.file)"></mat-icon>
+                        </div>      
+                    </div>
+                </div>   
+            </div>
+            <div class="d-flex flex-column justify-content-end" style="margin-bottom: .5rem; padding-left: 34%;">
+                <mat-hint *ngIf="!sizeIsValid" style="  color: #f44336; font-size: 11px;">
+                    Archivo muy pesado
+                </mat-hint>
+            </div>
+        </div>
+    </form>
+
+    <div class="d-flex justify-content-center mt-3">
+        <button class="button-global button-text iconify-mright button-dark button-bg-purple" style="width: 40%;" (click)="onUpload()"
+        [disabled]="!sizeIsValid">
+            <span class="spanFilter"> 
+                {{
+                    (cancion.img)
+                    ? 'Editar'
+                    : 'Agregar'
+                }}
+            </span>
         </button>
     </div>
+
 </div>

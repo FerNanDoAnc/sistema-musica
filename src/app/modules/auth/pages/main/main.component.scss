@@ -217,5 +217,36 @@ video {
     #menu:hover{
         font-size: 13px;
     }
+    @keyframes anim4{
+        to{
+            top: 7%;
+        }
+    }
+    #text{
+        animation: anim3 1s forwards .7s;
+    }
+    #container{ 
+        animation: anim4 1s forwards .5s;
+    }
+    #box1{
+        width: 350px;
+        height: 350px;
+        background-image: url(../../../../../assets/images/contorno-logo.png); 
+    }
+    #box1::after{ 
+        width: 350px;
+        height: 350px;
+        background-image: url(../../../../../assets/images/contorno2-logo.png); 
+    }
+    @keyframes anim2{
+        from{
+            left:30%;
+        }
+        to{
+            width: 0px;
+            left: 10%;
+        }
+    }
+    
 }
 // ---------------------------------------------------End region-----------------------------------------------------

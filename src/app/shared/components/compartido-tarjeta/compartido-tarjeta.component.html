@@ -1,6 +1,29 @@
-
+<div class="main-card mt-4">
+    <div class="grid-card">
+        <div >
+          <div class="card-all">
+            <div class="d-flex" style="height: 55%; width: 100%; position: relative;" [routerLink]="['/home/repertorios',compartido._id]" >  
+                <div style="height: 100%; width: 100%; position: absolute; background: url('{{compartido.img}}') no-repeat; 
+                    background-size: cover; cursor: pointer; z-index: 0" > 
+                </div>  
+            </div>
+            
+            <div class="d-flex rep-des">
+              <div class="d-flex flex-column rep-texto">
+                <h4 class="text-w-bold mb-1 form-text rep-nom"> {{compartido.nombre}} </h4> 
+              </div> 
+            </div>
+            <mat-card-actions fxLayoutAlign="center center" > 
+                <button mat-button color="warn" [routerLink]="['/home/repertorios',compartido._id]" class="btn-ver-rep" >
+                    Ver Repertorio
+                </button>
+            </mat-card-actions>
+          </div>
+        </div>
+    </div>
+</div>
     
-<mat-card class="carta-repertorio">
+<!-- <mat-card class="carta-repertorio">
     <mat-card-header fxLayoutAlign="space-around center" [routerLink]="['/home/repertorios',compartido._id]">
         <mat-card-title style="font-size: 16px ; height: 20px;">{{compartido.nombre}}</mat-card-title>
     </mat-card-header>
@@ -21,19 +44,11 @@
 
     </mat-card-content>
 
-    <mat-card-actions fxLayoutAlign="space-around center" >
-        <!-- <button mat-button color="warn" 
-                [routerLink]="['/home/repertorios/editar',repertorio._id]">
-            Editar
-        </button> -->
-        <!-- <button mat-button color="warn" 
-                [routerLink]="['/home/repertorios',repertorio._id]">
-            Ver Repertorio
-        </button> -->
+    <mat-card-actions fxLayoutAlign="space-around center" > 
         <button mat-button color="warn" [routerLink]="['/home/repertorios',compartido._id]"
         style="background-color: #7f46f2; color: white; border-radius: 6px; " >
             Ver Repertorio
         </button>
     </mat-card-actions>
 
-</mat-card>
+</mat-card> -->

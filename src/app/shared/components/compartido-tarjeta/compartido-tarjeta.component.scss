@@ -1,11 +1,47 @@
-.carta-repertorio{
-    border-radius: 10px;
-    color: black;
-    background-color: #F3F3F4;
-    box-shadow: -10px 10px 25px 1px rgb(208, 208, 208);
-    // background-color: #202020;
+
+// -------------------------------------------------------------------------------------------------------------------
+.main-card {
+    width: auto;
+    height: auto; 
+    margin: 2rem 2rem 0rem 1rem;
+    background: #fff;
+    border-radius: 15px;
 }
-.carta-repertorio:hover{
-    cursor: pointer;
-    background: rgb(208, 208, 208);
+.card-all {
+    width: 100%; 
+    height: 250px; 
+    display: flex; 
+    overflow: hidden;
+    position: relative;  
+    border-radius: 10px;  
+    background: #FFFFFF;
+    flex-direction: column; 
+    box-shadow: 0px 8px 27px rgba(0, 0, 0, 0.09);
+}
+.card-all:hover{
+  cursor: pointer;
+  background: #F3F3F4;
+}
+// 
+.rep-des{
+    height: 45%; 
+    width: 100%; 
+    padding: 1.2rem;
+  }
+.btn-ver-rep{
+    height: 40px;  
+    padding: 0 .6rem !important;
+    margin-top: -5rem;
+    background-color: #25D366; 
+    color: white; 
+    border-radius: 6px; 
+}
+.rep-nom{ 
+    height: 32px;
+    overflow: hidden;
+    font-size: 12px;
+}
+.rep-texto{
+    padding-left: 28%;
+
 }

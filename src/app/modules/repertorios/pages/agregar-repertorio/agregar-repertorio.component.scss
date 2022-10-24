@@ -3,19 +3,20 @@ img {
     border-radius: 5px;
   }
 
-  *{
-    color: black;
-  }
-
-.carta-repertorio{
-  border-radius: 10px;
+*{
   color: black;
-  background-color: #F3F3F4;
-  box-shadow: -10px 10px 25px 1px rgb(208, 208, 208);
-  margin-left: 8%; margin-right: 8%; border-radius: 12px;
-  // background-color: #202020;
 }
-.carta-repertorio:hover{
-    cursor: pointer;
-    background: rgb(231, 231, 231);
+.contenedor { 
+  position: relative;
+}
+
+.hijo { 
+  position: absolute;
+  margin-top: 4%;
+  left: 20%;  
+  width: 60%;
+  flex-direction: column; 
+  padding: 1rem 3.7rem; 
+  background-color: #F3F3F4;
+  border-radius: 18px;
 }

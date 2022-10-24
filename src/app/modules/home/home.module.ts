@@ -16,6 +16,7 @@ import { CancionesModule } from '../canciones/canciones.module';
 import { PartiturasModule } from '../partituras/partituras.module';
 import { IntegrantesModule } from '../integrantes/integrantes.module';
 import { CompartidosModule } from '../compartidos/compartidos.module';
+import { WhatsappModule } from '../whatsapp/whatsapp.module';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { CompartidosModule } from '../compartidos/compartidos.module';
     PartiturasModule,
     IntegrantesModule,
     CompartidosModule,
+    WhatsappModule,
 
     MatGridListModule,
     MatCardModule,
