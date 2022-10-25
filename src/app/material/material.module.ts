@@ -40,6 +40,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { NgxDocViewerModule } from 'ngx-doc-viewer';
 
 const materialModules = [
   MatAutocompleteModule,
@@ -82,7 +83,8 @@ const materialModules = [
   ReactiveFormsModule,
   MatExpansionModule,
   MatSlideToggleModule,
-  DragDropModule
+  DragDropModule,
+  NgxDocViewerModule,
 ];
 
 

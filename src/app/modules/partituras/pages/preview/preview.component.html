@@ -1,0 +1,17 @@
+ 
+ 
+  <div class="d-flex flex-column">
+    <div class="d-flex" style="width: 100%; height: 6vh; margin-bottom: .8rem; border-radius: 12px; border: 1px solid rgba(78, 78, 78, 0.1); 
+    box-shadow: 0px 4px 16px rgba(78, 78, 78, 0.1);">
+      <mat-icon style="margin: auto 0; margin-left: .9rem;" svgIcon="{{ convertIconFormat(typeFile) }}"></mat-icon>
+      <span style="margin: auto 0; margin-left: .8rem; font-size: .9rem;"> {{ data.name + typeFile }} </span>
+      <div class="d-flex" style="margin-left: auto;">
+        <button mat-button title="Descargar" (click)="downloadFile()"><mat-icon> vertical_align_bottom</mat-icon></button>
+        <button mat-button title="Cerrar" (click)="editPartitura()"><mat-icon>Editar</mat-icon></button>
+        <button mat-button title="Cerrar" (click)="closeDialog()"><mat-icon>clear</mat-icon></button>
+      </div>
+    </div>
+    <ngx-doc-viewer *ngIf="previewDoc" [url]="routePage" [viewer]="visorPage" style="width: 100%; height: 80vh;"></ngx-doc-viewer>
+    <img *ngIf="!previewDoc" [src]="routePage" style="width: 100%; height: 75vh;">
+    <!-- <ngx-doc-viewer [url]="routePage" [viewer]="visorPage" style="width:100%;height:50vh;" ></ngx-doc-viewer> -->
+  </div>

@@ -4,9 +4,8 @@ import { CrearPartituraDialogComponent } from './pages/crear-partitura-dialog/cr
 import { SharedModule } from '../../shared/shared.module';
 import { MaterialModule } from '../../material/material.module';
 import { AgregarPartituraComponent } from './pages/agregar-partitura/agregar-partitura.component';
-import { ListarPartituraDialogComponent } from './pages/listar-partitura-dialog/listar-partitura-dialog.component';
-import { ListarPartituraComponent } from './pages/listar-partitura/listar-partitura.component';
 import { RouterModule } from '@angular/router';
+import { PreviewComponent } from './pages/preview/preview.component';
 
 
 
@@ -14,8 +13,7 @@ import { RouterModule } from '@angular/router';
   declarations: [
     CrearPartituraDialogComponent,
     AgregarPartituraComponent,
-    ListarPartituraDialogComponent,
-    ListarPartituraComponent
+    PreviewComponent
   ],
   imports: [
     CommonModule,
@@ -27,8 +25,7 @@ import { RouterModule } from '@angular/router';
   exports:[
     CrearPartituraDialogComponent,
     AgregarPartituraComponent,
-    ListarPartituraDialogComponent,
-    ListarPartituraComponent
+    PreviewComponent
   ]
 })
 export class PartiturasModule { }

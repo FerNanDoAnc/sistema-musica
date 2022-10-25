@@ -7,7 +7,7 @@ import { CancionService } from '../../services/cancion.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { CrearPartituraDialogComponent } from '../../../modules/partituras/pages/crear-partitura-dialog/crear-partitura-dialog.component';
-import { ListarPartituraDialogComponent } from '../../../modules/partituras/pages/listar-partitura-dialog/listar-partitura-dialog.component';
+import { PreviewComponent } from '../../../modules/partituras/pages/preview/preview.component';
 
 @Component({
   selector: 'app-cancion-tarjeta',
@@ -111,21 +111,14 @@ export class CancionTarjetaComponent implements OnInit  {
   // =====================================================
   // PARTITURAS
   // =====================================================
-  onViewPartitura(){
-    this.openDialogListPartiture(this.cancion);
-  }
-  openDialogListPartiture(cancion?: any){
-    const config={
-      data:{
-        content:this.cancion
-      }
-    };
-    const dialogRef= this.dialog.open(ListarPartituraDialogComponent,config);
-    dialogRef.afterClosed().subscribe(resp=>{
-      if(resp){
-
-      }
-    });
+  showFile(name: string, src: string) {
+    var widthDialog;
+    let cadena = src.slice(src.lastIndexOf('.'));
+    if(cadena == '.doc' || cadena == '.docx' || cadena == '.xls' || cadena == '.xlsx' || cadena == '.ppt' || cadena == '.pptx' 
+    || cadena == '.pdf' || cadena == '.txt') widthDialog = '100%'
+    else widthDialog = 'auto';
+    const dialogBuild = this.dialog.open(PreviewComponent, { width: widthDialog, height: 'auto', data: { src, name,content:this.cancion }, panelClass: 'previewDialogC' });
+    dialogBuild.beforeClosed().subscribe(() => {});
   }
   // 
   onAddPartitura(){
