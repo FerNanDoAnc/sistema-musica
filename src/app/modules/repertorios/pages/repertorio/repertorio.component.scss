@@ -1,0 +1,142 @@
+img { 
+    width: 100%;
+    border-radius: 5px; 
+  } 
+
+body{
+//   height: 150%;
+  background:#FFF; 
+  // background: radial-gradient(circle at top, rgb(232, 229, 230), rgb(111, 110, 110));
+}
+
+// -------------------------------------------------------FLOAT BOTON----------------------------------------------------------------
+ 
+#btn-mas{
+    display: none;
+}
+.btn-float-1{
+    position: fixed;
+    bottom: 40px;
+    right: 35px;
+	z-index: 99;
+}
+.redes button, .btn-mas label{
+    display: block;
+    text-decoration: none; 
+    color: #fff;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.4);
+    transition: all 500ms ease;
+}
+.btn-mus{
+	background-color: #F4B400;
+}
+.btn-use{
+	background-color: #00B2FF;
+}
+.btn-wha{
+	background-color: #25D366;
+}
+.btn-mus:hover{
+	background-color: #fff; 
+    color: #F4B400; 
+}
+.btn-use:hover{
+	background-color: #fff; 
+    color: #00B2FF;
+}
+.btn-wha:hover{
+	background-color: #fff; 
+    color: #25D366;
+}
+
+.redes button{
+    margin-bottom: -15px;
+    opacity: 0;
+    visibility: hidden;
+}
+#btn-mas:checked~ .redes button{
+    margin-bottom: 10px;
+    opacity: 1;
+    visibility: visible;
+}
+.btn-mas label{
+    cursor: pointer;
+    background: #f44141;
+    font-size: 23px;
+}
+#btn-mas:checked ~ .btn-mas label{
+    transform: rotate(135deg);
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 700px) {
+	.btn-float-1{
+		bottom: 20px;
+		right: 20px; 
+	}
+}
+// --------------------------------------------------------END REGION---------------------------------------------------------
+
+.titulo{ 
+	align-items: center;
+}
+
+.btn-back{
+	padding-left: 7.7%;
+}
+.rep-nombre{ 
+	padding-left: 23%;
+}
+
+.rep-nombre2{
+	font-size: 26px !important; 
+}
+// 
+
+.cancion-tar{
+    background-color: rgb(253, 253, 253);
+    margin:4% 4%; 
+    padding:1.2% 5%;
+    border-radius: 18px;
+}
+.titulos-can{
+    width: 100%; 
+    height: auto; 
+    margin-top: .8rem; 
+    padding: .2rem 1.2rem;
+} 
+// -------------------------------------------pantallas----------------------------------------------
+@media only screen and (max-width: 700px) {
+	.titulos-can{ 
+        position: relative !important; 
+        height: 35px !important;
+    }
+    .titulo-des{
+        position: absolute;
+        top: 80%;
+        left: 3.5%;
+    }
+    .titulo-pdf{
+        position: absolute; 
+        left: 74%;
+    }
+}
+@media only screen and (max-width: 500px) {
+	.titulo-nom{ 
+        position: absolute; 
+        left: 3.2%;
+    } 
+}
+@media only screen and (max-width: 400px) {
+	.titulo-nom{  
+        left: 1%;
+    }
+    .titulo-des{  
+        left: 1%;
+    } 
+}

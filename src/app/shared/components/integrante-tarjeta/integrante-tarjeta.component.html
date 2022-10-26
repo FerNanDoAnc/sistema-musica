@@ -1,0 +1,33 @@
+<mat-card class="tarjeta-cancion" fxLayout="row" fxLayoutAlign="space-between center"  >
+    <mat-card-header fxLayout="row" fxLayoutAlign="space-between start" style="margin-top: 10px;" >
+        <mat-card-title fxLayoutAlign="start">
+            <span class="material-icons">
+                group &nbsp;&nbsp;
+            </span>
+            {{integrante.correo}}
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-actions fxLayoutAlign="end start" style="margin-top: -15px;">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" class="customize"> 
+            <!-- <button mat-menu-item
+                (click)="onEditUsuario()">
+                <button mat-raised-button color="accent">
+                    <mat-icon>edit</mat-icon>
+                    Actualizar
+                </button>
+            </button> -->
+            <button mat-menu-item 
+                (click)="borrarUsuario(integrante)">
+                <button mat-raised-button color="warn">
+                    <mat-icon>delete</mat-icon>
+                    Eliminar
+                </button>
+            </button>
+        </mat-menu>
+    </mat-card-actions>
+
+</mat-card>

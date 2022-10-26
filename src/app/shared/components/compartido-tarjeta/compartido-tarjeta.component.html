@@ -1,0 +1,39 @@
+
+    
+<mat-card class="carta-repertorio">
+    <mat-card-header fxLayoutAlign="space-around center" [routerLink]="['/home/repertorios',compartido._id]">
+        <mat-card-title style="font-size: 16px ; height: 20px;">{{compartido.nombre}}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content [routerLink]="['/home/repertorios',compartido._id]">
+        <div class="col-12">
+            <div class="col-12" style="margin-bottom: 5px;">
+                <img style="border-radius: 10px; width: 100%;" mat-card-md-image [src]="compartido.img" >
+            </div>
+            <div class="col-12" fxLayout="column" style="overflow: hidden;font-size: 12px ;">
+                <div class="col-12">
+                    <strong style="margin-left: 1%; margin-right: 2%;" >Nombre:</strong>
+                    {{compartido.nombre}}
+                    <br>
+                </div>
+            </div>
+        </div>
+
+    </mat-card-content>
+
+    <mat-card-actions fxLayoutAlign="space-around center" >
+        <!-- <button mat-button color="warn" 
+                [routerLink]="['/home/repertorios/editar',repertorio._id]">
+            Editar
+        </button> -->
+        <!-- <button mat-button color="warn" 
+                [routerLink]="['/home/repertorios',repertorio._id]">
+            Ver Repertorio
+        </button> -->
+        <button mat-button color="warn" [routerLink]="['/home/repertorios',compartido._id]"
+        style="background-color: #7f46f2; color: white; border-radius: 6px; " >
+            Ver Repertorio
+        </button>
+    </mat-card-actions>
+
+</mat-card>

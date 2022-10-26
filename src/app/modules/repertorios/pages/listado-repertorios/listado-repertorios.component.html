@@ -1,0 +1,36 @@
+    
+    <br>
+    <span fxLayoutAlign="center" style="color:  black !important;" >
+        <h1 style="font-size: 28px !important;">
+            <span style="margin-left: -20px;margin-right: 5px;"> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-file-earmark-music-fill" viewBox="0 0 16 16">
+                    <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 6.64v1.75l-2 .5v3.61c0 .495-.301.883-.662 1.123C7.974 13.866 7.499 14 7 14c-.5 0-.974-.134-1.338-.377-.36-.24-.662-.628-.662-1.123s.301-.883.662-1.123C6.026 11.134 6.501 11 7 11c.356 0 .7.068 1 .196V6.89a1 1 0 0 1 .757-.97l1-.25A1 1 0 0 1 11 6.64z"/>
+                </svg>
+            </span>
+            Mis Repertorios
+        </h1>
+    </span> 
+    <br>
+
+    <!-- <div class="row" style="padding-left: 32px; margin-top: 0.9%;">
+        <div  class="col-8" style="text-align: left; vertical-align: middle; margin-left: -0.8%;">
+            <div id="formFiltro"> 
+                <div class="text-w-bold text-fs-14" style="margin-left: 10px;color: #000;">
+                    <mat-label>Buscar</mat-label>
+                </div>
+                <mat-form-field  appearance="outline" class="w-100" style="padding: 10px;" >
+                    <mat-icon matSuffix >search</mat-icon>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="Ingresa palabra clave" #input
+                        style="margin-bottom: 4px; margin-top: -4px; color: #000;">
+                </mat-form-field>
+            </div>
+        </div>
+    </div> -->
+
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="1px">
+        <div fxFlex="30" fxFlex.lg="30" fxFlex.sm="30" *ngFor="let repertorio of repertorios">
+            <div class="p-2">
+                <app-repertorio-tarjeta [repertorio]="repertorio"></app-repertorio-tarjeta>
+            </div>
+        </div>
+    </div>

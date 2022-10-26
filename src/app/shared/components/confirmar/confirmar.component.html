@@ -1,0 +1,23 @@
+<div style="width: 100%;">
+    <div class="row col-12 text-center">
+        <h1 class="col-12">¿Estás seguro?</h1>
+        <br><hr>
+        <p class="col-12 text-center" style="color: white;">¿Eliminar a: &nbsp;{{data.nombre}} ?</p>
+    </div>
+    <br>
+    
+    <div class="row justify-content-between text-center">
+        <div class="col-6">
+            <button mat-button class=" " style="background-color: #FE5050;color: white;"
+                (click)="borrar()" >
+                Si
+            </button>
+        </div>
+        <div class="col-6"  >
+            <button mat-button class=" " style="background-color: white;color: black;"
+                    (click)="cerrar()">
+                No
+            </button>
+        </div>
+    </div>
+</div>

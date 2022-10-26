@@ -1,0 +1,118 @@
+<form class="login100-form" 
+    autocomplete="off"
+    [formGroup]="miFormulario"
+    (ngSubmit)="registro()">
+                
+    <span class="login100-form-title p-b-15">
+        Registrarse
+    </span>
+
+    <!-- Nombre - class m-b-23 -->
+    <div class="wrap-input100">
+        <span class="label-input100">Nombres</span>
+        <input class="input100"
+               type="text" 
+               formControlName="nombre" 
+               placeholder="Ingrese sus Nombres">
+        <span class="focus-input100"></span>
+    </div>
+    <span class="label-input100">
+        <small class="text-danger mt-1 px-2 py-1 rounded"
+            *ngIf="(formValidate.nombre.dirty || formValidate.nombre.touched) 
+            && formValidate.nombre.errors"
+            >
+            <ng-container [ngSwitch]="formValidate.nombre.value">
+                <ng-container *ngSwitchCase="''">
+                    El nombre es obligatorio
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                    Nombre inválido
+                </ng-container>
+            </ng-container>
+        </small>
+    </span>
+    <div class=" m-b-0"></div>
+
+    <div class="wrap-input100">
+        <span class="label-input100">Correo</span>
+        <input class="input100"
+               type="email" 
+               formControlName="correo" 
+               placeholder="Ingrese su correo">
+        <span class="focus-input100"></span>
+    </div>
+    <span class="label-input100">
+        <small class="text-danger mt-1 px-2 py-1 rounded"
+            *ngIf="(formValidate.correo.dirty || formValidate.correo.touched) 
+            && formValidate.correo.errors"
+            >
+            <ng-container [ngSwitch]="formValidate.correo.value">
+                <ng-container *ngSwitchCase="''">
+                    El correo es obligatorio
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                    Correo invalido
+                </ng-container>
+            </ng-container>
+        </small>
+    </span>
+    <div class=" m-b-0"></div>
+
+    <div class="wrap-input100">
+        <span class="label-input100">Contraseña</span>
+        <div class="row">
+            <div class="col-10 my-auto mx-auto">
+                <input class="input100"
+                    type="password"
+                    formControlName="password" 
+                    placeholder="Ingrese su contraseña"
+                    [type]="hide ? 'password' : 'text'" >
+            </div>
+            <div class="col-2 my-auto mx-auto ">
+                <mat-icon class="" matSuffix (click)="hide = !hide">
+                    {{hide ? 'visibility_off' : 'visibility'}}
+                </mat-icon>
+            </div>
+        </div>
+        <span class="focus-input100"></span>
+    </div>
+    <span class="label-input100">
+        <small class="text-danger mt-1 px-2 py-1 rounded"
+            *ngIf="(formValidate.password.dirty || formValidate.password.touched) 
+            && formValidate.password.errors"
+            >
+            <ng-container [ngSwitch]="formValidate.password.value">
+                <ng-container *ngSwitchCase="''">
+                    La contraseña es obligatorio
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                    Debe tener mas de 6 caracteres
+                </ng-container>
+            </ng-container>
+        </small>
+    </span>
+
+    <div class="text-right p-t-5 p-b-10"></div>
+    
+    <div class="container-login100-form-btn">
+        <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button class="login100-form-btn"
+                    type="submit"
+                    [disabled]="miFormulario.invalid">
+                Registrarse
+            </button>
+        </div>
+    </div>
+
+    <div class="flex-col-c p-t-15">
+        <span class="txt1 p-b-12">
+            ¿Ya estas registrado?
+        </span>
+
+        <a routerLink="/auth/login" 
+            class="txt2">
+            Ingresa aqui
+        </a>
+    </div>
+</form>
