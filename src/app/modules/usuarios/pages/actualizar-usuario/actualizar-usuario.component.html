@@ -1,214 +1,52 @@
-<body class="contenedorUser">
-    <br>
-<span fxLayout="row"  >
-    <span fxLayoutAlign="center" fxFlex="23">
-        <button mat-button color="warn" (click)="volver()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="66" height="66" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
-            </svg>
-        </button>
-    </span>
-    <span fxLayoutAlign="center" fxFlex="50">
-        <h1 style="color: white;" >
-            <span><img style="height: 25px; width: 25px;" src="https://img.icons8.com/wired/64/000000/save.png"/></span>
-            {{
-                (usuario.uid)
-                ? 'Editar usuario'
-                : 'Agregar usuario'
-            }}
-            
-        </h1>
-    </span>
-</span>
-<br>
-    <mat-divider></mat-divider>
-<br>
-
-<div fxLayout="row wrap" style="margin-left: 5%; margin-right: 5%;"
-        fxLayout.xs="column"
-        fxLayoutAlign="center"
-        fxLayoutGap="20px">
-
-        <div fxFlex="80"
-            fxFlex.lg="70"
-            fxFlex.sm="60">
-            <div class="p-2">
-                
-                <mat-card class="tarjeta-usuario" fxLayout="column" >
-
-                    <mat-card-title-group  fxLayout="row wrap" fxLayoutAlign="start" 
-                        fxLayout.xs="column" fxFlex="100" fxFlex.lg="90" fxFlex.sm="80" >
-                        <mat-card-title fxLayoutAlign="start" fxLayout="row" fxLayout.xs="column"
-                            style="margin-top: 5%; margin-bottom: 10%; margin-left: 3px;">
-                            <span fxLayout="row"  >
-                                <span fxLayoutAlign="center" fxFlex="100">
-                                    <h1>
-                                        <span><img src="https://img.icons8.com/color/48/000000/badge.png"/></span>
-                                        <span style="font-size: 24px;">Datos</span>
-                                    </h1>
-                                </span>
-                            </span>
-                        </mat-card-title>
-                
-                        <mat-card-subtitle fxLayout="row wrap"  fxLayout.xs="column" fxLayoutAlign="start" >
-                        
-                        <div fxFlex="100" fxFlex.lg="90" fxFlex.sm="80"> 
-                            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px"> 
-                                <mat-form-field fxFlex="100" fxLayout.xs="column">
-                                    <mat-label>  Nombre </mat-label>
-                                    <input type="text" matInput [(ngModel)]="usuario.nombre" required>
-                                </mat-form-field> 
-                            </div>
-                            
-                            <div fxLayout="row">
-                                <mat-form-field fxFlex="100" fxLayout.xs="column">
-                                    <mat-label> Correo </mat-label>
-                                    <input type="text" matInput [(ngModel)]="usuario.correo" required>
-                                </mat-form-field>
-                            </div>
-                        </div>
-                        </mat-card-subtitle>
-                        <br>
-                        
-                        <span fxLayout="row wrap" fxLayout.xs="column" style="margin-left: 25%;margin-right: 5%;">
-                            <label for="archivo">
-                                <img style="margin-top: 10%; height: 200px; width: 250px; border-radius:  10px; border-radius:  100px "
-                                    fxLayout="row wrap" fxLayout.xs="column"
-                                    mat-card-xl-image [src]="imageSrc || usuario.img" ><br>
-                                    <span style="margin-left: 30%;"> Seleccionar foto</span>
-                            </label>
-                        </span>
-                        <form class="custom-input-file"  style="margin-left: 50%; display: none; ">
-                            <input type="file" id="archivo" (change)="onFileChange($event)" name="archivo"  >
-                        </form>
-                                
-                    </mat-card-title-group>
-                    <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
-                        <div fxLayout fxLayout fxLayoutAlign="center">
-                                <span class="spacer"></span>
-                    
-                                <!-- <button mat-raised-button 
-                                        color="accent"
-                                        (click)="guardar()">
-                                    <mat-icon>save_as</mat-icon>
-                                    {{
-                                        (usuario.uid)
-                                        ? 'Actualizar usuario'
-                                        : 'Crear usuario'
-                                    }}
-                                </button> -->
-                                <button class="boton seis" color="accent"
-                                        mat-raised-button 
-                                        (click)="onUpload()">
-                                        <span>
-                                            <span><img style="height: 25px; width: 25px;" src="https://img.icons8.com/wired/64/000000/save.png"/></span>
-                                        </span>
-                                        {{
-                                            (usuario.uid)
-                                            ? 'Guardar '
-                                            : 'Crear usuario'
-                                        }}
-                                    <svg>
-                                        <rect x="0" y="0" fill="none"></rect>
-                                    </svg>
-                                </button>
-                            </div>
-                    </mat-card-content>
-                </mat-card>
-
+<body>
+    <section class="seccion-perfil-usuario">
+        <div class="perfil-usuario-header">
+            <div class="perfil-usuario-portada">
+                <div class="perfil-usuario-avatar" >
+                    <img  [src]="imageSrc || usuario.img" alt="img-avatar">
+                    <button type="button" class="boton-avatar">
+                        <i class="fa fa-image"><input type="file" id="archivo" (change)="onFileChange($event)" name="archivo"  ></i> 
+                    </button>
+                </div>
+                <button type="button" class="boton-portada">
+                    <i class="fa fa-image"></i>Cambiar portada <input type="file" id="archivo" (change)="onFileChange($event)" name="archivo"  >
+                </button>
             </div>
         </div>
-        
-    </div>
-</body>
-
-
-<!-- <body class="contenedorUser">
-    <br>
-
-    <span fxLayout="row"  >
-        <span fxLayoutAlign="center" fxFlex="23">
-            <button mat-button color="warn" (click)="volver()">
-                <span class="material-icons">
-                    arrow_back
-                    </span>
-            </button>
-        </span>
-        <span fxLayoutAlign="center" fxFlex="50">
-            <h1>
-                <span class="material-icons"> 
-                    edit
-                </span>
-                {{
-                    (usuario.uid)
-                    ? 'Editar usuario'
-                    : 'Agregar usuario'
-                }}
-                :
-            </h1>
-        </span>
-    </span>
-    <br>
-        <mat-divider></mat-divider>
-    <br>
-    
-    <div fxLayout="row" style="margin-left: 8%; margin-right: 8%;"
-        fxLayoutGap="60px"
-        fxLayout.xs="column"
-        fxLayoutAlign="center"
-        >
-    
-        <div fxFlex="60"
-            fxFlex.lg="50"
-            fxFlex.sm="50">
-            
-            <div fxLayout="row"
-                fxLayout.xs="column"
-                fxLayoutGap="20px">
-    
-                <mat-form-field fxFlex="100"
-                                fxLayout.xs="column">
-                    <mat-label>
-                        Nombre
-                    </mat-label>
-                    <input type="text"
-                            matInput
-                            [(ngModel)]="usuario.nombre"
-                            required>
-                </mat-form-field>
-    
+        <div class="perfil-usuario-body">
+            <div class="perfil-usuario-bio">
+                <h3 class="titulo"> <input matInput [(ngModel)]="usuario.nombre" required></h3>
+                <p class="texto">Acá pondria una breve descripcion de su carrera profesinal</p>
             </div>
-            
-            <div fxLayout="row">
-                <mat-form-field fxFlex="100"
-                    fxLayout.xs="column">
-                    <mat-label>
-                        Correo
-                    </mat-label>
-                    <input type="text"
-                                matInput
-                                [(ngModel)]="usuario.correo"
-                                required>
-                </mat-form-field>
-            </div>
-            
-            <div fxLayout fxLayout fxLayoutAlign="center">
-                <span class="spacer"></span>
-    
-                <button mat-raised-button 
-                        color="accent"
-                        (click)="guardar()">
-                    <mat-icon>save_as</mat-icon>
-                    {{
-                        (usuario.uid)
-                        ? 'Actualizar usuario'
-                        : 'Crear usuario'
-                    }}
-                </button>
+            <div class="perfil-usuario-footer">
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-phone-alt"></i> Correo: <input type="text" matInput [(ngModel)]="usuario.correo" required></li>
+                    <li><i class="icono fas fa-map-signs"></i> Nombre de artista: </li>
+                   
+                    
+                </ul>
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-phone-alt"></i> Telefono:</li>
+                    <li><i class="icono fas fa-briefcase"></i>Dirección: </li>
+                    <li><i class="icono fas fa-building"></i> Sexo: </li>
+                  
+                </ul>
             </div>
             
         </div>
         <br>
+        <button class="boton-guardar"
+        mat-raised-button 
+        (click)="onUpload()">
+        
+        {{
+            (usuario.uid)
+            ? 'Guardar '
+            : 'Crear usuario'
+        }}
+    </button>
+    </section>
+   
     
-    </div>
-</body> -->
+</body>
+
