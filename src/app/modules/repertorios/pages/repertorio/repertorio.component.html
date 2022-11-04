@@ -18,7 +18,8 @@
         </div>
         
 
-        <div fxLayout="row" style="margin-left: 8%; margin-right: 8%;" fxLayoutGap="100px" fxLayout.xs="column" fxLayoutAlign="center">
+        <div fxLayout="row" style="margin-left: 8%; margin-right: 8%;" fxLayoutGap="100px" fxLayout.xs="column" fxLayoutAlign="center"
+            *ngIf="mostrarBotonesReper">
             <div fxFlex="100" fxFlex.lg="95" fxFlex.sm="90">
                 <div fxLayout="row wrap" fxLayout.xs="" fxLayoutGap="20px"> 
                     <!-- BTN Flotante-->
@@ -63,12 +64,12 @@
                 <span class="titulo-des"> Descripcion </span>
                 <span class="titulo-pdf"> Partitura</span>
             </div>
-            <div fxFlex="100" fxFlex.lg="100" fxFlex.sm="100" *ngFor="let cancion of canciones" cdkDrag cdkDragLockAxis="y">
+            <div fxFlex="100" fxFlex.lg="100" fxFlex.sm="100" *ngFor="let cancion of canciones| orderBy: 'cancion.indice'" cdkDrag cdkDragLockAxis="y">
                 <div >
                     <app-cancion-tarjeta [cancion]="cancion"></app-cancion-tarjeta>
                     <!-- <img *cdkDragPreview [src]="cancion.img" [alt]="cancion.nombre"> -->
                 </div>
-            </div> 
+            </div>
         </div>
     </ng-template>
     <br><br>

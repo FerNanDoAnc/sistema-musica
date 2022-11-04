@@ -41,6 +41,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
+import { OrderModule } from 'ngx-order-pipe';
 
 const materialModules = [
   MatAutocompleteModule,
@@ -85,6 +86,7 @@ const materialModules = [
   MatSlideToggleModule,
   DragDropModule,
   NgxDocViewerModule,
+  OrderModule
 ];
 
 
