@@ -79,6 +79,7 @@ export class RepertorioComponent implements OnInit {
 
   listUpdate(){
     this.webSocketService.listen('update-index-cancion').subscribe((data)=>{ 
+      console.log(data);
       this.getCancionRepertorio();
     })
   }

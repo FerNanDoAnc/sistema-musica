@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   baseUrl: 'http://localhost:8080/api',
-  baseUrlSocket: 'http://localhost:8081',
+  baseUrlSocket: 'http://localhost:8080',
   // baseUrl: 'https://back-sistema-musica-2022.herokuapp.com/api',
 };
 
