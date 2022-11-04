@@ -41,7 +41,7 @@ export class CancionService {
     );
   }
   actualizarCancion(cancion: any):Observable<any>{
-    console.log("ACTUALIZAR CANCION",cancion);
+    // console.log("ACTUALIZAR CANCION",cancion);
     return this.http.put<any>(`${this.baseUrl}/canciones/${cancion._id}`, cancion);
   }
   borrarCancion(_id:string):Observable<any>{

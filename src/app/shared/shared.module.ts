@@ -17,6 +17,7 @@ import { CancionTarjetaComponent } from './components/cancion-tarjeta/cancion-ta
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { IntegranteTarjetaComponent } from './components/integrante-tarjeta/integrante-tarjeta.component';
 import { CompartidoTarjetaComponent } from './components/compartido-tarjeta/compartido-tarjeta.component';
+import { IndiceCancionPipe } from './pipes/indice-cancion.pipe';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { CompartidoTarjetaComponent } from './components/compartido-tarjeta/comp
     CancionTarjetaComponent,
     IntegranteTarjetaComponent,
     CompartidoTarjetaComponent,
+    IndiceCancionPipe,
   ],
   imports: [
     CommonModule,
@@ -52,6 +54,7 @@ import { CompartidoTarjetaComponent } from './components/compartido-tarjeta/comp
     FlexLayoutModule,
     IntegranteTarjetaComponent,
     CompartidoTarjetaComponent,
+    IndiceCancionPipe
   ]
 })
 export class SharedModule { }

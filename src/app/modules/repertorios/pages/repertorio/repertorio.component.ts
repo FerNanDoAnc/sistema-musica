@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddListIntegrantesComponent } from '../../../../modules/integrantes/pages/add-list-integrantes/add-list-integrantes.component';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NewMsgComponent } from 'src/app/modules/whatsapp/pages/new-msg/new-msg.component';
+import { WebSocketService } from 'src/app/shared/services/web-socket.service';
 
 @Component({
   selector: 'app-repertorio',
@@ -39,6 +40,10 @@ export class RepertorioComponent implements OnInit {
     link:'',
   }
 
+  indexCancion:any;
+  idCancion:any;
+  cancionesOrdenadas:any[]=[];
+
   constructor(
     private activatedRoute:ActivatedRoute,
     private repertoriosService:RepertorioService,
@@ -48,12 +53,40 @@ export class RepertorioComponent implements OnInit {
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
 
+    private webSocketService: WebSocketService,
+
   ) { }
 
   ngOnInit(): void {
     this.getRepertorioPorId();
     this.getCancionRepertorio();
+    // this.listarWs(); 
+    this.listUpdate();
   }
+// ==========================================================================================================================
+  // en deshuso por el momento
+  listarWs(){
+    this.activatedRoute.params
+    .pipe(
+      switchMap(({_id})=>this.webSocketService.emitirEvento('listDos-cancion-rep',{_id:_id}))) 
+    .subscribe(
+      data=>{ 
+        this.canciones=data.canciones; 
+      },
+      err=>console.log(err)
+    );
+  }
+
+  listUpdate(){
+    this.webSocketService.listen('update-index-cancion').subscribe((data)=>{ 
+      this.getCancionRepertorio();
+    })
+  }
+  
+  updateIndexCan(data:any){  
+    this.webSocketService.emit('update-index-cancion',data);
+  }
+  // ======================================================================================================================
   
   capitalizarPrimeraLetra(str:any) { 
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
@@ -169,10 +202,26 @@ export class RepertorioComponent implements OnInit {
   }
 
   // =============================================================
-  onDropped(event:CdkDragDrop<any>){ 
-    const anterior=event.previousIndex;
-    const actual=event.currentIndex;
-    moveItemInArray(this.canciones,anterior,actual);
+  onDropped(event:CdkDragDrop<any>){
+    try {
+      const anterior=event.previousIndex;
+      const actual=event.currentIndex;
+      moveItemInArray(this.canciones,anterior,actual);
+      
+      this.canciones.forEach((cancion,index)=>{ 
+        cancion.indice=index; 
+      }); 
+
+      this.updateIndexCan(this.canciones);
+       
+    } catch (error) {
+        console.log(error);
+    }
   }
   
+  // En deshuso
+  trackCancion(index : number, cancionTrack: any) { 
+    return cancionTrack._id;
+  };
+
 }
