@@ -40,9 +40,7 @@ export class RepertorioComponent implements OnInit {
     link:'',
   }
 
-  indexCancion:any;
-  idCancion:any;
-  cancionesOrdenadas:any[]=[];
+  noAutor:boolean=true; 
 
   constructor(
     private activatedRoute:ActivatedRoute,
@@ -110,6 +108,7 @@ export class RepertorioComponent implements OnInit {
       for(let i of this.usuarioRepComp){
         if(this.idLocal==i){
           this.mostrarBotonesReper=true;
+          this.noAutor=false;
         }
       }
     });
