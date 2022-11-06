@@ -64,7 +64,7 @@
                 <span class="titulo-des"> Descripcion </span>
                 <span class="titulo-pdf"> Partitura</span>
             </div>
-            <div fxFlex="100" fxFlex.lg="100" fxFlex.sm="100" *ngFor="let cancion of canciones| orderBy: 'cancion.indice'" cdkDrag cdkDragLockAxis="y">
+            <div fxFlex="100" fxFlex.lg="100" fxFlex.sm="100" *ngFor="let cancion of canciones| orderBy: 'cancion.indice'" cdkDrag cdkDragLockAxis="y" [cdkDragDisabled]="noAutor">
                 <div >
                     <app-cancion-tarjeta [cancion]="cancion"></app-cancion-tarjeta>
                     <!-- <img *cdkDragPreview [src]="cancion.img" [alt]="cancion.nombre"> -->
