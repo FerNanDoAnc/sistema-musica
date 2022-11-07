@@ -1,3 +1,94 @@
-*{
-    color: rgb(0, 0, 0);
+
+.rectangulo-repertorios{
+    height: auto;
+    width: 100%;
+    left: 40px;
+    top: 274px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.cancion-tar{
+    background-color: #FFF;
+    margin: 3% 4% 4%;
+    padding: 0;
+    border-radius: 18px;
+}
+.tarjetas-rep{
+    padding: 5% 0;
+}
+
+.text-hola{
+    font-weight: 700 !important; 
+    font-size: 1.4rem; 
+    color:#7f46f2
+}
+.text-ind{
+    color: #575861;
+    font-size: 12px; 
+    margin-top: .4rem; 
+    padding-left: 5.5%;
+    font-family: cursive; 
+}
+.text-rep-com{
+    font-weight: 700 !important; 
+    font-size: 1.4rem; 
+    color:#000;
+}
+
+.tarjetas-rep{
+    padding: 5% 0;
+}
+
+// ----------------------------------------------------------------------------------------------------------------------
+.scroll[id*="true"] {
+    padding-right: 1rem;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 6px;
+    -webkit-appearance: none;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background-color: #C4C4C4;
+    border-radius: 20px;
+}
+
+.scroll::-webkit-scrollbar-track {
+    background-color: #ECECEC;
+    border-radius: 20px;
+}
+
+.mb-1 {
+    margin-bottom: 0.1rem !important;
+}
+
+.mat-checkbox-inner-container {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 4px;
+    background-color: #FFF !important;
+}
+
+.mat-form-field-subscript-wrapper {
+    margin-top: 0em !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0em !important;
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 0em !important;
+}
+
+.mat-form-field-infix {
+    border-top: 0.4em solid transparent !important;
+}
+
+.mat-calendar-body-selected {
+    background-color: #7F46F1 !important;
 }
