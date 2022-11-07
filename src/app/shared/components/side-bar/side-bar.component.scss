@@ -18,7 +18,8 @@ body {
 .content {
   position: fixed;
   bottom: 0;
-  background: rgba(255, 255, 255, 0); 
+  background: #F5F5F6; 
+  // background: rgba(255, 255, 255, 0); 
   // width: 100%;
   // height: 100%; 
 }
@@ -26,19 +27,49 @@ body {
 // MENU
 .sidenav {
   width: 300px;
-  background-color: #202020;
+  background-color: #fff;
+  // background-color: #202020;
+}
+.titulo-descripcion {
+  color: #575861;
+  font-size: 1em;
+  padding-left: 1rem;
+}
+.titulo-icon{ 
+  padding-left: 1rem;
 }
 
 // TITULO MENU
-.sidenav .mat-toolbar {
-  background-color: #202020;
+.menu-1{ 
+  background-color: #fff;
+  color: #575861;
+  height: 100px;
+}
+.menu-2{ 
+  background-color: #fff;
+  color: #575861;
+  height: 100px;
+}
 
-  color: #fff;
+.ilu-img-ini {
+  padding-top: 35%;
+  padding-left: 17%;
+  margin-left: 17%;
+  width: 70% !important;
+  height: 70% !important;
+}
+.btn-close-menu{  
+  margin-top: -13%;
+}
+.titulo-menu-inicio{
+  font-size: 1.3rem; 
+  margin-left: 39%; 
+  margin-top: 12%;
 }
 
 // HEADER
 .toolbar-header{
-  background-color: #202020;
+  background-color: #F5F5F6;
 }
 
 .mat-toolbar.mat-primary {
