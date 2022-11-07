@@ -8,3 +8,33 @@
     margin: 0;
     padding: 0;
 }
+
+.cancion-tar{
+    background-color: rgb(253, 253, 253);
+    margin: 3% 4% 4%; 
+    // padding:1.2% 5%;
+    padding: 0;
+    border-radius: 18px;
+}
+.tarjetas-rep{
+    padding: 5% 0;
+}
+
+.text-hola{
+    font-weight: 700 !important; 
+    font-size: 1.4rem; 
+    color:#7f46f2
+}
+.text-ind{
+    color: #575861;
+    font-size: 12px; 
+    margin-top: .4rem; 
+    padding-left: 5.5%;
+    font-family: cursive; 
+}
+.text-rep{
+    color: #000;
+    font-size: 1.2rem; 
+    margin-top: 1.9rem; 
+    padding-left: 5.5%; 
+}

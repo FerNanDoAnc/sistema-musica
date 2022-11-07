@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { Repertorio } from '../../../../core/interfaces/repertorio.interface';
 import { RepertorioService } from '../../../../shared/services/repertorio.service';
 
@@ -12,13 +13,24 @@ export class ListadoRepertoriosComponent implements OnInit {
   idLocal:any=localStorage.getItem('_id');
   
   repertorios:any[]=[]; 
+
+
   constructor(
-    private repertoriosService: RepertorioService
+    private repertoriosService: RepertorioService,
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
     this.getRepertoriosList();
   }
+  
+  get usuario(){
+    return this.primerNombre(this.authService.usuario.nombre);
+  }
+  primerNombre(nombre:string){
+    return nombre.split(' ')[0];
+  }
+
   getRepertoriosList(){
     this.repertoriosService.getRepertorioPorUsuario(this.idLocal)
     .subscribe(

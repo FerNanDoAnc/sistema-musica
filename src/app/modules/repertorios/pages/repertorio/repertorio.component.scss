@@ -9,6 +9,9 @@ body{
   // background: radial-gradient(circle at top, rgb(232, 229, 230), rgb(111, 110, 110));
 }
 
+.contenedorRepertorio{
+    background: #F5F5F6; 
+}
 // -------------------------------------------------------FLOAT BOTON----------------------------------------------------------------
  
 #btn-mas{
@@ -99,7 +102,7 @@ body{
 // 
 
 .cancion-tar{
-    background-color: rgb(253, 253, 253);
+    background-color: #fff;
     margin:4% 4%; 
     padding:1.2% 5%;
     border-radius: 18px;

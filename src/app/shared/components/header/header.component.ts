@@ -2,7 +2,6 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../../../modules/auth/services/auth.service';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
-import { Usuario } from 'src/app/core/interfaces/usuario.interface';
 
 @Component({
   selector: 'app-header',
