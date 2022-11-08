@@ -1,22 +1,26 @@
 
 <div>
-    <div  class="cancion-tar">
+    <div class="cancion-tar">
         <br>
-        <div>
-            <div class="d-flex" style="margin-top: .5rem; padding-left: 5.5%;">
-                <label class="text-hola">
-                    Hola {{usuario}}
-                </label> 
+        <div class="d-flex" style="margin: 1rem 0;">
+            <div style="margin-top: .5rem; padding-left: 5.5%; width: 50%;">
+                <div class="d-flex" >
+                    <label class="text-hola">Hola {{usuario}}</label> 
+                </div>
+                <div class="text-ind">Selecciona un repertorio para empezar</div>
+                <span style="color:  black !important;" >
+                    <h1 class="text-rep">
+                        Tus Repertorios
+                    </h1>
+                </span> 
             </div>
-            <div class="text-ind">
-                Selecciona un repertorio para empezar
+            <div class="btn-add-rep">
+                <button class="button-global button-text iconify-mright button-dark button-bg-purple ps-3 pe-3 mt-auto"
+                    routerLink="/home/repertorios/agregar">
+                    <span >+</span>
+                    <span class="spanFilter"> Agregar </span>
+                </button>
             </div>
-
-            <span style="color:  black !important;" >
-                <h1 class="text-rep">
-                    Tus Repertorios
-                </h1>
-            </span> 
         </div> 
     
         <!-- <div class="row" style="padding-left: 32px; margin-top: 0.9%;">

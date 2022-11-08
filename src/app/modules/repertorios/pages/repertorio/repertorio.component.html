@@ -3,17 +3,7 @@
         <mat-grid-tile><mat-spinner></mat-spinner></mat-grid-tile>
     </mat-grid-list>
     
-    <ng-template #divRepertorio> 
-        <div class="row col-12 titulo">
-            <!-- <div class="col-2 btn-back">
-                <button (click)="volver()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
-                    </svg>
-                </button>
-            </div>  -->
-        </div>
-        
+    <ng-template #divRepertorio>  
 
         <div fxLayout="row" style="margin-left: 8%; margin-right: 8%;" fxLayoutGap="100px" fxLayout.xs="column" fxLayoutAlign="center"
             *ngIf="mostrarBotonesReper">
@@ -70,11 +60,16 @@
                         <label style="color:#7f46f2; font-size: 1.4rem;">{{repertorioNombre}}</label>
                     </div>
                     <div class="text-ind">
-                        Crea y organiza tus canciones.
+                        {{
+                            (mostrarBotonesReper)
+                            ? 'Crea y organiza tus canciones.'
+                            : 'Sigue el repertorio de tu director en tiempor real.'
+                        }} 
                     </div>
                 </div> 
 
-                <div class="d-fill titulos-can" >
+                <div class="d-fill-can titulos-can" >
+                    <span class="titulo-ord"> N° </span>
                     <span class="titulo-nom"> Nombre </span>
                     <span class="titulo-des"> Descripcion </span>
                     <span class="titulo-pdf"> Partitura</span>
@@ -89,20 +84,7 @@
                 </div>
             </div>
         </div>
-        <!-- <div fxLayout="column" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px"  class="cancion-tar" cdkDropList (cdkDropListDropped)="onDropped($event)"> 
-            <div class="d-fill titulos-can" >
-                <span class="titulo-nom"> Nombre </span>
-                <span class="titulo-des"> Descripcion </span>
-                <span class="titulo-pdf"> Partitura</span>
-            </div>
-            <div fxFlex="100" fxFlex.lg="100" fxFlex.sm="100" *ngFor="let cancion of canciones| orderBy: 'cancion.indice'" cdkDrag cdkDragLockAxis="y" [cdkDragDisabled]="noAutor">
-                <div >
-                    <app-cancion-tarjeta [cancion]="cancion"></app-cancion-tarjeta>
-                    <img *cdkDragPreview [src]="cancion.img" [alt]="cancion.nombre">
-                </div>
-            </div>
-        </div> -->
- 
+        
     </ng-template>
     <br><br>
 
