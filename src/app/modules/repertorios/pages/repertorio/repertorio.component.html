@@ -5,16 +5,13 @@
     
     <ng-template #divRepertorio> 
         <div class="row col-12 titulo">
-            <div class="col-2 btn-back">
+            <!-- <div class="col-2 btn-back">
                 <button (click)="volver()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
                     </svg>
                 </button>
-            </div>
-            <div class="col-10 rep-nombre">
-                <h1 class="rep-nombre2">{{repertorioNombre}}</h1>
-            </div>
+            </div>  -->
         </div>
         
 
@@ -58,7 +55,41 @@
             </div>
         </div>
         
-        <div fxLayout="column" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px"  class="cancion-tar" cdkDropList (cdkDropListDropped)="onDropped($event)"> 
+        <div class="main-card-rep">
+            
+            <div class="cancion-tar" cdkDropList (cdkDropListDropped)="onDropped($event)">
+                <div>
+                    <div class="col-2 btn-back">
+                        <button (click)="volver()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+                            </svg>
+                        </button>
+                    </div> 
+                    <div class="d-flex" style="margin-top: .5rem; padding-left: .5%;">  
+                        <label style="color:#7f46f2; font-size: 1.4rem;">{{repertorioNombre}}</label>
+                    </div>
+                    <div class="text-ind">
+                        Crea y organiza tus canciones.
+                    </div>
+                </div> 
+
+                <div class="d-fill titulos-can" >
+                    <span class="titulo-nom"> Nombre </span>
+                    <span class="titulo-des"> Descripcion </span>
+                    <span class="titulo-pdf"> Partitura</span>
+                </div>
+        
+                <div class="scroll mb-4"> 
+                    <div *ngFor="let cancion of canciones| orderBy: 'cancion.indice'" cdkDrag cdkDragLockAxis="y" [cdkDragDisabled]="noAutor">
+                        <div fxFlex="100" fxFlex.lg="100" fxFlex.sm="100" class="tarjeta-cancion-rep">
+                            <app-cancion-tarjeta [cancion]="cancion"></app-cancion-tarjeta> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div fxLayout="column" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px"  class="cancion-tar" cdkDropList (cdkDropListDropped)="onDropped($event)"> 
             <div class="d-fill titulos-can" >
                 <span class="titulo-nom"> Nombre </span>
                 <span class="titulo-des"> Descripcion </span>
@@ -67,10 +98,11 @@
             <div fxFlex="100" fxFlex.lg="100" fxFlex.sm="100" *ngFor="let cancion of canciones| orderBy: 'cancion.indice'" cdkDrag cdkDragLockAxis="y" [cdkDragDisabled]="noAutor">
                 <div >
                     <app-cancion-tarjeta [cancion]="cancion"></app-cancion-tarjeta>
-                    <!-- <img *cdkDragPreview [src]="cancion.img" [alt]="cancion.nombre"> -->
+                    <img *cdkDragPreview [src]="cancion.img" [alt]="cancion.nombre">
                 </div>
             </div>
-        </div>
+        </div> -->
+ 
     </ng-template>
     <br><br>
 
