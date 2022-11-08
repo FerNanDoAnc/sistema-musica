@@ -8,20 +8,10 @@ import { BuscarComponent } from '../repertorios/pages/buscar/buscar.component';
 import { ListarUsuarioComponent } from '../usuarios/pages/listar-usuario/listar-usuario.component';
 import { ActualizarUsuarioComponent } from '../usuarios/pages/actualizar-usuario/actualizar-usuario.component';
 import { ListarCompartidosComponent } from '../compartidos/pages/listar-compartidos/listar-compartidos.component';
+import { RepertoriosFavoritosComponent } from '../repertorios/pages/repertorios-favoritos/repertorios-favoritos.component';
 
 const routes: Routes = [
-
-  // {
-  //   // path: '',
-  //   // children: [
-  //   //   {path: '', component: HomePageComponent},
-  //   //   {path: '', redirectTo: 'home'}
-  //   // ],
-
-  //   path: '',
-  //   component: HomePageComponent,
-    
-  // },
+ 
   {
     path: '', 
     component: HomePageComponent,
@@ -31,6 +21,7 @@ const routes: Routes = [
       {path: 'repertorios/editar/:_id', component: AgregarRepertorioComponent},
       {path: 'repertorios/buscar', component: BuscarComponent },
       {path: 'repertorios/:_id', component: RepertorioComponent},
+      {path: 'repertorios/lista/favoritos', component: RepertoriosFavoritosComponent},
       {path: 'usuario', component: ListarUsuarioComponent},
       {path: 'usuario/editar/:uid', component: ActualizarUsuarioComponent},
       {path: 'compartidos/lista', component: ListarCompartidosComponent},

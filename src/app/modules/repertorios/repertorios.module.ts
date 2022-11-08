@@ -8,13 +8,15 @@ import { ListadoRepertoriosComponent } from './pages/listado-repertorios/listado
 import { RouterModule } from '@angular/router';
 import { RepertorioComponent } from './pages/repertorio/repertorio.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
+import { RepertoriosFavoritosComponent } from './pages/repertorios-favoritos/repertorios-favoritos.component';
 
 @NgModule({
   declarations: [
     AgregarRepertorioComponent,
     ListadoRepertoriosComponent,
     RepertorioComponent,
-    BuscarComponent
+    BuscarComponent,
+    RepertoriosFavoritosComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { BuscarComponent } from './pages/buscar/buscar.component';
   exports: [
     AgregarRepertorioComponent,
     ListadoRepertoriosComponent,
-    RepertorioComponent
+    RepertorioComponent,
+    RepertoriosFavoritosComponent
   ]
 })
 export class RepertoriosModule { }
